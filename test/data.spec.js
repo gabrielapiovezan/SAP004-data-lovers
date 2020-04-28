@@ -1,9 +1,9 @@
-import { example, anotherExample } from '../src/data.js';
+import { searchFunc } from '../src/data.js';
 
 
-describe('example', () => {
+describe('searchFunc', () => {
   it('is a function', () => {
-    expect(typeof example).toBe('function');
+    expect(typeof searchFunc).toBe('function');
   });
 
   it('returns `example`', () => {

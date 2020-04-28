@@ -8,7 +8,6 @@ const print = pokemons => { //função para imprimir os pokemons
     const card = document.createElement("div") // cria uma nova div
     const img = document.createElement("img"); //criar elemento img
     const cardInformation = document.createElement("div") //cria div das informações
-    const typeZero = document.createElement("div")
     
     img.src = pokemons.img // coloca o endereço da imagem
     
