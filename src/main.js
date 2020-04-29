@@ -2,7 +2,7 @@ import { searchFunc } from './data.js';
 import data from './data/pokemon/pokemon.js';
 const root = document.getElementById("root") // import div
 const pokemons = data.pokemon // pokemons = array
-document.getElementById("filters").style.display = "none"
+//document.getElementById("filters").style.display = "none"
 
 
 const print = pokemons => { //função para imprimir os pokemons
@@ -80,6 +80,6 @@ const filters = () => {
     document.getElementById("filters").style.display = "block"
 }
 
-document.getElementById("search").addEventListener('input', searchName)
-document.getElementById("menu-filter").addEventListener('click',filters)
+document.getElementById("search").addEventListener('input', searchName);
+document.getElementById("menu-filter").addEventListener('click',filters);
 main()

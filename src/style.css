@@ -69,6 +69,8 @@ font-family: sans-serif;
       cursor: pointer;
   }
   .menu-buttons{
+    color: white;
+    text-decoration: none;
     width: 25%;
     margin: 3px;
     padding: 3px;
@@ -76,7 +78,6 @@ font-family: sans-serif;
     justify-content: space-around;
 }
 .menu{
-    color: white;
     padding: 1%;
     max-width: 100%;
     height: 120px;
