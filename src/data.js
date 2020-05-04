@@ -1,5 +1,6 @@
 import pokemon from "./data/pokemon/pokemon";
 
+
 export const searchFunc = p => {
   let nameInput = document.getElementById("search").value
   nameInput = nameInput.toUpperCase() 

@@ -73,7 +73,8 @@ font-family: sans-serif;
     background-color: rgb(224, 221, 221); 
     margin: 5px;
     padding: 3px;
-    width: 235px;
+    min-width: 235px;
+    max-width: 235px;
     height: 130px;
     border-radius: 8%;
 }
@@ -82,7 +83,7 @@ font-family: sans-serif;
     color: black;
     cursor: pointer;
 }
-.card-information{
+.card:only-child{
     display: flex;
     flex-direction: column;
     padding: 2px;
@@ -125,11 +126,12 @@ font-family: sans-serif;
     align-items: center;
     flex-direction: column;
 }
-.menu-letters{
-    color: white;
-    text-decoration: none;
-}
 
+.button-search:hover{
+    background-color: rgb(252, 228, 11);
+    color: black;
+    cursor: pointer;  
+}
 
 .power{
     color: white;
@@ -200,8 +202,12 @@ background-color: rgb(56, 56, 56);
     justify-content: center;
 }
 
-
-
+@media (max-width:400){
+ .home{
+     display: flex;
+     flex-direction: column;
+ }
+}
 
 
 
