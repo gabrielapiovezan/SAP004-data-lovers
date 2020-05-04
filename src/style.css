@@ -125,7 +125,10 @@ font-family: sans-serif;
     align-items: center;
     flex-direction: column;
 }
-
+.menu-letters{
+    color: white;
+    text-decoration: none;
+}
 
 
 .power{

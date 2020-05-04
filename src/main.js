@@ -15,7 +15,6 @@ const print = pokemons => { //função para imprimir os pokemons
     const power = document.createElement("div");
     img.src = pokemons.img // coloca o endereço da imagem
 
-
     powerTypeZero.classList = (pokemons.type[0])
     card.classList.add("card")
     powerTypeZero.classList.add("power")
