@@ -36,14 +36,27 @@ const typeChart = new Chart(typeChartHtml, {
     }
 }); 
 
-/*function groupBy(pokemon1, prop) {
-    let propValue = pokemon1.reduce(function(total, item){
-        let propKey = item[prop];
-        total[propKey] = (total[propKey] || []).concat(item);
-        console.log(total);
-    }, {})
-    return propValue
-  }   
+/*const groupBy = function(cont, item){
+    let result = {}
+    if (!cont[item]) {
+        result[item] = 0;
+    }
+    result[item] += 1;
+    return result;
+}
   
-  const groupType = groupBy(pokemonArray, pokemonArray.type[0]);
-  console.log(groupType); */
+let groupType = pokemonArray.reduce(groupBy(pokemonArray, pokemonArray.type), {});
+console.log(groupType);*/
+/*const todosBolsistas = alunos.map(a => a.bolsista).reduce(function(acumulador,status = true)
+{ console.log(acumulador) return acumulador && status })*/
+const groupBy = function(cont, item){
+    let result = {}
+    if (!cont[item]) {
+        result[item] = 0;
+    }
+    result[item] += 1;
+    return result;
+}
+  
+let groupType = pokemonArray.map(type => type = pokemonArray.type);
+console.log(groupType);
