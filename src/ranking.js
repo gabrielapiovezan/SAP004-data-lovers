@@ -35,7 +35,11 @@ const typeChart = new Chart(typeChartHtml, {
         }
     }
 }); 
+  
+/* palomaArra.map(vendoOQueOMapFaz);
+    function vendoOQueOMapFaz(elem, i, array){
 
+    } */
 /*const groupBy = function(cont, item){
     let result = {}
     if (!cont[item]) {
@@ -44,19 +48,17 @@ const typeChart = new Chart(typeChartHtml, {
     result[item] += 1;
     return result;
 }
-  
-let groupType = pokemonArray.reduce(groupBy(pokemonArray, pokemonArray.type), {});
-console.log(groupType);*/
-/*const todosBolsistas = alunos.map(a => a.bolsista).reduce(function(acumulador,status = true)
-{ console.log(acumulador) return acumulador && status })*/
-const groupBy = function(cont, item){
-    let result = {}
-    if (!cont[item]) {
-        result[item] = 0;
-    }
-    result[item] += 1;
-    return result;
-}
-  
-let groupType = pokemonArray.map(type => type = pokemonArray.type);
-console.log(groupType);
+//let groupType = pokemonArray.reduce(contador, {item});
+let groupType = pokemonArray.reduce(groupBy(contador, pokemonArray[elem].type), {})
+console.log(groupType); */
+
+// for(let elem in pokemonArray){
+//     let type = pokemonArray[elem].type;
+//     let eachType = type.map(elem => console.log(elem));
+//     console.log(eachType);
+// }
+
+/* O que eu quero fazer? Contar quantos pokemons eu tenho de cada tipo e dividir cada um pelo 
+tamanho do array (pokemonArray.length) para calcular as porcentagens*/
+
+    
