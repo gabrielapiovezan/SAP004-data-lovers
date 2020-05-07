@@ -1,4 +1,4 @@
-import pokemon from "./data/pokemon/pokemon";
+//import pokemon from "./data/pokemon/pokemon";
 
 
 export const searchFunc = p => {

@@ -89,59 +89,20 @@ const checkType = (a) => {
     return newArray
 }
 
-/*Função de verificar checkbox repetidos*/
-const concat = (checkboxType, checkboxWeakness) => {
-    const newArray = []
-    for (let i of checkboxType) {
-        for (let j of checkboxWeakness) {
-            if (j == i)
-                newArray.push(j)
-        }
-    } return newArray
-
-}
-/*Função que subtrai os os checkboxs marcados duas vezes */
-const subtraction = (checkboxType, checkboxWeakness, parameter) => {
-
-    const newArray = concat(checkboxType, checkboxWeakness)
-    if (newArray.length != 0) {
-        const result = []
-        for (let i of parameter) {
-            for (let j of newArray) {
-                if (i != j)
-                    result.push(i)
-            }
-        }
-        return result
-    }
-    else
-        return parameter
-}
 /*Funcao que verifica os tipos e fraquezas*/
 const typeFunction = (p) => {
     /*Puxa os checkboxs */
     const checkbox = document.getElementById("checkbox-types")
     const checkboxWeakness = checkType(checkbox.weakness)
     const checkboxType = checkType(checkbox.option)
-    let result = []
-    let resultWeakness = []
-    /*subtrai os checkboxs repetidos*/
-    if (checkboxWeakness.length != 0 && checkboxType.length != 0) {
-        result = subtraction(checkboxType, checkboxWeakness, checkboxType)
-        resultWeakness = subtraction(checkboxType, checkboxWeakness, checkboxWeakness)
-    }
-    else {
-        result = checkboxType
-        resultWeakness = checkboxWeakness
-    }
-    // /*Verifica os tipos*/
-    for (let i of result) {
-        if (p.type[0] == i || p.type[1] == i)
-            return true
-    }
+    /*Verifica os tipos*/
+    for (let i of checkboxType) {
+         if (p.type[0] == i || p.type[1] == i)
+             return true
+     }
+    //pokemons.type == tipos checkados
     /*Verifica as fraquezas */
-
-    for (let i of resultWeakness) {
+    for (let i of checkboxWeakness) {
         for (let j of p.weaknesses) {
             if (j == i)
                 return true
@@ -173,14 +134,29 @@ const resetSearch = () => {
 }
 const order = () => {
     clearDisplay()
+    let newArray = [];
     const orderBy = document.getElementById("browsers").value
     if (orderBy == 0) {
-        let newArray = pokemons.sort(function(a, b){
+        newArray = pokemons.sort(function(a, b){
             return ((a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
         })
-        newArray.map(print)
-    
     }
+    else if(orderBy == 1) {
+        newArray = pokemons.sort(function(a, b){
+            return ((a.name < b.name) ? 1 : ((b.name < a.name) ? -1 : 0))
+        })
+    }
+    else if(orderBy == 2) {
+        newArray = pokemons.sort(function(a, b){
+            return ((a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0))
+        })
+    }
+    else if(orderBy == 3) {
+        newArray = pokemons.sort(function(a, b){
+            return ((a.id < b.id) ? 1 : ((b.id < a.id) ? -1 : 0))
+        })
+    }
+    newArray.map(print)
 }
 // const clearBody = () =>{
 
@@ -194,4 +170,3 @@ document.getElementById("reset-search").addEventListener('click', resetSearch)
 // document.getElementById("comparation").addEventListener('click', clearBody)
 document.getElementById("browsers").addEventListener('input', order)
 main()
-
