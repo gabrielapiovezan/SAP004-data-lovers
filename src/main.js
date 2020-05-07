@@ -5,7 +5,7 @@ const root = document.getElementById("root") // import div
 const pokemons = data.pokemon // pokemons = array
 const filtersMenu = document.getElementById("filters")
 filtersMenu.style.display = "none"
-
+ 
 /*Bloco de impressão dos pokemons*/
 const print = pokemons => { //função para imprimir os pokemons
     const card = document.createElement("div") // cria uma nova div
@@ -13,7 +13,7 @@ const print = pokemons => { //função para imprimir os pokemons
     const cardInformation = document.createElement("div") //cria div das informações
     const power = document.createElement("div")
     img.src = pokemons.img // coloca o endereço da imagem
-
+ 
     card.classList.add("card")
     img.classList.add("picture") // coloca uma classe na imagem
     cardInformation.innerHTML += `<br><h5>${pokemons.num}</h5><br><h3>${pokemons.name}</h4>` // coloca o nameInput
@@ -24,30 +24,30 @@ const print = pokemons => { //função para imprimir os pokemons
         powerType.innerHTML += `<h5>${a}</h5>` //${pokemons.type[1] = pokemons.type[1] || ""}</h5>` // coloca o tipo
         power.appendChild(powerType)
     });
-
+ 
     cardInformation.appendChild(power)
     card.appendChild(cardInformation, img) // coloca informações no card
     card.appendChild(img) //coloca a imagem na nova div
     root.appendChild(card) // coloca nova div dentro da div existente
 }
-
+ 
 /*Limpa a raiz*/
 const clearDisplay = () => root.innerHTML = ""
-
+ 
 /*Cria botão para mostrar mais e mostrar menos*/
 const creatButtonView = () => {
     const card = document.createElement("div") // cria uma nova div
     const viewAll = document.createElement("div")
-
+ 
     card.classList.add("view-all-class")
     card.classList.add("card") // coloca uma clas na div
-
+ 
     card.appendChild(viewAll)
     root.appendChild(card) // coloca nova div dentro da div existente
-
+ 
     return viewAll
 }
-
+ 
 /*Tela inicial*/
 const main = () => {
     clearDisplay()
@@ -65,7 +65,7 @@ const viewAllElement = () => {
     viewAll.innerHTML = "<h3>Ver Menos</h3>"
     viewAll.addEventListener('click', main)
 }
-
+ 
 /*Função que pesquisa os nomes*/
 const searchName = () => {
     clearDisplay()
@@ -77,8 +77,8 @@ const filters = () => {
     const filterMenuDysplay = filtersMenu.style.display
     filtersMenu.style.display = filterMenuDysplay == "block" ? "none" : "block"
 }
-
-
+ 
+ 
 /*Função que verifica quais checkboxs estão selecionados*/
 const checkType = (a) => {
     const newArray = []
@@ -88,7 +88,7 @@ const checkType = (a) => {
     }
     return newArray
 }
-
+ 
 /*Funcao que verifica os tipos e fraquezas*/
 const typeFunction = (p) => {
     /*Puxa os checkboxs */
@@ -109,7 +109,7 @@ const typeFunction = (p) => {
         }
     }
 }
-
+ 
 /*Função que filtra os checkboxs*/
 const advancedSearch = () => {
     clearDisplay()
@@ -159,7 +159,7 @@ const order = () => {
     newArray.map(print)
 }
 // const clearBody = () =>{
-
+ 
 // }
 /*Verifica eventos*/
 document.getElementById("search").addEventListener('input', searchName)
