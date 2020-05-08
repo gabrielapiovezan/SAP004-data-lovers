@@ -1,23 +1,55 @@
-/* . = class # = id */
-
 /* Header */
 body{
-margin:0px;
+margin: 0px;
 font-family: sans-serif;
+background-color: white;
 }
 
-.back-white{
-    color: rgb(53, 52, 52);
-    background-color: white;
+.header {
+    color: white;
+    display: flex;
+    flex-direction: column;
 }
-.pokemon-img{
-    width:150px;
-    margin-right: 20px;
-    padding: 10px;
+
+.menu {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+    font-weight: bold;
 }
-nav{
-    width: 100%;
+
+.menu-buttons {
+    background-color: #307cbf;
+    padding: 25px;
+    border-left: 0.5px solid rgba(255, 255, 255, 0.938);
+    flex-grow: 1;
 }
+.menu-buttons:hover{
+    background-color: #3A5DA8;
+    color: white;
+    cursor: pointer;
+}
+
+.align {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-img {
+    width: 200px;
+    margin: 15px;
+}
+
+.links {
+    text-decoration: none;
+    color: white;
+}
+
+.section{
+    margin: 40px;
+}
+
 .menu-search{ /*Menu superior*/
     padding-top: 20px;
     width: 100%;
@@ -39,11 +71,12 @@ nav{
     position: relative;
     left: -30px;
 }
-hr{
+/* hr{
     width: 80%;
     border: 0;
     border-top: 1px solid rgb(245, 242, 242);
-}
+} */
+
 /*Main*/
 main{ 
     margin-right: 30px;
@@ -80,8 +113,11 @@ main{
 .button-filter{
     display: flex;
     align-items: center;
+    justify-content: center;
+    background-color: #307cbf;
+    color: white;
     width: 200px;
-    border: 0.7px solid rgb(173, 170, 170);
+    border: 0.7px solid rgb(114, 114, 114);
     border-radius: 5px;
 }
 .button-filter:first-child{
@@ -118,12 +154,12 @@ display: flex;
     display: flex;
     flex-flow: row nowrap;
     background-color: rgb(241, 237, 237); 
-    margin: 5px;
-    padding: 3px;
+    margin: 15px;
+    padding: 10px 25px;
     min-width: 220px;
     max-width: 220px;
     height: 130px;
-    border-radius: 8%;
+    border-radius: 5%;
 }
 .card:hover{
     background-color: rgb(252, 228, 11);
@@ -133,56 +169,21 @@ display: flex;
 .card:only-child{
     display: flex;
     flex-direction: column;
-    padding: 2px;
+    /* padding: 10px; */
     width: 55%;
     height: 130px;
 }
 .picture{ /* imagem dos pokemons*/
     margin: 5%;
+    margin-right: 0%;
+    padding: 5%;
     width: 45%;
     height: auto;
 }
 .picture:hover {
     transform: scaleX(-1);
   }
-  .buttons{
-    list-style-type: none;
-      font-weight: bold;
-    padding-inline-start: 0px;
-    margin: 0px;
-      display: flex;
-
-      /* justify-content: space-around; */
-      /* align-items: center;
-      width: 100%; */
-  }
-  .menu-buttons:hover{
-      background-color: rgba(241, 239, 239, 0.829);
-      cursor: pointer;
-  }
-  .menu-buttons{
-    display: flex;
-
-    flex: 1;
-    align-items: center;
-
-    justify-content: center;
-    margin: 0px;
-    padding: 3px;
-    border-left: 0.7px solid rgb(173, 170, 170);
-
-}
-.menu{
-    padding: 1%;
-    max-width: 100%;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin-bottom: 30px;
-}
-
+  
 .button-search:hover{
     background-color: rgb(252, 228, 11);
     color: black;
