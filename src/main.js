@@ -1,11 +1,7 @@
 /*Bloco de configurações*/
-import { searchFunc } from './data.js';
-import { order } from './data.js';
-import { typeFunctionConcat } from './data.js';
-import { checkType } from './data.js';
-import { height } from './data.js';
-import { concatFilters } from './data.js';
+import { searchFunc, orderList, typeFunctionConcat, checkType, height, concatFilters} from './data.js';
 import data from './data/pokemon/pokemon.js';
+//import { RuleTester } from 'eslint';
 const root = document.getElementById("root") // import div
 const pokemons = data.pokemon // pokemons = array
 const filtersMenu = document.getElementById("filters")
@@ -13,6 +9,7 @@ filtersMenu.style.display = "none"
 
 /*Bloco de impressão dos pokemons*/
 const print = pokemons => { //função para imprimir os pokemons
+    document.getElementById("main").style.display="block"
     const card = document.createElement("div") // cria uma nova div
     const img = document.createElement("img") //criar elemento img
     const cardInformation = document.createElement("div") //cria div das informações
@@ -79,14 +76,14 @@ const searchName = (p) => {
     clearDisplay()
     let nameInput = document.getElementById("search").value
     nameInput = nameInput.toUpperCase()
-    const elementSearched = searchFunc(p, nameInput)
+    const elementSearched = searchFunc(p, nameInput, "name")
     return elementSearched
 }
 
 /*Função de abrir e fechar menu avançado*/
 const filters = () => {
     const filterMenuDysplay = filtersMenu.style.display
-    filtersMenu.style.display = filterMenuDysplay == "block" ? "none" : "block"
+    filtersMenu.style.display = filterMenuDysplay === "block" ? "none" : "block"
 }
 
 
@@ -103,13 +100,13 @@ const typeFunction = (p) => {
 const resetSearch = () => {
     document.querySelectorAll("input[type=checkbox]").forEach(check => check.checked = false)
 advancedSearch()
+main()
 }
-
 
 //função que pega os doms
 const getHeight = () => {
     const checkboxHeight = document.getElementById("checkbox-height") // checkbox de altura
-    let heigthChecked = checkType(checkboxHeight.heights)
+    const heigthChecked = checkType(checkboxHeight.heights)
     let resultArrays = []
     for (let i of heigthChecked) {
         resultArrays = resultArrays.concat(height(i, pokemons))
@@ -123,17 +120,31 @@ const advancedSearch = () => {
     const pokemonsType = pokemons.filter(typeFunction)//.map(print)
     const heightArray = getHeight()//.map(print)
     const orderBy = document.getElementById("browsers").value
-    const resultFilters = concatFilters(pokemonsType, heightArray, pokemons)
-    const nameArray = searchName(resultFilters)
-    order(orderBy, nameArray)
-    nameArray.map(print)
+orderList(orderBy,searchName(concatFilters(pokemonsType, heightArray,pokemons))).map(print)
+
+}
+const functionMenu = ()=>{
+    document.querySelectorAll(".screen").forEach((screen)=> screen.style.display="none")
+    
+    document.getElementById("home-menu").addEventListener("click",function(){   
+        document.getElementById("home").style.display ="block"
+    })
+    document.getElementById("comparation-menu").addEventListener("click",function(){   
+        document.getElementById("comparation").style.display ="block"
+    })
+    document.getElementById("ranking-menu").addEventListener("click",function(){   
+        document.getElementById("ranking").style.display ="block"
+    })
+    document.getElementById("main-menu").addEventListener("click",function(){   
+        document.getElementById("main").style.display ="block"
+    })
 }
 
+
+document.querySelectorAll(".menu-buttons").forEach(buttons => buttons.addEventListener("click",functionMenu))
 document.querySelectorAll('form').forEach(form => form.addEventListener('input', advancedSearch))
 document.getElementById("menu-filter").addEventListener('click', filters)
-document.getElementById("home").addEventListener('click', main)
 document.getElementById("reset-search").addEventListener('click', resetSearch)
-
-
+functionMenu()
 main()
 
