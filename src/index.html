@@ -4,112 +4,109 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <title>Data Lovers</title>
   <link rel="stylesheet" href="style.css" />
-
 </head>
-
 <body>
   <header class="header">
     <div class="align"><img class="header-img" src="img/poketype.png" alt="PokeType"></div>
     <nav>
       <ul class="menu align">
-      <li class="menu-buttons align" id="home">Home</li>
-      <li class="menu-buttons align" id="comparation">Comparação</li>
-      <li class="menu-buttons align" id="ranking"><a class="links" href="ranking.html">Ranking</a></li>
-    </ul>
+        <li class="menu-buttons align" id="home-menu">Home</li>
+        <li class="menu-buttons align" id="main-menu">Pokémons</li>
+        <li class="menu-buttons align" id="comparation-menu">Comparação</li>
+        <li class="menu-buttons align" id="ranking-menu">Ranking</li>
+      </ul>
     </nav>
   </header>
-  <section class="section">
-    <aside>
-      <div id="filters">
-        <!--Caixa de filtros-->
-        <div class="filters-class back-white">
-          <div class="menu-search">
+  <section class="screen" id="home">Home</section>
+  <section class="screen" id="ranking">
+    <canvas id="type-chart"></canvas>
+  </section>
+  <section class="screen" id="comparation">Comparação</section>
+  <section class="screen" id="main">
+    <div id="filters">
+      <!--Caixa de filtros-->
+      <div class="filters-class back-white">
+        <div class="menu-search">
+          <form>
             <input id="search" type="text" class="search" placeholder="Nome do Pokémon">
             <img class="icon-search" src="img/icon-search-40.png" alt="search">
-          </div>
-          <!--Caixa de descrição-->
-          <div class="line">
-            <h3>Tipo e Fraqueza </h3>
-            <h6>Tipo = T Fraqueza = F</h6>
-          </div>
-          <div class="checkbox-type">
-            <form class="checkbox-form" id="checkbox-types">
-              <div>
-                <input type="checkbox" name="option" value="Flying"><label>T</label>
-                <input type="checkbox" name="weakness" value="Flying"><label>F<span
-                    class="Flying power filter-config">Flying</span></label><br>
-
-                <input type="checkbox" name="option" value="Ice"><label>T</label>
-                <input type="checkbox" name="weakness" value="Ice"><label>F<span
-                    class="Ice power filter-config">Ice</span></label><br>
-
-                <input type="checkbox" name="option" value="Grass"><label>T</label>
-                <input type="checkbox" name="weakness" value="Grass"><label>F<span
-                    class="Grass power filter-config">Grass</span></label><br>
-
-                <input type="checkbox" name="option" value="Fire"><label>T</label>
-                <input type="checkbox" name="weakness" value="Fire"><label>F<span
-                    class="Fire power filter-config">Fire</span></label><br>
-
-                <input type="checkbox" name="option" value="Water"><label>T</label>
-                <input type="checkbox" name="weakness" value="Water"><label>F<span
-                    class="Water power filter-config">Water</label><br>
-
-                <input type="checkbox" name="option" value="Bug"><label>T</label>
-                <input type="checkbox" name="weakness" value="Bug"><label>F<span
-                    class="Bug power filter-config">Bug</label><br>
-
-                <input type="checkbox" name="option" value="Normal"><label>T</label>
-                <input type="checkbox" name="weakness" value="Normal"><label>F<span
-                    class="Normal power filter-config">Normal</label><br>
-
-                <input type="checkbox" name="option" value="Poison"><label>T</label>
-                <input type="checkbox" name="weakness" value="Poison"><label>F<span
-                    class="Poison power filter-config">Poison</label><br>
-
-              </div>
-              <div>
-                <input type="checkbox" name="option" value="Electric"><label>T</label>
-                <input type="checkbox" name="weakness" value="Electric"><label>F<span
-                    class="Electric power filter-config">Electric</span></label><br>
-
-                <input type="checkbox" name="option" value="Ground"><label>T</label>
-                <input type="checkbox" name="weakness" value="Ground"><label>F<span
-                    class="Ground power filter-config">Ground</label><br>
-
-                <input type="checkbox" name="option" value="Rock"><label>T</label>
-                <input type="checkbox" name="weakness" value="Rock"><label>F<span
-                    class="Rock power filter-config">Rock</label><br>
-
-                <input type="checkbox" name="option" value="Fighting"><label>T</label>
-                <input type="checkbox" name="weakness" value="Fighting"><label>F<span
-                    class="Fighting power filter-config">Fighting</label><br>
-
-                <input type="checkbox" name="option" value="Psychic"><label>T</label>
-                <input type="checkbox" name="weakness" value="Psychic"><label>F<span
-                    class="Psychic power filter-config">Psychic</label><br>
-
-                <input type="checkbox" name="option" value="Ghost"><label>T</label>
-                <input type="checkbox" name="weakness" value="Ghost"><label>F<span
-                    class="Ghost power filter-config">Ghost</label><br>
-
-                <input type="checkbox" name="option" value="Dragon"><label>T</label>
-                <input type="checkbox" name="weakness" value="Dragon"><label>F<span
-                    class="Dragon power filter-config">Dragon</label><br>
-
-                <input type="checkbox" name="option" value="Fairy"><label>T</label>
-                <input type="checkbox" name="weakness" value="Fairy"><label>F<span
-                    class="Fairy power filter-config">Fairy</label><br>
-              </div>
-            </form>
-            <!--Tipos e Fraquezaa-->
+          </form>
+        </div>
+        <!--Caixa de descrição-->
+        <div class="line">
+          <h3>Tipo e Fraqueza </h3>
+          <h6>Tipo = T Fraqueza = F</h6>
+        </div>
+        <div class="checkbox-type">
+          <form class="checkbox-form" id="checkbox-types">
             <div>
-              <ul class="filter advanced-search">
-                <li id="reset-search" class="button-search">Redefinir</li>
-                <li id="advanced-search" class="button-search">Pesquisar</li>
-              </ul>
+              <input type="checkbox" name="option" value="Flying"><label>T</label>
+              <input type="checkbox" name="weakness" value="Flying"><label>F<span
+                  class="Flying power filter-config">Flying</span></label><br>
+
+              <input type="checkbox" name="option" value="Ice"><label>T</label>
+              <input type="checkbox" name="weakness" value="Ice"><label>F<span
+                  class="Ice power filter-config">Ice</span></label><br>
+
+              <input type="checkbox" name="option" value="Grass"><label>T</label>
+              <input type="checkbox" name="weakness" value="Grass"><label>F<span
+                  class="Grass power filter-config">Grass</span></label><br>
+
+              <input type="checkbox" name="option" value="Fire"><label>T</label>
+              <input type="checkbox" name="weakness" value="Fire"><label>F<span
+                  class="Fire power filter-config">Fire</span></label><br>
+
+              <input type="checkbox" name="option" value="Water"><label>T</label>
+              <input type="checkbox" name="weakness" value="Water"><label>F<span
+                  class="Water power filter-config">Water</label><br>
+
+              <input type="checkbox" name="option" value="Bug"><label>T</label>
+              <input type="checkbox" name="weakness" value="Bug"><label>F<span
+                  class="Bug power filter-config">Bug</label><br>
+
+              <input type="checkbox" name="option" value="Normal"><label>T</label>
+              <input type="checkbox" name="weakness" value="Normal"><label>F<span
+                  class="Normal power filter-config">Normal</label><br>
+
+              <input type="checkbox" name="option" value="Poison"><label>T</label>
+              <input type="checkbox" name="weakness" value="Poison"><label>F<span
+                  class="Poison power filter-config">Poison</label><br>
+            </div>
+            <div>
+              <input type="checkbox" name="option" value="Electric"><label>T</label>
+              <input type="checkbox" name="weakness" value="Electric"><label>F<span
+                  class="Electric power filter-config">Electric</span></label><br>
+
+              <input type="checkbox" name="option" value="Ground"><label>T</label>
+              <input type="checkbox" name="weakness" value="Ground"><label>F<span
+                  class="Ground power filter-config">Ground</label><br>
+
+              <input type="checkbox" name="option" value="Rock"><label>T</label>
+              <input type="checkbox" name="weakness" value="Rock"><label>F<span
+                  class="Rock power filter-config">Rock</label><br>
+
+              <input type="checkbox" name="option" value="Fighting"><label>T</label>
+              <input type="checkbox" name="weakness" value="Fighting"><label>F<span
+                  class="Fighting power filter-config">Fighting</label><br>
+
+              <input type="checkbox" name="option" value="Psychic"><label>T</label>
+              <input type="checkbox" name="weakness" value="Psychic"><label>F<span
+                  class="Psychic power filter-config">Psychic</label><br>
+
+              <input type="checkbox" name="option" value="Ghost"><label>T</label>
+              <input type="checkbox" name="weakness" value="Ghost"><label>F<span
+                  class="Ghost power filter-config">Ghost</label><br>
+
+              <input type="checkbox" name="option" value="Dragon"><label>T</label>
+              <input type="checkbox" name="weakness" value="Dragon"><label>F<span
+                  class="Dragon power filter-config">Dragon</label><br>
+
+              <input type="checkbox" name="option" value="Fairy"><label>T</label>
+              <input type="checkbox" name="weakness" value="Fairy"><label>F<span
+                  class="Fairy power filter-config">Fairy</label><br>
             </div>
           </form>
           <form id="checkbox-height">
@@ -119,15 +116,11 @@
             <input type="checkbox" name="heights" value="b"><label>Grande</label>
           </form>
           <!--Tipos e Fraquezaa-->
-
-
-              <button id="reset-search" class="button-search">Redefinir</button>
-
-
+          <button id="reset-search" class="button-search">Redefinir</button>
         </div>
-
+      </div>
     </div>
-    <div >
+    <div>
       <div class="containers"><button class="button-filter" id="menu-filter">Filtros Avançados<img  src="img/icons8-filtro-25.png" ></button>
       <form>
       <select id="browsers" class="button-filter">     
@@ -139,10 +132,9 @@
       </select>
     </form></div>
       <div id="root" class="home"></div>
-    </main>
+    </div>
     <!--class home-->
   </section>
   <script src="main.js" type="module"></script>
 </body>
-
 </html>

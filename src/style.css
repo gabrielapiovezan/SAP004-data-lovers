@@ -86,7 +86,7 @@ main{
 .filters-class{ /* Menu de filtro avançado*/
     justify-content: space-between;
     flex-direction: column;
-    padding: 3px;
+    padding: 10px;
     height: 600px;
     width: 300px;
     font-weight: bold;

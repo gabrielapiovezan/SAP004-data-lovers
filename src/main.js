@@ -1,11 +1,7 @@
 /*Bloco de configurações*/
-import { searchFunc } from './data.js';
-import { order } from './data.js';
-import { typeFunctionConcat } from './data.js';
-import { checkType } from './data.js';
-import { height } from './data.js';
-import { concatFilters } from './data.js';
+import { searchFunc, orderList, typeFunctionConcat, checkType, height, concatFilters} from './data.js';
 import data from './data/pokemon/pokemon.js';
+//import { RuleTester } from 'eslint';
 const root = document.getElementById("root") // import div
 const pokemons = data.pokemon // pokemons = array
 const filtersMenu = document.getElementById("filters")
@@ -13,6 +9,7 @@ filtersMenu.style.display = "none"
 
 /*Bloco de impressão dos pokemons*/
 const print = pokemons => { //função para imprimir os pokemons
+    document.getElementById("main").style.display="block"
     const card = document.createElement("div") // cria uma nova div
     const img = document.createElement("img") //criar elemento img
     const cardInformation = document.createElement("div") //cria div das informações
@@ -79,20 +76,21 @@ const searchName = (p) => {
     clearDisplay()
     let nameInput = document.getElementById("search").value
     nameInput = nameInput.toUpperCase()
-    const elementSearched = searchFunc(p, nameInput)
+    const elementSearched = searchFunc(p, nameInput, "name")
     return elementSearched
 }
 
 /*Função de abrir e fechar menu avançado*/
 const filters = () => {
     const filterMenuDysplay = filtersMenu.style.display
-    filtersMenu.style.display = filterMenuDysplay == "block" ? "none" : "block"
+    filtersMenu.style.display = filterMenuDysplay === "block" ? "none" : "block"
 }
 
 
 /*Funcao que verifica os tipos e fraquezas*/
 const typeFunction = (p) => {
     /*Puxa os checkboxs */
+    const checkbox = document.getElementById("checkbox-types")
     const checkboxWeakness = checkType(checkbox.weakness)
     const checkboxType = checkType(checkbox.option)
     return typeFunctionConcat(checkboxWeakness, checkboxType, p)
@@ -102,13 +100,13 @@ const typeFunction = (p) => {
 const resetSearch = () => {
     document.querySelectorAll("input[type=checkbox]").forEach(check => check.checked = false)
 advancedSearch()
+main()
 }
-
 
 //função que pega os doms
 const getHeight = () => {
     const checkboxHeight = document.getElementById("checkbox-height") // checkbox de altura
-    let heigthChecked = checkType(checkboxHeight.heights)
+    const heigthChecked = checkType(checkboxHeight.heights)
     let resultArrays = []
     for (let i of heigthChecked) {
         resultArrays = resultArrays.concat(height(i, pokemons))
@@ -122,17 +120,90 @@ const advancedSearch = () => {
     const pokemonsType = pokemons.filter(typeFunction)//.map(print)
     const heightArray = getHeight()//.map(print)
     const orderBy = document.getElementById("browsers").value
-    const resultFilters = concatFilters(pokemonsType, heightArray, pokemons)
-    const nameArray = searchName(resultFilters)
-    order(orderBy, nameArray)
-    nameArray.map(print)
+orderList(orderBy,searchName(concatFilters(pokemonsType, heightArray,pokemons))).map(print)
+
+}
+const functionMenu = ()=>{
+    document.querySelectorAll(".screen").forEach((screen)=> screen.style.display="none")
+    
+    document.getElementById("home-menu").addEventListener("click",function(){   
+        document.getElementById("home").style.display ="block"
+    })
+    document.getElementById("comparation-menu").addEventListener("click",function(){   
+        document.getElementById("comparation").style.display ="block"
+    })
+    document.getElementById("ranking-menu").addEventListener("click",function(){   
+        document.getElementById("ranking").style.display ="block"
+    })
+    document.getElementById("main-menu").addEventListener("click",function(){   
+        document.getElementById("main").style.display ="block"
+    })
 }
 
+
+document.querySelectorAll(".menu-buttons").forEach(buttons => buttons.addEventListener("click",functionMenu))
 document.querySelectorAll('form').forEach(form => form.addEventListener('input', advancedSearch))
 document.getElementById("menu-filter").addEventListener('click', filters)
-document.getElementById("home").addEventListener('click', main)
 document.getElementById("reset-search").addEventListener('click', resetSearch)
-
-
+functionMenu()
 main()
 
+/*Ranking*/
+// Declaração de variáveis
+const typeChartHtml = document.getElementById('type-chart').getContext('2d');
+//typeChartHtml.innerHTML = ;
+const pokemonTypes = ['Flying', 'Ice', 'Grass', 'Fire', 'Water', 'Bug', 'Normal', 'Poison', 
+'Electric', 'Ground', 'Rock', 'Fighting', 'Psychic', 'Ghost', 'Dragon', 'Fairy'];
+const pokemonTypesColor = ['teal', 'rgb(142, 197, 233)', 'rgb(106, 230, 172)',
+'orange', 'rgb(29, 230, 209)', 'rgb(139, 238, 119)', 'rgb(250, 110, 100)', 'rgb(210, 163, 214)', 
+'rgb(241, 241, 98)', 'rgb(219, 122, 58)', 'rgb(56, 56, 56)', 'coral', 'crimson', 'darkmagenta', 
+'rgb(226, 68, 160)', 'rgb(199, 126, 218)']; 
+//Lógica para o cálculo de porcentagem de cada tipo 
+let typeLength = [];
+for(let types of pokemonTypes){
+  let typesArray = [];
+  pokemons.filter(function(pokemon) {
+      if (pokemon.type.includes(types)){
+        typesArray.push(types)
+      }
+    return typesArray;
+    //typesArray = ['fire', 'fire', 'fire']
+});
+  typeLength.push(typesArray.length);
+  //typeLength = [5, 0, 0, 3, 4, ...]
+}
+
+let percent = [];
+const typesPercent = typeLength.map(function(lengthArray){
+  percent = ((lengthArray/pokemons.length)*100);
+  return percent;
+  //percent = [12.58, 3.33, 9.27, ...]
+});
+/*Criei um for para percorrer o array pokemonTypes. Para cada tipo dentro desse array eu faço uma função filter, que
+vai percorrer o array pokemons. Se o array pokemon incluir o tipo, insere esse tipo dentro de typesArray.
+Aí, fora do filter, o for vai adicionar o tamanho desse array dentro do typeLength. Depois eu percorro o array
+typeLength e faço o cálculo de porcentagem para cada item e retorno um array com as porcentagens de cada tipo.*/
+
+// Função Gráfico
+const typeChart = new Chart(typeChartHtml, {
+    //o tipo de gráfico
+    type: 'bar',
+    //dados do gráfico
+    data: {
+        labels: pokemonTypes,
+        datasets: [{
+            backgroundColor: pokemonTypesColor,
+            data: typesPercent
+        }]
+    },
+    // Configuração de título - display: true faz o título aparecer na tela
+    options: {
+        title: {
+            text: 'Porcentagem de tipos de Pokémons',
+            display: true
+        },
+        legend: {
+            display: false
+        }
+    }
+}); 
