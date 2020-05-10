@@ -16,27 +16,26 @@
         <li class="menu-buttons" id="home-menu">Home</li>
         <li class="menu-buttons" id="main-menu">Pokémons</li>
         <li class="menu-buttons" id="comparation-menu">Comparação</li>
-        <li class="menu-buttons" id="ranking-menu">Ranking</li>
+        <li class="menu-buttons" id="ranking-menu">Estatísticas</li>
       </ul>
     </div>
-    <h1 class="header-title">POKÉMON</h1>
   </header>
-  <section class="screen" id="home">Home</section>
+  <section class="screen" id="home">
+    <h1 class="header-title">HOME</h1>
+  </section>
   <section class="screen" id="ranking">
+    <h1 class="header-title">ESTATÍSTICAS</h1>
     <canvas id="type-chart"></canvas>
   </section>
-  <section class="screen" id="comparation">Comparação</section>
-  <section class="screen section" id="main">
-    <div class="filters gray-box">
+  <section class="screen" id="comparation">
+    <h1 class="header-title">COMPARAÇÃO</h1>
+  </section>
+  <section class="screen" id="main">
+    <h1 class="header-title">POKÉMON</h1>
+    <div class="filters filters-menu gray-box">
       <div id="filters">
         <!--Caixa de filtros-->
         <div class="filters-class">
-          <div class="menu-search">
-            <form>
-              <input id="search" type="text" class="search" placeholder="Nome do Pokémon">
-              <img class="icon-search" src="img/icon-search-40.png" alt="search">
-            </form>
-          </div>
           <!--Caixa de descrição-->
           <div class="line">
             <h3>Tipo e Fraqueza </h3>
@@ -122,11 +121,15 @@
           </div>
         </div>
       </div>
+      <form class="button-filter menu-search">
+        <input id="search" type="text" class="search" placeholder="Nome do Pokémon">
+        <img class="icon-search" src="img/icon-search-40.png" alt="search">
+      </form>
       <div class="">
         <div class="containers"><button class="button-filter" id="menu-filter">Filtros<img  src="img/icons8-filtro-25.png" ></button>
         <form>
         <select id="browsers" class="button-filter">     
-          <option value="2">Ordenar por</option>
+          <option value="">Ordenar por</option>
           <option value="0">De A a Z</option>
           <option value="1">De Z a A</option>
           <option value="2">Do menor para o maior</option>
