@@ -11,16 +11,13 @@
 <body>
   <header class="header">
     <div class="header-main">
-      <!-- <span><img class="header-img" src="img/poketype.png" alt="PokeType"></span> -->
-      <p>Poke<strong>Type</strong></p>
-      <nav>
-        <ul class="menu">
-          <li class="menu-buttons" id="home-menu">Home</li>
-          <li class="menu-buttons" id="main-menu">Pokémons</li>
-          <li class="menu-buttons" id="comparation-menu">Comparação</li>
-          <li class="menu-buttons" id="ranking-menu">Ranking</li>
-        </ul>
-      </nav>
+      <span class="logo">Poke<strong>Type</strong></span>
+      <ul class="menu">
+        <li class="menu-buttons" id="home-menu">Home</li>
+        <li class="menu-buttons" id="main-menu">Pokémons</li>
+        <li class="menu-buttons" id="comparation-menu">Comparação</li>
+        <li class="menu-buttons" id="ranking-menu">Ranking</li>
+      </ul>
     </div>
     <h1 class="header-title">POKÉMON</h1>
   </header>
@@ -30,10 +27,10 @@
   </section>
   <section class="screen" id="comparation">Comparação</section>
   <section class="screen section" id="main">
-    <div class="filters">
+    <div class="filters gray-box">
       <div id="filters">
         <!--Caixa de filtros-->
-        <div class="filters-class back-white">
+        <div class="filters-class">
           <div class="menu-search">
             <form>
               <input id="search" type="text" class="search" placeholder="Nome do Pokémon">
@@ -138,9 +135,7 @@
       </form></div>
       </div>
     </div>
-    
     <main id="root" class="home"></main>
-    <!--class home-->
   </section>
   <script src="main.js" type="module"></script>
 </body>

@@ -1,25 +1,26 @@
 /* Header */
 body{
-margin: 0px;
-font-family: Arial, Helvetica, sans-serif;
-/* background-color: rgb(226, 226, 226); */
-background-color: white;
+    margin: 0%;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(243, 245, 245);
 }
 .header {
-    padding-top: 10px;
     display: flex;
     flex-direction: column;
 }
 
 .header-title {
+    margin: 50px;
     display: flex;
     justify-content: center;
+    align-items: center;
     font-size: 2em;
 }
 
 .header-main {
+    padding: 0% 5%;
+    background-color: white;
     display: flex;
-    justify-content: space-around;
     align-items: center;
 }
 
@@ -27,26 +28,33 @@ background-color: white;
     color: rgb(71, 71, 71);
     display: flex;
     list-style-type: none;
-    flex-grow: 1;
-    padding-top: 10px;
 }
 
-.header-img {
-    align-items: center;
+.logo {
+    margin-right: auto;
     justify-content: center;
-    width: 100px;
-    height: 50px;
 }
-
 .menu-buttons {
-    background-color: white;
-    flex-grow: 1;
-    border-bottom: 2px solid white;
+    display: flex;
+    position: relative;
+    padding: 0.2rem 1rem;
 }
-.menu-buttons:hover{
+.menu-buttons:hover {
     font-weight: bold;
     color: black;
     cursor: pointer;
+}
+.menu-buttons::after {
+    content: '';
+    position: absolute;
+    width: 0rem;
+    height: 0.3rem;
+    top: 100%;
+    border-radius: 30%;
+    background-color: blue;
+}
+.menu-buttons:hover::after{
+    width: 1.3rem;
 }
 .section{
     margin: 40px;
@@ -73,17 +81,18 @@ background-color: white;
     position: relative;
     left: -30px;
 }
-/* hr{
-    width: 80%;
-    border: 0;
-    border-top: 1px solid rgb(245, 242, 242);
-} */
 
-/*Main*/
 main{ 
     margin-right: 30px;
     margin-top: 30px;
     display: flex;
+}
+
+.gray-box {
+    background-color: rgb(201, 201, 201);
+    padding: 0.5%;
+    margin: 2% 5%;
+    border-radius: 0.7rem;
 }
 .filters-class{ /* Menu de filtro avançado*/
     justify-content: space-between;
@@ -114,28 +123,26 @@ main{
 /*Botão de filtro*/
 .button-filter{
     display: flex;
+    height: 30px;
+    width: 100px;
     align-items: center;
     justify-content: center;
-    background-color: #307cbf;
-    color: white;
-    width: 200px;
-    border: 0.7px solid rgb(114, 114, 114);
+    background-color: rgb(201, 201, 201);
+    color: rgb(29, 29, 29);
+    border: 0.7px solid rgb(201, 201, 201);
     border-radius: 5px;
 }
 .button-filter:first-child{
     justify-content: center;
 }
 .containers{
-display: flex;
+    display: flex;
     justify-content: center;
     justify-content: space-around; 
 }
 /*Div Raiz*/
-.home{ /*class da div raiz */
-
+.home{
     flex-grow: 1;
-    /* margin: 20px 5px ;
-    padding: 10px; */
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
