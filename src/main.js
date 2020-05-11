@@ -11,7 +11,28 @@ filtersMenu.style.display = "none"
 /*Bloco de impressão dos pokemons*/
 const print = pokemons => { //função para imprimir os pokemons
     document.getElementById("main").style.display = "block"
+    const card = document.createElement("div") // cria uma nova div
+    const img = document.createElement("img") //criar elemento img
+    const cardInformation = document.createElement("div") //cria div das informações
+    const power = document.createElement("div")
+    img.src = pokemons.img // coloca o endereço da imagem
 
+    card.classList.add("card")
+    img.classList.add("picture") // coloca uma classe na imagem
+    let namePokemons = pokemons.name.replace("(Female)", "")
+    namePokemons = namePokemons.replace("(Male)", "")
+    cardInformation.innerHTML += `<br><h5>${pokemons.num}</h5><br><h3>${namePokemons}</h4>` // coloca o nameInput
+    pokemons.type.map(a => {
+        const powerType = document.createElement("div")
+        powerType.classList = (a)
+        powerType.classList.add("power")
+        powerType.innerHTML += `<h5>${a}</h5>` //${pokemons.type[1] = pokemons.type[1] || ""}</h5>` // coloca o tipo
+        power.appendChild(powerType)
+    });
+
+    cardInformation.appendChild(power)
+    card.appendChild(cardInformation, img) // coloca informações no card
+    card.appendChild(img) //coloca a imagem na nova div
     root.appendChild(card) // coloca nova div dentro da div existente
 }
 
