@@ -8,60 +8,8 @@ const filtersMenu = document.getElementById("filters")
 filtersMenu.style.display = "none"
 
 /*Bloco de impressão dos pokemons*/
-const print = pokemons => { //função para imprimir os pokemons
-    const createModal = () => {
-        const wait = document.getElementById("wait")
 
-        const waiting = document.getElementsByClassName("waiting")[0]
-        waiting.style.display = "block"
-        const modalContainer = document.createElement("div")
-        modalContainer.innerHTML += '<span class="close">&times;</span>'
-        const image = document.createElement("img")
-        const modalInformation = document.createElement("div")
-        const modalPower = document.createElement("div")
-        image.src = pokemons.img // coloca o endereço da imagem
-
-        modalContainer.classList.add("modal-class", "card-aparence")
-            // image.classList.add("picture") // coloca uma classe na imagem
-        modalInformation.innerHTML +=
-            `<h5><span class=${pokemons.type[0]}>#${pokemons.num}</span></h5>
-            <h3>${namePokemons.toUpperCase()}</h4><hr>
-            <h5><span class=${pokemons.type[0]}>Peso: </span>:${pokemons.weight}</h5>
-            <h5><span class=${pokemons.type[0]}>Altura: </span>${pokemons.height}</h5>`
-
-        pokemons.type.forEach(a => {
-            let powerTypeModal = document.createElement("div")
-            powerTypeModal.classList = (a)
-            powerTypeModal.classList.add("power")
-            powerTypeModal.innerHTML += `${a} </h5>` //${pokemons.type[1] = pokemons.type[1] || ""}</h5>` // coloca o tipo
-            modalPower.appendChild(powerTypeModal)
-        });
-
-        modalInformation.appendChild(modalPower)
-        modalContainer.appendChild(modalInformation) // coloca informações no card
-        modalContainer.appendChild(image) //coloca a imagem na nova div
-        wait.appendChild(modalContainer)
-
-
-        document.querySelectorAll(".close").forEach((a) => {
-            a.addEventListener('click', () => {
-                modalContainer.style.display = "none"
-                waiting.style.display = "none"
-                    // document.getElementsByClassName("waiting")[0].style.display = "none"
-            })
-        })
-
-        window.addEventListener("dblclick", (e) => {
-            e.preventDefault();
-            if (e.target !== modalContainer)
-                modalContainer.style.display = "none"
-            waiting.style.display = "none"
-                //document.getElementsByClassName("waiting")[0].style.display = "none"
-        })
-
-    }
-
-    document.getElementById("main").style.display = "block"
+const creatCard = (pokemons, info) => {
     const card = document.createElement("div") // cria uma nova div
     const img = document.createElement("img") //criar elemento img
     const cardInformation = document.createElement("div") //cria div das informações
@@ -73,6 +21,13 @@ const print = pokemons => { //função para imprimir os pokemons
     let namePokemons = pokemons.name.replace("(Female)", "")
     namePokemons = namePokemons.replace("(Male)", "")
     cardInformation.innerHTML += `<br><h5 class=${pokemons.type[0]}>#${pokemons.num}</h5><br><h3>${namePokemons.toUpperCase()}</h4>` // coloca o nameInput
+
+    if (info.length) {
+        info.forEach(info => {
+            cardInformation.innerHTML += `<h5><span class=${pokemons.type[0]}>${info}:</span>${pokemons[info]}</h5>`
+        })
+    }
+
     pokemons.type.forEach(a => {
         const powerType = document.createElement("div")
         powerType.classList = (a)
@@ -84,8 +39,87 @@ const print = pokemons => { //função para imprimir os pokemons
     cardInformation.appendChild(power)
     card.appendChild(cardInformation) // coloca informações no card
     card.appendChild(img) //coloca a imagem na nova div
+    return card
+}
+
+
+
+
+
+const createModal = (pokemons) => { //////////////////////////////////////////////////////////////////////////////
+    const wait = document.getElementById("wait")
+    const waiting = document.getElementsByClassName("waiting")[0]
+    waiting.style.display = "block"
+        //const modalContainer = document.createElement("div")
+    const info = ["height", "weight"]
+    const card = creatCard(pokemons, info)
+    card.innerHTML += '<span class="close">&times;</span>'
+        //const image = document.createElement("img")
+        //const modalInformation = document.createElement("div")
+        //const modalPower = document.createElement("div")
+        //image.src = pokemons.img // coloca o endereço da imagem
+    card.classList.remove("card")
+    card.classList.add("modal-class", "card-aparence")
+        // image.classList.add("picture") // coloca uma classe na imagem
+        //let namePokemons = pokemons.name.replace("(Female)", "")
+        //namePokemons = namePokemons.replace("(Male)", "")
+        //modalInformation.innerHTML +=
+        //  `<h5><span class=${pokemons.type[0]}>#${pokemons.num}</span></h5>
+        //  <h3>${namePokemons.toUpperCase()}</h4><hr>
+        //  <h5><span class=${pokemons.type[0]}>Peso: </span>:${pokemons.weight}</h5>
+        //  <h5><span class=${pokemons.type[0]}>Altura: </span>${pokemons.height}</h5>`
+
+    //pokemons.type.forEach(a => {
+    //  let powerTypeModal = document.createElement("div")
+    //powerTypeModal.classList = (a)
+    //powerTypeModal.classList.add("power")
+    //powerTypeModal.innerHTML += `${a} </h5>` //${pokemons.type[1] = pokemons.type[1] || ""}</h5>` // coloca o tipo
+    // modalPower.appendChild(powerTypeModal)
+    //});
+    //card.appendChild(card)
+    //modalInformation.appendChild(modalPower)
+    //modalContainer.appendChild(modalInformation) // coloca informações no card
+    //modalContainer.appendChild(image) //coloca a imagem na nova div
+    wait.appendChild(card)
+
+
+    document.querySelectorAll(".close").forEach((a) => {
+        a.addEventListener('click', () => {
+            card.style.display = "none"
+            waiting.style.display = "none"
+                // document.getElementsByClassName("waiting")[0].style.display = "none"
+        })
+    })
+
+    window.addEventListener("dblclick", (e) => {
+            e.preventDefault();
+            if (e.target !== card)
+                card.style.display = "none"
+            waiting.style.display = "none"
+                //document.getElementsByClassName("waiting")[0].style.display = "none"
+        })
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+}
+
+
+
+
+
+
+
+
+
+
+const print = pokemons => { //função para imprimir os pokemons
+
+    document.getElementById("main").style.display = "block"
+    const info = []
+
+    const card = creatCard(pokemons, info)
     root.appendChild(card) // coloca nova div dentro da div existente
-    card.addEventListener("click", createModal)
+    card.addEventListener("click", () => {
+        createModal(pokemons, info)
+    })
 
 }
 
