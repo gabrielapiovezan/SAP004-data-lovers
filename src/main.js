@@ -72,7 +72,7 @@ const print = pokemons => { //função para imprimir os pokemons
     img.classList.add("picture") // coloca uma classe na imagem
     let namePokemons = pokemons.name.replace("(Female)", "")
     namePokemons = namePokemons.replace("(Male)", "")
-    cardInformation.innerHTML += `<br><h5>${pokemons.num}</h5><br><h3>${namePokemons}</h4>` // coloca o nameInput
+    cardInformation.innerHTML += `<br><h5>${pokemons.num}</h5><br><h3>${namePokemons.toUpperCase()}</h4>` // coloca o nameInput
     pokemons.type.map(a => {
         const powerType = document.createElement("div")
         powerType.classList = (a)
