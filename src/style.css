@@ -1,10 +1,12 @@
 /* Header */
-body{
-margin: 0px;
-font-family: Arial, Helvetica, sans-serif;
-/* background-color: rgb(226, 226, 226); */
-background-color: white;
+
+body {
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    /* background-color: rgb(226, 226, 226); */
+    background-color: white;
 }
+
 .header {
     padding-top: 10px;
     display: flex;
@@ -43,22 +45,27 @@ background-color: white;
     flex-grow: 1;
     border-bottom: 2px solid white;
 }
-.menu-buttons:hover{
+
+.menu-buttons:hover {
     font-weight: bold;
     color: black;
     cursor: pointer;
 }
-.section{
+
+.section {
     margin: 40px;
 }
 
-.menu-search{ /*Menu superior*/
+.menu-search {
+    /*Menu superior*/
     padding-top: 20px;
     width: 100%;
     display: flex;
     align-items: center;
 }
-.search{        /*Barra de pesquisa*/
+
+.search {
+    /*Barra de pesquisa*/
     padding-left: 5px;
     margin-left: 50px;
     width: 200px;
@@ -67,25 +74,32 @@ background-color: white;
     border-radius: 30px;
     font-size: 100%;
 }
-.icon-search{
+
+.icon-search {
     z-index: 1;
     height: 18px;
     position: relative;
     left: -30px;
 }
+
+
 /* hr{
     width: 80%;
     border: 0;
     border-top: 1px solid rgb(245, 242, 242);
 } */
 
+
 /*Main*/
-main{ 
+
+main {
     margin-right: 30px;
     margin-top: 30px;
     display: flex;
 }
-.filters-class{ /* Menu de filtro avançado*/
+
+.filters-class {
+    /* Menu de filtro avançado*/
     justify-content: space-between;
     flex-direction: column;
     padding: 30px;
@@ -94,25 +108,35 @@ main{
     font-weight: bold;
     border-right: 0.7px solid rgb(173, 170, 170);
 }
-.checkbox-type:first-child{ /*Primeira filha da caixa de checkbox*/
+
+.checkbox-type:first-child {
+    /*Primeira filha da caixa de checkbox*/
     display: flex;
     flex-direction: column;
 }
-.line{
+
+.line {
     display: inline-flex;
 }
-.checkbox-form{ /*Config do form checkbox*/
+
+.checkbox-form {
+    /*Config do form checkbox*/
     display: inline-flex;
     font-size: 14px;
 }
-.advanced-search{ /*Botao de pesquisa avançada*/
+
+.advanced-search {
+    /*Botao de pesquisa avançada*/
     list-style-type: none;
     display: inline-flex;
     justify-content: space-around;
     width: 300px;
 }
+
+
 /*Botão de filtro*/
-.button-filter{
+
+.button-filter {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -122,17 +146,22 @@ main{
     border: 0.7px solid rgb(114, 114, 114);
     border-radius: 5px;
 }
-.button-filter:first-child{
-    justify-content: center;
-}
-.containers{
-display: flex;
-    justify-content: center;
-    justify-content: space-around; 
-}
-/*Div Raiz*/
-.home{ /*class da div raiz */
 
+.button-filter:first-child {
+    justify-content: center;
+}
+
+.containers {
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+}
+
+
+/*Div Raiz*/
+
+.home {
+    /*class da div raiz */
     flex-grow: 1;
     /* margin: 20px 5px ;
     padding: 10px; */
@@ -143,7 +172,9 @@ display: flex;
     line-height: 0.5px;
     height: auto;
 }
-.view-all-class{ /*Botão ver mais/ ver menos*/
+
+.view-all-class {
+    /*Botão ver mais/ ver menos*/
     font-size: large;
     padding: 10px;
     border-radius: 5%;
@@ -151,12 +182,15 @@ display: flex;
     align-items: center;
     justify-content: center;
 }
-.card{ /* classe das novas divs */
+
+.card {
+    z-index: 1;
+    /* classe das novas divs */
     border: 1px solid rgb(240, 240, 240);
-    color:  rgb(83, 80, 80);
+    color: rgb(83, 80, 80);
     display: flex;
     flex-flow: row nowrap;
-    background-color: rgb(255, 255, 255); 
+    background-color: rgb(255, 255, 255);
     margin: 15px;
     padding: 10px 25px;
     min-width: 220px;
@@ -164,36 +198,41 @@ display: flex;
     height: 130px;
     border-radius: 5%;
 }
-.card:hover{
+
+.card:hover {
     background-color: rgb(252, 228, 11);
     color: black;
     cursor: pointer;
 }
-.card:only-child{
+
+.card:only-child {
     display: flex;
     flex-direction: column;
     /* padding: 10px; */
     width: 55%;
     height: 130px;
 }
-.picture{ /* imagem dos pokemons*/
+
+.picture {
+    /* imagem dos pokemons*/
     margin: 5%;
     margin-right: 0%;
     padding: 5%;
     width: 45%;
     height: auto;
 }
+
 .picture:hover {
     transform: scaleX(-1);
-  }
-  
-.button-search:hover{
-    background-color: rgb(252, 228, 11);
-    color: black;
-    cursor: pointer;  
 }
 
-.power{
+.button-search:hover {
+    background-color: rgb(252, 228, 11);
+    color: black;
+    cursor: pointer;
+}
+
+.power {
     color: white;
     width: auto;
     height: 25px;
@@ -201,82 +240,155 @@ display: flex;
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
-}.power :first-child{
+}
+
+.power :first-child {
     padding: 2px;
     margin: 1px;
 }
-.selector{
+
+.selector {
     width: 100px;
 }
+
+
 /*Tipos de Pokemons*/
-.Flying{
+
+.Flying {
     color: teal;
 }
-.Ice{
+
+.Ice {
     color: rgb(142, 197, 233);
 }
-.Grass{
+
+.Grass {
     color: rgb(106, 230, 172);
 }
-.Fire{
+
+.Fire {
     color: orange;
 }
-.Water{
+
+.Water {
     color: rgb(29, 230, 209);
 }
-.Bug{
+
+.Bug {
     color: rgb(139, 238, 119);
 }
-.Normal{
+
+.Normal {
     color: rgb(250, 110, 100);
 }
-.Poison{
+
+.Poison {
     color: rgb(210, 163, 214);
 }
-.Electric{
+
+.Electric {
     color: rgb(241, 241, 98);
 }
-.Ground{
+
+.Ground {
     color: rgb(219, 122, 58);
 }
-.Rock{
+
+.Rock {
     color: rgb(56, 56, 56);
 }
-.Fighting{
+
+.Fighting {
     color: coral;
 }
-.Psychic{
+
+.Psychic {
     color: crimson;
 }
-.Ghost{
+
+.Ghost {
     color: darkmagenta;
 }
-.Dragon{
+
+.Dragon {
     color: rgb(226, 68, 160);
 }
-.Fairy{
+
+.Fairy {
     color: rgb(199, 126, 218);
 }
-.filter-config{  
-    margin: 5px;  
+
+.filter-config {
+    margin: 5px;
     width: 70px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
 }
 
-@media (max-width:600px){
-    .home{
-        background-color: darkorange;
-        flex-shrink: 1;
-     }
- main{
-     background-color: darkorchid;
-     display: block;
- }
-
+.waiting {
+    position: fixed;
+    left: 0px;
+    z-index: 99;
+    width: 100%;
+    min-height: 100%;
+    background-color: rgba(14, 13, 13, 0.459);
+    display: none;
 }
 
+.wait-class {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
 
+.card-aparence {
+    /* classe das novas divs */
+    border: 1px solid rgb(240, 240, 240);
+    color: rgb(83, 80, 80);
+    background-color: rgb(255, 255, 255);
+    margin: 15px;
+    padding: 10px 25px;
+    border-radius: 20px;
+}
 
+.modal-class {
+    position: relative;
+    top: 100px;
+    width: 350px;
+    line-height: 4px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 100;
+}
 
+.modal-class>img {
+    height: 30%;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media (max-width:600px) {
+    .home {
+        background-color: darkorange;
+        flex-shrink: 1;
+    }
+    main {
+        background-color: darkorchid;
+        display: block;
+    }
+}
