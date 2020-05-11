@@ -29,15 +29,15 @@ const print = pokemons => { //função para imprimir os pokemons
             <h5><span class=${pokemons.type[0]}>Peso: </span>:${pokemons.weight}</h5>
             <h5><span class=${pokemons.type[0]}>Altura: </span>${pokemons.height}</h5>`
 
-        pokemons.type.map(a => {
+        pokemons.type.forEach(a => {
             let powerTypeModal = document.createElement("div")
             powerTypeModal.classList = (a)
             powerTypeModal.classList.add("power")
-            powerTypeModal.innerHTML += `${a}</h5>` //${pokemons.type[1] = pokemons.type[1] || ""}</h5>` // coloca o tipo
+            powerTypeModal.innerHTML += `${a} </h5>` //${pokemons.type[1] = pokemons.type[1] || ""}</h5>` // coloca o tipo
             modalPower.appendChild(powerTypeModal)
         });
 
-        modalInformation.appendChild(power)
+        modalInformation.appendChild(modalPower)
         modalContainer.appendChild(modalInformation) // coloca informações no card
         modalContainer.appendChild(image) //coloca a imagem na nova div
         wait.appendChild(modalContainer)
@@ -72,8 +72,8 @@ const print = pokemons => { //função para imprimir os pokemons
     img.classList.add("picture") // coloca uma classe na imagem
     let namePokemons = pokemons.name.replace("(Female)", "")
     namePokemons = namePokemons.replace("(Male)", "")
-    cardInformation.innerHTML += `<br><h5>${pokemons.num}</h5><br><h3>${namePokemons.toUpperCase()}</h4>` // coloca o nameInput
-    pokemons.type.map(a => {
+    cardInformation.innerHTML += `<br><h5 class=${pokemons.type[0]}>#${pokemons.num}</h5><br><h3>${namePokemons.toUpperCase()}</h4>` // coloca o nameInput
+    pokemons.type.forEach(a => {
         const powerType = document.createElement("div")
         powerType.classList = (a)
         powerType.classList.add("power")
