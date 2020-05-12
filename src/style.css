@@ -272,6 +272,11 @@ main{
 .Fairy{
     color: rgb(199, 126, 218);
 }
+
+.canvas {
+    width: 50%;
+    height: 45%;
+}
 .filter-config{  
     margin: 5px;  
     width: 70px;
