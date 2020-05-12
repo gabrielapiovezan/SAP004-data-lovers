@@ -5,29 +5,32 @@ import data from './data/pokemon/pokemon.js';
 const root = document.getElementById("root") // import div
 const pokemons = data.pokemon // pokemons = array
 const filtersMenu = document.getElementById("filters")
+const select = document.getElementById("select-pokemons")
+const calculatorMain = document.getElementById("calculator-main")
+document.getElementById("startCalculator").style.display = "none"
 filtersMenu.style.display = "none"
 
 /*Bloco de impressão dos pokemons*/
 
-const creatCard = (pokemons, info) => {
+const creatCard = (pokemons, info = [], infoEx) => {
     const card = document.createElement("div") // cria uma nova div
     const img = document.createElement("img") //criar elemento img
     const cardInformation = document.createElement("div") //cria div das informações
     const power = document.createElement("div")
     img.src = pokemons.img // coloca o endereço da imagem
-
     card.classList.add("card")
     img.classList.add("picture") // coloca uma classe na imagem
     let namePokemons = pokemons.name.replace("(Female)", "")
     namePokemons = namePokemons.replace("(Male)", "")
-    cardInformation.innerHTML += `<br><h5 class=${pokemons.type[0]}>#${pokemons.num}</h5><br><h3>${namePokemons.toUpperCase()}</h4>` // coloca o nameInput
-
+    cardInformation.innerHTML += `<br><h5 class=${pokemons.type[0]}>#${pokemons.num}</h5><br><h3>${namePokemons.toUpperCase()}</h4><br>` // coloca o nameInput
     if (info.length) {
         info.forEach(info => {
             cardInformation.innerHTML += `<h5><span class=${pokemons.type[0]}>${info}:</span>${pokemons[info]}</h5>`
         })
     }
-
+    if (infoEx) {
+        cardInformation.innerHTML += `<h5><span class=${pokemons.type[0]}>CP:</span>${infoEx}</h5>`
+    }
     pokemons.type.forEach(a => {
         const powerType = document.createElement("div")
         powerType.classList = (a)
@@ -35,54 +38,22 @@ const creatCard = (pokemons, info) => {
         powerType.innerHTML += `<h5>${a}</h5>` //${pokemons.type[1] = pokemons.type[1] || ""}</h5>` // coloca o tipo
         power.appendChild(powerType)
     });
-
     cardInformation.appendChild(power)
     card.appendChild(cardInformation) // coloca informações no card
     card.appendChild(img) //coloca a imagem na nova div
     return card
 }
 
-
-
-
-
 const createModal = (pokemons) => { //////////////////////////////////////////////////////////////////////////////
     const wait = document.getElementById("wait")
     const waiting = document.getElementsByClassName("waiting")[0]
     waiting.style.display = "block"
-        //const modalContainer = document.createElement("div")
     const info = ["height", "weight"]
     const card = creatCard(pokemons, info)
     card.innerHTML += '<span class="close">&times;</span>'
-        //const image = document.createElement("img")
-        //const modalInformation = document.createElement("div")
-        //const modalPower = document.createElement("div")
-        //image.src = pokemons.img // coloca o endereço da imagem
     card.classList.remove("card")
     card.classList.add("modal-class", "card-aparence")
-        // image.classList.add("picture") // coloca uma classe na imagem
-        //let namePokemons = pokemons.name.replace("(Female)", "")
-        //namePokemons = namePokemons.replace("(Male)", "")
-        //modalInformation.innerHTML +=
-        //  `<h5><span class=${pokemons.type[0]}>#${pokemons.num}</span></h5>
-        //  <h3>${namePokemons.toUpperCase()}</h4><hr>
-        //  <h5><span class=${pokemons.type[0]}>Peso: </span>:${pokemons.weight}</h5>
-        //  <h5><span class=${pokemons.type[0]}>Altura: </span>${pokemons.height}</h5>`
-
-    //pokemons.type.forEach(a => {
-    //  let powerTypeModal = document.createElement("div")
-    //powerTypeModal.classList = (a)
-    //powerTypeModal.classList.add("power")
-    //powerTypeModal.innerHTML += `${a} </h5>` //${pokemons.type[1] = pokemons.type[1] || ""}</h5>` // coloca o tipo
-    // modalPower.appendChild(powerTypeModal)
-    //});
-    //card.appendChild(card)
-    //modalInformation.appendChild(modalPower)
-    //modalContainer.appendChild(modalInformation) // coloca informações no card
-    //modalContainer.appendChild(image) //coloca a imagem na nova div
     wait.appendChild(card)
-
-
     document.querySelectorAll(".close").forEach((a) => {
         a.addEventListener('click', () => {
             card.style.display = "none"
@@ -90,37 +61,23 @@ const createModal = (pokemons) => { ////////////////////////////////////////////
                 // document.getElementsByClassName("waiting")[0].style.display = "none"
         })
     })
-
     window.addEventListener("dblclick", (e) => {
-            e.preventDefault();
-            if (e.target !== card)
-                card.style.display = "none"
-            waiting.style.display = "none"
-                //document.getElementsByClassName("waiting")[0].style.display = "none"
-        })
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        e.preventDefault();
+        if (e.target !== card)
+            card.style.display = "none"
+        waiting.style.display = "none"
+            //document.getElementsByClassName("waiting")[0].style.display = "none"
+    })
 }
 
 
-
-
-
-
-
-
-
-
-const print = pokemons => { //função para imprimir os pokemons
-
-    document.getElementById("main").style.display = "block"
+const print = (pokemons) => {
     const info = []
-
     const card = creatCard(pokemons, info)
-    root.appendChild(card) // coloca nova div dentro da div existente
     card.addEventListener("click", () => {
         createModal(pokemons, info)
     })
-
+    root.appendChild(card) // coloca nova div dentro da div existente
 }
 
 /*Limpa a raiz*/
@@ -142,6 +99,7 @@ const creatButtonView = () => {
 
 /*Tela inicial*/
 const main = () => {
+    document.getElementById("main").style.display = "block"
     clearDisplay()
     const elementMain = pokemons.filter((pokemons) => Number(pokemons.num) < 8)
     elementMain.map(print)
@@ -170,12 +128,10 @@ const searchName = (p) => {
 
 /*Função de abrir e fechar menu avançado*/
 const filters = () => {
-    const filterMenuDysplay = filtersMenu.style.display
-    filtersMenu.style.display = filterMenuDysplay === "block" ? "none" : "block"
-}
-
-
-/*Funcao que verifica os tipos e fraquezas*/
+        const filterMenuDysplay = filtersMenu.style.display
+        filtersMenu.style.display = filterMenuDysplay === "block" ? "none" : "block"
+    }
+    /*Funcao que verifica os tipos e fraquezas*/
 const typeFunction = (p) => {
     /*Puxa os checkboxs */
     const checkbox = document.getElementById("checkbox-types")
@@ -227,14 +183,75 @@ const functionMenu = () => {
         document.getElementById("main").style.display = "block"
     })
 }
+const selectPokemons = () => {
+    pokemons.forEach((a) => {
+        let opt = document.createElement('option')
+        opt.value = a.name
+        opt.text = a.name
+        select.appendChild(opt)
+    })
+}
 
+//cria o card dos calculos
+const creatCardCalculator = (pokemon, evolutuin, cp, cpResult) => {
+        let info = ["candy_count"]
+        let card = creatCard(pokemon, info, cp)
+        card.addEventListener("click", () => {
+            createModal(pokemon)
+        })
+        calculatorMain.appendChild(card) // coloca nova div dentro da div existente
+        if (evolutuin) {
+            info = []
+            card = creatCard(evolutuin, info, cpResult)
+            card.addEventListener("click", () => {
+                createModal(evolutuin)
+            })
+            calculatorMain.appendChild(card) // coloca nova div dentro da div existente
+        }
+    }
+    //poxa os dados dos do calculo
+const calculator = (pokemons) => {
+        calculatorMain.innerHTML = ""
+        const cp = parseInt(document.getElementById("input-cp").value)
+        const pokemon = pokemons.filter((a) => {
+            if (select.value === a.name)
+                return true
+        })
+        let evolutuin
+        const cpResult = startCalculador(cp, pokemon[0])
+        if (pokemon[0].next_evolution) {
+            const numEvolution = pokemon[0].next_evolution[0].num
+            evolutuin = pokemons.filter((a) => {
+                if (a.num === numEvolution)
+                    return true
+            })
+        } else
+            evolutuin = 0
+        creatCardCalculator(pokemon[0], evolutuin[0], cp, cpResult)
+    }
+    //faz o calculo
+const startCalculador = (cp, pokemon) => {
+    if (pokemon.multipliers) {
+        const cpResult = pokemon.multipliers.map((m) => {
+            return m * cp
+        })
 
+        return cpResult[0]
+    }
+}
 document.querySelectorAll(".menu-buttons").forEach(buttons => buttons.addEventListener("click", functionMenu))
 document.querySelectorAll('form').forEach(form => form.addEventListener('input', advancedSearch))
 document.getElementById("menu-filter").addEventListener('click', filters)
 document.getElementById("reset-search").addEventListener('click', resetSearch)
+document.getElementById("input-cp").addEventListener('input', () => {
+    document.getElementById("startCalculator").style.display = "block"
+})
+document.getElementById("startCalculator").addEventListener('click', () => calculator(pokemons))
 functionMenu()
 main()
+selectPokemons()
+
+
 
 /*Ranking*/
 // Declaração de variáveis

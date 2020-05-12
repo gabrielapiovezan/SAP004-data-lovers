@@ -21,7 +21,7 @@
                 <ul class="menu">
                     <li class="menu-buttons" id="home-menu">Home</li>
                     <li class="menu-buttons" id="main-menu">Pokémons</li>
-                    <li class="menu-buttons" id="comparation-menu">Comparação</li>
+                    <li class="menu-buttons" id="comparation-menu">Calculadora de evolução</li>
                     <li class="menu-buttons" id="ranking-menu">Ranking</li>
                 </ul>
             </nav>
@@ -32,7 +32,16 @@
     <section class="screen" id="ranking">
         <canvas id="type-chart"></canvas>
     </section>
-    <section class="screen" id="comparation">Comparação</section>
+    <section class="screen" id="comparation">
+        <header>
+            <select id="select-pokemons">
+            </select>
+            <input id="input-cp" type="number" min="0" max="5000" placeholder="CP">
+            <button id="startCalculator">Calcular</button>
+        </header>
+        <main id="calculator-main" class="home">
+        </main>
+    </section>
     <section class="screen section" id="main">
         <div class="filters">
             <div id="filters">

@@ -81,11 +81,6 @@
      position: relative;
      left: -30px;
  }
- /* hr{
-    width: 80%;
-    border: 0;
-    border-top: 1px solid rgb(245, 242, 242);
-} */
  /*Main*/
  
  main {
@@ -153,10 +148,7 @@
  /*Div Raiz*/
  
  .home {
-     /*class da div raiz */
      flex-grow: 1;
-     /* margin: 20px 5px ;
-    padding: 10px; */
      display: flex;
      flex-wrap: wrap;
      align-items: flex-start;
@@ -177,7 +169,6 @@
  
  .card {
      z-index: 1;
-     /* classe das novas divs */
      border: 1px solid rgb(240, 240, 240);
      color: rgb(83, 80, 80);
      display: flex;
@@ -195,14 +186,6 @@
      background-color: rgb(252, 228, 11);
      color: black;
      cursor: pointer;
- }
- 
- .card:only-child {
-     display: flex;
-     flex-direction: column;
-     /* padding: 10px; */
-     width: 55%;
-     height: 130px;
  }
  
  .picture {
