@@ -1,5 +1,5 @@
 /*Bloco de configurações*/
-import { searchFunc, orderList, typeFunctionConcat, checkType, height, concatFilters } from './data.js';
+import { searchFunc, orderList, typeFunctionConcat, checkType, height, concatFilters, startCalculador } from './data.js';
 import data from './data/pokemon/pokemon.js';
 //import { RuleTester } from 'eslint';
 const root = document.getElementById("root") // import div
@@ -279,15 +279,7 @@ const calculator = (pokemons) => {
         creatCardCalculator(pokemon[0], evolutuin, cp, cpResult)
     }
     //faz o calculo
-const startCalculador = (cp, pokemon) => {
-    if (pokemon.multipliers) {
-        const cpResult = pokemon.multipliers.map((m) => {
-            return m * cp
-        })
 
-        return cpResult
-    }
-}
 document.querySelectorAll(".menu-buttons").forEach(buttons => buttons.addEventListener("click", functionMenu))
 document.querySelectorAll('form').forEach(form => form.addEventListener('input', advancedSearch))
 document.getElementById("menu-filter").addEventListener('click', filters)
