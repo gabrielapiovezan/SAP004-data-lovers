@@ -1,3 +1,17 @@
+/**Função que calcula o CP resltante
+ * tem como entrada o CP do pokemon anterior e o pokemon
+ */
+export const startCalculador = (cp, pokemon) => {
+    if (pokemon.multipliers) {
+        const cpResult = pokemon.multipliers.map((m) => {
+            return m * cp
+        })
+
+        return cpResult
+    }
+}
+
+
 /*função que ordena em ordem alfabética e num
 Tem como parâmetro o 
 Indice:
