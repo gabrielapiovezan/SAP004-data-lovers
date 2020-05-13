@@ -12,7 +12,7 @@ filtersMenu.style.display = "none"
 
 /*Bloco de impressão dos pokemons*/
 
-const creatCard = (pokemons, info = [], infoEx) => {
+const creatCard = (pokemons, info = [], infoEx = []) => {
     const card = document.createElement("div") // cria uma nova div
     const img = document.createElement("img") //criar elemento img
     const cardInformation = document.createElement("div") //cria div das informações
@@ -23,14 +23,19 @@ const creatCard = (pokemons, info = [], infoEx) => {
     let namePokemons = pokemons.name.replace("(Female)", "")
     namePokemons = namePokemons.replace("(Male)", "")
     cardInformation.innerHTML += `<br><h5 class=${pokemons.type[0]}>#${pokemons.num}</h5><br><h3>${namePokemons.toUpperCase()}</h4><br>` // coloca o nameInput
-    if (info.length) {
-        info.forEach(info => {
-            cardInformation.innerHTML += `<h5><span class=${pokemons.type[0]}>${info}:</span>${pokemons[info]}</h5>`
-        })
+
+    info.forEach(info => {
+        cardInformation.innerHTML += `<h5><span class=${pokemons.type[0]}>${info}:</span>${pokemons[info]}</h5>`
+    })
+    if (infoEx.length) {
+        let cp = "CP Min:"
+        for (let i in infoEx) {
+            if (i === 1)
+                cp = "CP Max:"
+            cardInformation.innerHTML += `<h5><span class=${pokemons.type[0]}>${cp}</span>${infoEx[i]}</h5>`
+        }
     }
-    if (infoEx) {
-        cardInformation.innerHTML += `<h5><span class=${pokemons.type[0]}>CP:</span>${infoEx}</h5>`
-    }
+
     pokemons.type.forEach(a => {
         const powerType = document.createElement("div")
         powerType.classList = (a)
@@ -194,7 +199,8 @@ const selectPokemons = () => {
 
 //cria o card dos calculos
 const creatCardCalculator = (pokemon, evolutuin, cp, cpResult) => {
-        let info = ["candy_count"]
+        let info
+        evolutuin ? info = ["candy_count"] : info = []
         let card = creatCard(pokemon, info, cp)
         card.addEventListener("click", () => {
             createModal(pokemon)
@@ -236,7 +242,7 @@ const startCalculador = (cp, pokemon) => {
             return m * cp
         })
 
-        return cpResult[0]
+        return cpResult
     }
 }
 document.querySelectorAll(".menu-buttons").forEach(buttons => buttons.addEventListener("click", functionMenu))
