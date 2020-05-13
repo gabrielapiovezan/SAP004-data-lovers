@@ -120,8 +120,7 @@ const advancedSearch = () => {
     const pokemonsType = pokemons.filter(typeFunction)//.map(print)
     const heightArray = getHeight()//.map(print)
     const orderBy = document.getElementById("browsers").value
-orderList(orderBy,searchName(concatFilters(pokemonsType, heightArray,pokemons))).map(print)
-
+    orderList(orderBy,searchName(concatFilters(pokemonsType, heightArray,pokemons))).map(print)
 }
 const functionMenu = ()=>{
     document.querySelectorAll(".screen").forEach((screen)=> screen.style.display="none")

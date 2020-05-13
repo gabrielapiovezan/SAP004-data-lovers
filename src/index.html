@@ -22,7 +22,7 @@
     </div>
   </header>
   <section class="screen" id="home">
-    <h1 class="header-title">HOME</h1>
+    <div class="home-img"><img src="homepokemon.jpg"></div>
   </section>
   <section class="screen" id="ranking">
     <h1 class="header-title">ESTATÍSTICAS</h1>
@@ -46,7 +46,7 @@
             <h3>Tipo e Fraqueza </h3>
             <h6>Tipo = T Fraqueza = F</h6>
           </div>
-          <div class="checkbox-type">
+          <div class="checkbox-type filters-menu">
             <form class="checkbox-form" id="checkbox-types">
               <div>
                 <input type="checkbox" name="option" value="Flying"><label>T</label>
@@ -127,11 +127,13 @@
 
         </div>
       </div>
-      <form class="button-filter menu-search">
-        <input id="search" type="text" class="search" placeholder="Nome do Pokémon">
-        <img class="icon-search" src="img/icon-search-40.png" alt="search">
-      </form>
-      <div class="">
+      <div class="filters-menu">
+        <form class="button-filter menu-search">
+          <input id="search" type="text" class="search" placeholder="Nome do Pokémon">
+          <img class="icon-search" src="img/icon-search-40.png" alt="search">
+        </form>
+      </div>
+      <div class="filters-menu">
         <div class="containers"><button class="button-filter" id="menu-filter">Filtros<img  src="img/icons8-filtro-25.png" ></button>
         <form>
         <select id="browsers" class="button-filter">     

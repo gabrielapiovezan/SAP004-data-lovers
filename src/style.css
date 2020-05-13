@@ -277,6 +277,11 @@ main{
     width: 50%;
     height: 45%;
 }
+.home-img {
+    width: 100vh;
+    height: 100vh;
+}
+
 .filter-config{  
     margin: 5px;  
     width: 70px;
