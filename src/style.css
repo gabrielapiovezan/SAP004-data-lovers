@@ -294,18 +294,72 @@ main{
     justify-content: center;
 }
 
+.waiting {
+    position: fixed;
+    left: 0px;
+    z-index: 99;
+    width: 100%;
+    min-height: 100%;
+    background-color: rgba(14, 13, 13, 0.459);
+    display: none;
+}
+
+.wait-class {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.card-aparence {
+    /* classe das novas divs */
+    border: 1px solid rgb(240, 240, 240);
+    color: rgb(83, 80, 80);
+    background-color: rgb(255, 255, 255);
+    margin: 15px;
+    padding: 5px 25px;
+    border-radius: 20px;
+    height: 250px;
+    height: auto;
+}
+
+.modal-class {
+    position: relative;
+    top: 100px;
+    width: 350px;
+    line-height: 4px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 100;
+}
+
+.modal-class>img {
+    height: 30%;
+}
+
+.alert-eevee {
+    background-color: yellow;
+    color: black;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 @media (max-width:600px){
     .home{
         background-color: darkorange;
         flex-shrink: 1;
      }
- main{
-     background-color: darkorchid;
-     display: block;
  }
-
-}
-
-
-
-
