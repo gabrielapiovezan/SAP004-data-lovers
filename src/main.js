@@ -7,12 +7,12 @@ const pokemons = data.pokemon // pokemons = array
 const filtersMenu = document.getElementById("filters")
 const select = document.getElementById("select-pokemons")
 const calculatorMain = document.getElementById("calculator-main")
-document.getElementById("startCalculator").style.display = "none"
+document.getElementById("startCalculator").disabled = true
 filtersMenu.style.display = "none"
 
 /*Bloco de impressão dos pokemons*/
 
-const creatCard = (pokemons, info = [], infoEx = []) => {
+const creatCard = (pokemons, info = [], infoEx) => {
     const card = document.createElement("div") // cria uma nova div
     const img = document.createElement("img") //criar elemento img
     const cardInformation = document.createElement("div") //cria div das informações
@@ -27,14 +27,25 @@ const creatCard = (pokemons, info = [], infoEx = []) => {
     info.forEach(info => {
         cardInformation.innerHTML += `<h5><span class=${pokemons.type[0]}>${info}:</span>${pokemons[info]}</h5>`
     })
-    if (infoEx.length) {
-        let cp = "CP Min:"
+
+
+    if (typeof infoEx == 'string')
+        cardInformation.innerHTML += `<h6>${infoEx}</h6>`
+    else if (typeof infoEx === 'number')
+        cardInformation.innerHTML += `<h5><span class=${pokemons.type[0]}>CP: </span>${infoEx}</h5>`
+    else if (typeof infoEx === 'object') {
+        let cp
+        infoEx.length > 1 ? cp = "CP Min:" : cp = "CP:"
         for (let i in infoEx) {
             if (i === 1)
                 cp = "CP Max:"
             cardInformation.innerHTML += `<h5><span class=${pokemons.type[0]}>${cp}</span>${infoEx[i]}</h5>`
         }
     }
+
+
+
+
 
     pokemons.type.forEach(a => {
         const powerType = document.createElement("div")
@@ -199,20 +210,35 @@ const selectPokemons = () => {
 
 //cria o card dos calculos
 const creatCardCalculator = (pokemon, evolutuin, cp, cpResult) => {
-        let info
-        evolutuin ? info = ["candy_count"] : info = []
-        let card = creatCard(pokemon, info, cp)
+        let info = []
+        let infoEx = `Não possuí evolução`
+        if (evolutuin.length) {
+            info = ["candy_count"]
+            infoEx = cp
+        } else
+            infoEx = `Não possuí evolução`
+        let card = creatCard(pokemon, info, infoEx)
+        card.classList.add("card-aparence")
         card.addEventListener("click", () => {
             createModal(pokemon)
         })
         calculatorMain.appendChild(card) // coloca nova div dentro da div existente
-        if (evolutuin) {
-            info = []
-            card = creatCard(evolutuin, info, cpResult)
-            card.addEventListener("click", () => {
-                createModal(evolutuin)
+        if (evolutuin.length) {
+            evolutuin.forEach((evolutuin) => {
+                const img = document.createElement("img") //criar elemento img
+                img.src = 'img/icon-seta.png'
+                calculatorMain.appendChild(img)
+                info = []
+                card = creatCard(evolutuin, info, cpResult)
+                card.classList.add("card-aparence")
+                card.addEventListener("click", () => {
+                    createModal(evolutuin)
+                })
+                calculatorMain.appendChild(card) // coloca nova div dentro da div existente
             })
-            calculatorMain.appendChild(card) // coloca nova div dentro da div existente
+        }
+        if (evolutuin.length > 2) {
+            //  calculatorMain.
         }
     }
     //poxa os dados dos do calculo
@@ -223,17 +249,31 @@ const calculator = (pokemons) => {
             if (select.value === a.name)
                 return true
         })
+
         let evolutuin
         const cpResult = startCalculador(cp, pokemon[0])
         if (pokemon[0].next_evolution) {
-            const numEvolution = pokemon[0].next_evolution[0].num
-            evolutuin = pokemons.filter((a) => {
-                if (a.num === numEvolution)
-                    return true
-            })
+            if (pokemon[0].id === 133) {
+                let numEvolution = []
+                pokemon[0].next_evolution.forEach((p) => {
+                    numEvolution.push(p.num)
+                })
+                evolutuin = pokemons.filter((a) => {
+                    for (let i of numEvolution) {
+                        if (a.num === i)
+                            return true
+                    }
+                })
+            } else {
+                const numEvolution = pokemon[0].next_evolution[0].num
+                evolutuin = pokemons.filter((a) => {
+                    if (a.num === numEvolution)
+                        return true
+                })
+            }
         } else
             evolutuin = 0
-        creatCardCalculator(pokemon[0], evolutuin[0], cp, cpResult)
+        creatCardCalculator(pokemon[0], evolutuin, cp, cpResult)
     }
     //faz o calculo
 const startCalculador = (cp, pokemon) => {
@@ -250,7 +290,7 @@ document.querySelectorAll('form').forEach(form => form.addEventListener('input',
 document.getElementById("menu-filter").addEventListener('click', filters)
 document.getElementById("reset-search").addEventListener('click', resetSearch)
 document.getElementById("input-cp").addEventListener('input', () => {
-    document.getElementById("startCalculator").style.display = "block"
+    document.getElementById("startCalculator").disabled = false
 })
 document.getElementById("startCalculator").addEventListener('click', () => calculator(pokemons))
 functionMenu()

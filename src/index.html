@@ -32,12 +32,21 @@
     <section class="screen" id="ranking">
         <canvas id="type-chart"></canvas>
     </section>
-    <section class="screen" id="comparation">
+    <section class="screen section" id="comparation">
         <header>
-            <select id="select-pokemons">
+            <div>
+                <p>Com a Calculadora de evolução os jogadores do Pokémon Go podem saber quandos candys precisam dar para o seu pokémon evoluir e também qual o Combat Power (CP) resultante da evolução.</p>
+                <h2>Modo de usar</h2>
+                <p>Escolha o seu pokémon e coloque o CP respectivo, click e calcular e pronto! </p>
+                <p>Vamos nessa?</p>
+            </div>
+            <div class="containers">
+                <select class="button-filter" id="select-pokemons">
             </select>
-            <input id="input-cp" type="number" min="0" max="5000" placeholder="CP">
-            <button id="startCalculator">Calcular</button>
+                <input class="button-filter" id="input-cp" type="number" min="0" max="5000" placeholder="CP">
+                <button class="button-filter" id="startCalculator">Calcular</button>
+            </div>
+
         </header>
         <main id="calculator-main" class="home">
         </main>

@@ -132,6 +132,7 @@
      background-color: #307cbf;
      color: white;
      width: 200px;
+     height: 30px;
      border: 0.7px solid rgb(114, 114, 114);
      border-radius: 5px;
  }
@@ -174,10 +175,10 @@
      display: flex;
      flex-flow: row nowrap;
      background-color: rgb(255, 255, 255);
-     margin: 15px;
+     margin: 10px;
      padding: 10px 25px;
-     min-width: 220px;
-     max-width: 220px;
+     min-width: 235px;
+     max-width: 235px;
      height: 130px;
      border-radius: 5%;
  }
@@ -322,8 +323,10 @@
      color: rgb(83, 80, 80);
      background-color: rgb(255, 255, 255);
      margin: 15px;
-     padding: 10px 25px;
+     padding: 5px 25px;
      border-radius: 20px;
+     height: 250px;
+     height: auto;
  }
  
  .modal-class {
