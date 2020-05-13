@@ -344,6 +344,11 @@
      height: 30%;
  }
  
+ .alert-eevee {
+     background-color: yellow;
+     color: black;
+ }
+ 
  .close {
      color: #aaaaaa;
      float: right;

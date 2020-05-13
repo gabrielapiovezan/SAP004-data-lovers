@@ -238,7 +238,10 @@ const creatCardCalculator = (pokemon, evolutuin, cp, cpResult) => {
             })
         }
         if (evolutuin.length > 2) {
-            //  calculatorMain.
+            const alertEevee = document.createElement("div") // cria uma nova div
+            alertEevee.classList.add("card-aparence", "alert-eevee")
+            alertEevee.innerHTML = `<p>Importante! Você pode evoluir um Eevee para Jolteon, Flareon ou Vaporeon</p>`
+            calculatorMain.appendChild(alertEevee)
         }
     }
     //poxa os dados dos do calculo
