@@ -1,375 +1,365 @@
- /* Header */
- 
- body {
-     margin: 0px;
-     font-family: Arial, Helvetica, sans-serif;
-     /* background-color: rgb(226, 226, 226); */
-     background-color: white;
- }
- 
- .header {
-     padding-top: 10px;
-     display: flex;
-     flex-direction: column;
- }
- 
- .header-title {
-     display: flex;
-     justify-content: center;
-     font-size: 2em;
- }
- 
- .header-main {
-     display: flex;
-     justify-content: space-around;
-     align-items: center;
- }
- 
- .menu {
-     color: rgb(71, 71, 71);
-     display: flex;
-     list-style-type: none;
-     flex-grow: 1;
-     padding-top: 10px;
- }
- 
- .header-img {
-     align-items: center;
-     justify-content: center;
-     width: 100px;
-     height: 50px;
- }
- 
- .menu-buttons {
-     background-color: white;
-     flex-grow: 1;
-     border-bottom: 2px solid white;
- }
- 
- .menu-buttons:hover {
-     font-weight: bold;
-     color: black;
-     cursor: pointer;
- }
- 
- .section {
-     margin: 40px;
- }
- 
- .menu-search {
-     /*Menu superior*/
-     padding-top: 20px;
-     width: 100%;
-     display: flex;
-     align-items: center;
- }
- 
- .search {
-     /*Barra de pesquisa*/
-     padding-left: 5px;
-     margin-left: 50px;
-     width: 200px;
-     height: 30px;
-     box-sizing: border-box;
-     border-radius: 30px;
-     font-size: 100%;
- }
- 
- .icon-search {
-     z-index: 1;
-     height: 18px;
-     position: relative;
-     left: -30px;
- }
- /*Main*/
- 
- main {
-     margin-right: 30px;
-     margin-top: 30px;
-     display: flex;
- }
- 
- .filters-class {
-     /* Menu de filtro avançado*/
-     justify-content: space-between;
-     flex-direction: column;
-     padding: 30px;
-     height: 600px;
-     width: 300px;
-     font-weight: bold;
-     border-right: 0.7px solid rgb(173, 170, 170);
- }
- 
- .checkbox-type:first-child {
-     /*Primeira filha da caixa de checkbox*/
-     display: flex;
-     flex-direction: column;
- }
- 
- .line {
-     display: inline-flex;
- }
- 
- .checkbox-form {
-     /*Config do form checkbox*/
-     display: inline-flex;
-     font-size: 14px;
- }
- 
- .advanced-search {
-     /*Botao de pesquisa avançada*/
-     list-style-type: none;
-     display: inline-flex;
-     justify-content: space-around;
-     width: 300px;
- }
- /*Botão de filtro*/
- 
- .button-filter {
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     background-color: #307cbf;
-     color: white;
-     width: 200px;
-     height: 30px;
-     border: 0.7px solid rgb(114, 114, 114);
-     border-radius: 5px;
- }
- 
- .button-filter:first-child {
-     justify-content: center;
- }
- 
- .containers {
-     display: flex;
-     justify-content: center;
-     justify-content: space-around;
- }
- /*Div Raiz*/
- 
- .home {
-     flex-grow: 1;
-     display: flex;
-     flex-wrap: wrap;
-     align-items: flex-start;
-     justify-content: center;
-     line-height: 0.5px;
-     height: auto;
- }
- 
- .view-all-class {
-     /*Botão ver mais/ ver menos*/
-     font-size: large;
-     padding: 10px;
-     border-radius: 5%;
-     display: flex;
-     align-items: center;
-     justify-content: center;
- }
- 
- .card {
-     z-index: 1;
-     border: 1px solid rgb(240, 240, 240);
-     color: rgb(83, 80, 80);
-     display: flex;
-     flex-flow: row nowrap;
-     background-color: rgb(255, 255, 255);
-     margin: 10px;
-     padding: 10px 25px;
-     min-width: 235px;
-     max-width: 235px;
-     height: 130px;
-     border-radius: 5%;
- }
- 
- .card:hover {
-     background-color: rgb(252, 228, 11);
-     color: black;
-     cursor: pointer;
- }
- 
- .picture {
-     /* imagem dos pokemons*/
-     margin: 5%;
-     margin-right: 0%;
-     padding: 5%;
-     width: 45%;
-     height: auto;
- }
- 
- .picture:hover {
-     transform: scaleX(-1);
- }
- 
- .button-search:hover {
-     background-color: rgb(252, 228, 11);
-     color: black;
-     cursor: pointer;
- }
- 
- .power {
-     color: white;
-     width: auto;
-     height: 25px;
-     border-radius: 30px;
-     display: inline-flex;
-     align-items: center;
-     justify-content: space-between;
- }
- 
- .power :first-child {
-     padding: 2px;
-     margin: 1px;
- }
- 
- .selector {
-     width: 100px;
- }
- /*Tipos de Pokemons*/
- 
- .Flying {
-     color: teal;
- }
- 
- .Ice {
-     color: rgb(142, 197, 233);
- }
- 
- .Grass {
-     color: rgb(106, 230, 172);
- }
- 
- .Fire {
-     color: orange;
- }
- 
- .Water {
-     color: rgb(29, 230, 209);
- }
- 
- .Bug {
-     color: rgb(139, 238, 119);
- }
- 
- .Normal {
-     color: rgb(250, 110, 100);
- }
- 
- .Poison {
-     color: rgb(210, 163, 214);
- }
- 
- .Electric {
-     color: rgb(241, 241, 98);
- }
- 
- .Ground {
-     color: rgb(219, 122, 58);
- }
- 
- .Rock {
-     color: rgb(56, 56, 56);
- }
- 
- .Fighting {
-     color: coral;
- }
- 
- .Psychic {
-     color: crimson;
- }
- 
- .Ghost {
-     color: darkmagenta;
- }
- 
- .Dragon {
-     color: rgb(226, 68, 160);
- }
- 
- .Fairy {
-     color: rgb(199, 126, 218);
- }
- 
- .filter-config {
-     margin: 5px;
-     width: 70px;
-     display: inline-flex;
-     align-items: center;
-     justify-content: center;
- }
- 
- .waiting {
-     position: fixed;
-     left: 0px;
-     z-index: 99;
-     width: 100%;
-     min-height: 100%;
-     background-color: rgba(14, 13, 13, 0.459);
-     display: none;
- }
- 
- .wait-class {
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     width: 100%;
- }
- 
- .card-aparence {
-     /* classe das novas divs */
-     border: 1px solid rgb(240, 240, 240);
-     color: rgb(83, 80, 80);
-     background-color: rgb(255, 255, 255);
-     margin: 15px;
-     padding: 5px 25px;
-     border-radius: 20px;
-     height: 250px;
-     height: auto;
- }
- 
- .modal-class {
-     position: relative;
-     top: 100px;
-     width: 350px;
-     line-height: 4px;
-     padding: 15px;
-     display: flex;
-     justify-content: space-between;
-     z-index: 100;
- }
- 
- .modal-class>img {
-     height: 30%;
- }
- 
- .alert-eevee {
-     background-color: yellow;
-     color: black;
- }
- 
- .close {
-     color: #aaaaaa;
-     float: right;
-     font-size: 28px;
-     font-weight: bold;
- }
- 
- .close:hover,
- .close:focus {
-     color: #000;
-     text-decoration: none;
-     cursor: pointer;
- }
- 
- @media (max-width:600px) {
-     .home {
-         background-color: darkorange;
-         flex-shrink: 1;
-     }
-     main {
-         background-color: darkorchid;
-         display: block;
+/* Header */
+body{
+    margin: 0rem;
+    padding: 0rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(243, 245, 245);
+}
+.header {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-title {
+    margin: 60px;
+    font-size: 2em;
+    text-align: center;
+}
+
+.header-main {
+    padding: 0rem 5rem;
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
+
+.menu {
+    color: rgb(71, 71, 71);
+    display: flex;
+    list-style-type: none;
+}
+
+.logo {
+    margin-right: auto;
+    justify-content: center;
+    color: gray;
+}
+
+.logo:hover {
+    color: #307cbf;
+}
+.menu-buttons {
+    display: flex;
+    position: relative;
+    padding: 0.2rem 1rem;
+}
+.menu-buttons:hover {
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+}
+.menu-buttons::after {
+    content: '';
+    position: absolute;
+    width: 0rem;
+    height: 0.3rem;
+    top: 100%;
+    border-radius: 30%;
+    background-color: #307cbf;
+}
+.menu-buttons:hover::after{
+    width: 1.3rem;
+}
+
+.menu-search{ /*Menu superior*/
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.search{        /*Barra de pesquisa*/
+    padding-left: 5px;
+    margin-left: 50px;
+    width: 200px;
+    height: 30px;
+    box-sizing: border-box;
+    border-radius: 30px;
+    font-size: 100%;
+}
+.icon-search{
+    z-index: 1;
+    height: 18px;
+    position: relative;
+    left: -30px;
+}
+
+main{ 
+    margin-right: 30px;
+    margin-top: 30px;
+    display: flex;
+}
+
+.gray-box {
+    background-color: rgb(201, 201, 201);
+    padding: 0.2rem 0rem 0.2rem 0rem;
+    margin: 0rem 6rem 0rem 5rem;
+    border-radius: 0.7rem;
+}
+
+.filters-menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.filters-class{ /* Menu de filtro avançado*/
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 30px;
+    height: 600px;
+    width: 300px;
+    font-weight: bold;
+    border-right: 0.7px solid rgb(173, 170, 170);
+    position: absolute;
+    background-color: #fff;
+}
+.checkbox-type:first-child{ /*Primeira filha da caixa de checkbox*/
+    display: flex;
+    flex-direction: column;
+}
+.line{
+    display: inline-flex;
+}
+.checkbox-form{ /*Config do form checkbox*/
+    display: inline-flex;
+    font-size: 14px;
+}
+.advanced-search{ /*Botao de pesquisa avançada*/
+    list-style-type: none;
+    display: inline-flex;
+    justify-content: space-around;
+    width: 300px;
+}
+/*Botão de filtro*/
+.button-filter{
+    display: flex;
+    height: 30px;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(201, 201, 201);
+    color: rgb(29, 29, 29);
+    border: 0.7px solid rgb(201, 201, 201);
+    border-radius: 5px;
+}
+.button-filter:first-child{
+    justify-content: center;
+}
+.containers{
+    display: flex;
+    justify-content: center;
+    justify-content: space-around; 
+}
+/*Div Raiz*/
+.home{
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    line-height: 0.5px;
+    height: auto;
+}
+.view-all-class{ /*Botão ver mais/ ver menos*/
+    font-size: large;
+    padding: 10px;
+    border-radius: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card{ /* classe das novas divs */
+    border: 1px solid rgb(240, 240, 240);
+    color:  rgb(83, 80, 80);
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: rgb(255, 255, 255); 
+    margin: 15px;
+    padding: 10px 25px;
+    min-width: 220px;
+    max-width: 220px;
+    height: 130px;
+    border-radius: 5%;
+}
+.card:hover{
+    background-color: #307cbf44;
+    color: black;
+    cursor: pointer;
+}
+.card:only-child{
+    display: flex;
+    flex-direction: column;
+    /* padding: 10px; */
+    width: 55%;
+    height: 130px;
+}
+.picture{ /* imagem dos pokemons*/
+    margin: 5%;
+    margin-right: 0%;
+    padding: 5%;
+    width: 45%;
+    height: auto;
+}
+.picture:hover {
+    transform: scaleX(-1);
+  }
+  
+.button-search:hover{
+    background-color: rgb(252, 228, 11);
+    color: black;
+    cursor: pointer;  
+}
+
+.power{
+    color: white;
+    width: auto;
+    height: 25px;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+}.power :first-child{
+    padding: 2px;
+    margin: 1px;
+}
+.selector{
+    width: 100px;
+}
+/*Tipos de Pokemons*/
+.Flying{
+    color: teal;
+}
+.Ice{
+    color: rgb(142, 197, 233);
+}
+.Grass{
+    color: rgb(106, 230, 172);
+}
+.Fire{
+    color: orange;
+}
+.Water{
+    color: rgb(29, 230, 209);
+}
+.Bug{
+    color: rgb(139, 238, 119);
+}
+.Normal{
+    color: rgb(250, 110, 100);
+}
+.Poison{
+    color: rgb(210, 163, 214);
+}
+.Electric{
+    color: rgb(241, 241, 98);
+}
+.Ground{
+    color: rgb(219, 122, 58);
+}
+.Rock{
+    color: rgb(56, 56, 56);
+}
+.Fighting{
+    color: coral;
+}
+.Psychic{
+    color: crimson;
+}
+.Ghost{
+    color: darkmagenta;
+}
+.Dragon{
+    color: rgb(226, 68, 160);
+}
+.Fairy{
+    color: rgb(199, 126, 218);
+}
+
+.canvas {
+    width: 50%;
+    height: 45%;
+}
+.home-img {
+    width: 207vh;
+    height: 91.5vh;
+}
+
+.home-content {
+    background-color: white;
+    justify-content: center;
+}
+.filter-config{  
+    margin: 5px;  
+    width: 70px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.waiting {
+    position: fixed;
+    left: 0px;
+    z-index: 99;
+    width: 100%;
+    min-height: 100%;
+    background-color: rgba(14, 13, 13, 0.459);
+    display: none;
+}
+
+.wait-class {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.card-aparence {
+    /* classe das novas divs */
+    border: 1px solid rgb(240, 240, 240);
+    color: rgb(83, 80, 80);
+    background-color: rgb(255, 255, 255);
+    margin: 15px;
+    padding: 5px 25px;
+    border-radius: 20px;
+    height: 250px;
+    height: auto;
+}
+
+.modal-class {
+    position: relative;
+    top: 100px;
+    width: 350px;
+    line-height: 4px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 100;
+}
+
+.modal-class>img {
+    height: 30%;
+}
+
+.alert-eevee {
+    background-color: yellow;
+    color: black;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media (max-width:600px){
+    .home{
+        background-color: darkorange;
+        flex-shrink: 1;
      }
  }
