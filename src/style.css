@@ -274,12 +274,12 @@ main{
 }
 
 .canvas {
-    width: 50%;
-    height: 45%;
+    width: 100vh;
+    height: auto;
 }
 .home-img {
     width: 207vh;
-    height: 91.5vh;
+    height: auto;
 }
 
 .home-content {

@@ -139,6 +139,7 @@ const searchName = (p) => {
     let nameInput = document.getElementById("search").value
     nameInput = nameInput.toUpperCase()
     const elementSearched = searchFunc(p, nameInput, "name")
+    //console.log(`SearchFunc é: ${searchFunc(p, nameInput, "name")}`)
     return elementSearched
 }
 
@@ -294,55 +295,55 @@ selectPokemons()
 
 
 /*Ranking*/
-// Declaração de variáveis
-// const pokemonTypes = ['Flying', 'Ice', 'Grass', 'Fire', 'Water', 'Bug', 'Normal', 'Poison', 
-// 'Electric', 'Ground', 'Rock', 'Fighting', 'Psychic', 'Ghost', 'Dragon', 'Fairy'];
-// const pokemonTypesColor = ['teal', 'rgb(142, 197, 233)', 'rgb(106, 230, 172)',
-// 'orange', 'rgb(29, 230, 209)', 'rgb(139, 238, 119)', 'rgb(250, 110, 100)', 'rgb(210, 163, 214)', 
-// 'rgb(241, 241, 98)', 'rgb(219, 122, 58)', 'rgb(56, 56, 56)', 'coral', 'crimson', 'darkmagenta', 
-// 'rgb(226, 68, 160)', 'rgb(199, 126, 218)']; 
-// //Lógica para o cálculo de porcentagem de cada tipo 
-// let typeLength = [];
-// for(let types of pokemonTypes){
-//   let typesArray = [];
-//   pokemons.filter(function(pokemon) {
-//       if (pokemon.type.includes(types)){
-//         typesArray.push(types)
-//       }
-//     return typesArray;
-//     //typesArray = ['fire', 'fire', 'fire']
-// });
-//   typeLength.push(typesArray.length);
-//   //typeLength = [5, 0, 0, 3, 4, ...]
-// }
+//Declaração de variáveis
+const pokemonTypes = ['Flying', 'Ice', 'Grass', 'Fire', 'Water', 'Bug', 'Normal', 'Poison', 
+'Electric', 'Ground', 'Rock', 'Fighting', 'Psychic', 'Ghost', 'Dragon', 'Fairy'];
+const pokemonTypesColor = ['teal', 'rgb(142, 197, 233)', 'rgb(106, 230, 172)',
+'orange', 'rgb(29, 230, 209)', 'rgb(139, 238, 119)', 'rgb(250, 110, 100)', 'rgb(210, 163, 214)', 
+'rgb(241, 241, 98)', 'rgb(219, 122, 58)', 'rgb(56, 56, 56)', 'coral', 'crimson', 'darkmagenta', 
+'rgb(226, 68, 160)', 'rgb(199, 126, 218)']; 
+//Lógica para o cálculo de porcentagem de cada tipo 
+let typeLength = [];
+for(let types of pokemonTypes){
+  let typesArray = [];
+  pokemons.filter(function(pokemon) {
+      if (pokemon.type.includes(types)){
+        typesArray.push(types)
+      }
+    return typesArray;
+    //typesArray = ['fire', 'fire', 'fire']
+});
+  typeLength.push(typesArray.length);
+  //typeLength = [5, 0, 0, 3, 4, ...]
+}
 
-// let percent = [];
-// const typesPercent = typeLength.map(function(lengthArray){
-//   percent = ((lengthArray/pokemons.length)*100);
-//   return percent;
-//   //percent = [12.58, 3.33, 9.27, ...]
-// });
+let percent = [];
+const typesPercent = typeLength.map(function(lengthArray){
+  percent = ((lengthArray/pokemons.length)*100);
+  return percent;
+  //percent = [12.58, 3.33, 9.27, ...]
+});
 
-// // Função Gráfico
-// const typeChart = new Chart(document.getElementById('type-chart').getContext('2d'), {
-//     //o tipo de gráfico
-//     type: 'bar',
-//     //dados do gráfico
-//     data: {
-//         labels: pokemonTypes,
-//         datasets: [{
-//             backgroundColor: pokemonTypesColor,
-//             data: typesPercent
-//         }]
-//     },
-//     // Configuração de título - display: true faz o título aparecer na tela
-//     options: {
-//         title: {
-//             text: 'Porcentagem de tipos de Pokémons',
-//             display: true
-//         },
-//         legend: {
-//             display: false
-//         }
-//     }
-// });
+// Função Gráfico
+new Chart(document.getElementById('type-chart').getContext('2d'), {
+    //o tipo de gráfico
+    type: 'bar',
+    //dados do gráfico
+    data: {
+        labels: pokemonTypes,
+        datasets: [{
+            backgroundColor: pokemonTypesColor,
+            data: typesPercent
+        }]
+    },
+    // Configuração de título - display: true faz o título aparecer na tela
+    options: {
+        title: {
+            text: 'Porcentagem de tipos de Pokémons',
+            display: true
+        },
+        legend: {
+            display: false
+        }
+    }
+});

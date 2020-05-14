@@ -23,7 +23,7 @@ describe('searchFunc', () => {
   });
 
   it('returns searched name', () => {
-    expect(searchFunc(comidas, "Tapioca", "name")).toEqual([{"name": "Tapioca"}]);
+  expect(searchFunc(comidas, "Tapi", "name")).toEqual([{"id": 2, "name": "Tapioca"}]);
   });
 }); 
 
@@ -82,7 +82,6 @@ describe('checkType', () => {
   it('is a function', () => {
     expect(typeof checkType).toBe('function');
   });
-  it('')
 });
 
 describe('height', () => {
