@@ -251,12 +251,6 @@ main {
     transform: scaleX(-1);
 }
 
-.button-search:hover {
-    background-color: rgb(252, 228, 11);
-    color: black;
-    cursor: pointer;
-}
-
 .power {
     color: white;
     width: auto;
@@ -524,5 +518,15 @@ main {
         list-style: none;
         position: relative;
         left: -3em;
+    }
+    .heights-menu {
+        padding: 10px;
+    }
+    .filters-class {
+        width: 80%;
+        margin: 0px;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
     }
 }
