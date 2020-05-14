@@ -18,11 +18,12 @@ const creatCard = (pokemons, info = [], infoEx) => {
     const cardInformation = document.createElement("div") //cria div das informações
     const power = document.createElement("div")
     img.src = pokemons.img // coloca o endereço da imagem
+    cardInformation.classList.add("information")
     card.classList.add("card")
     img.classList.add("picture") // coloca uma classe na imagem
     let namePokemons = pokemons.name.replace("(Female)", "")
     namePokemons = namePokemons.replace("(Male)", "")
-    cardInformation.innerHTML += `<br><h5 class=${pokemons.type[0]}>#${pokemons.num}</h5><br><h3>${namePokemons.toUpperCase()}</h4><br>` // coloca o nameInput
+    cardInformation.innerHTML += `<h5 class=${pokemons.type[0]}>#${pokemons.num}</h5><h5>${namePokemons.toUpperCase()}</h5>` // coloca o nameInput
 
     info.forEach(info => {
         cardInformation.innerHTML += `<h5><span class=${pokemons.type[0]}>${info}:</span>${pokemons[info]}</h5>`
@@ -30,7 +31,7 @@ const creatCard = (pokemons, info = [], infoEx) => {
 
 
     if (typeof infoEx == 'string')
-        cardInformation.innerHTML += `<h6>${infoEx}</h6>`
+        cardInformation.innerHTML += `<h5>${infoEx}</h5>`
     else if (typeof infoEx === 'number')
         cardInformation.innerHTML += `<h5><span class=${pokemons.type[0]}>CP: </span>${infoEx}</h5>`
     else if (typeof infoEx === 'object') {
@@ -39,13 +40,9 @@ const creatCard = (pokemons, info = [], infoEx) => {
         for (let i in infoEx) {
             if (i === 1)
                 cp = "CP Max:"
-            cardInformation.innerHTML += `<h5><span class=${pokemons.type[0]}>${cp}</span>${infoEx[i]}</h5>`
+            cardInformation.innerHTML += `<h5><span class=${pokemons.type[0]}>${cp}</span>${Math.round(infoEx[i])}</h5>`
         }
     }
-
-
-
-
 
     pokemons.type.forEach(a => {
         const powerType = document.createElement("div")
@@ -54,9 +51,9 @@ const creatCard = (pokemons, info = [], infoEx) => {
         powerType.innerHTML += `<h5>${a}</h5>` //${pokemons.type[1] = pokemons.type[1] || ""}</h5>` // coloca o tipo
         power.appendChild(powerType)
     });
+    card.appendChild(img) //coloca a imagem na nova div
     cardInformation.appendChild(power)
     card.appendChild(cardInformation) // coloca informações no card
-    card.appendChild(img) //coloca a imagem na nova div
     return card
 }
 
@@ -180,7 +177,7 @@ const advancedSearch = () => {
     const pokemonsType = pokemons.filter(typeFunction) //.map(print)
     const heightArray = getHeight() //.map(print)
     const orderBy = document.getElementById("browsers").value
-    orderList(orderBy,searchName(concatFilters(pokemonsType, heightArray,pokemons))).map(print)
+    orderList(orderBy, searchName(concatFilters(pokemonsType, heightArray, pokemons))).map(print)
 }
 const functionMenu = () => {
     document.querySelectorAll(".screen").forEach((screen) => screen.style.display = "none")
@@ -285,8 +282,16 @@ document.getElementById("menu-filter").addEventListener('click', filters)
 document.getElementById("reset-search").addEventListener('click', resetSearch)
 document.getElementById("input-cp").addEventListener('input', () => {
     document.getElementById("startCalculator").disabled = false
+    document.getElementById("startCalculator").style.color = "black"
 })
 document.getElementById("startCalculator").addEventListener('click', () => calculator(pokemons))
+document.getElementById("menu-open").addEventListener('click', () => {
+    const menu = document.getElementById("disappear")
+        //if (menu.style.display === "none")
+    menu.style.display === "none" ? menu.style.display = "block" : menu.style.display = "none"
+    main()
+})
+
 functionMenu()
 main()
 selectPokemons()
