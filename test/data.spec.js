@@ -1,4 +1,4 @@
-import { searchFunc, orderList, typeFunctionConcat, checkType, height, concatFilters} from '../src/data.js';
+import { searchFunc, orderList, typeFunctionConcat, height, concatFilters} from '../src/data.js';
 
 const comidinhasTop = {
   "comidinhas": [
@@ -23,8 +23,11 @@ describe('searchFunc', () => {
   });
 
   it('returns searched name', () => {
-  expect(searchFunc(comidas, "Tapi", "name")).toEqual([{"id": 2, "name": "Tapioca"}]);
+  expect(searchFunc(comidas, "batata", "name")).toEqual([{"id": 1, "name": "Batata frita"}]);
   });
+  it('returns searched name', () => {
+    expect(searchFunc(comidas, "bat", "name")).toEqual([{"id": 1, "name": "Batata frita"}]);
+    });
 }); 
 
 describe('orderList', () => {
@@ -67,7 +70,7 @@ describe('orderList', () => {
 const typeFilter = [{"type": ["fritura","massa"]}, {"type": ["massa"]}];
 const weaknessFilter = [{"weakness": ["fritura", "glúten"]}, {"weakness": ["glúten"]}];
 const foodArray = [{"type": ["fritura","massa"]}, {"type": ["massa"]}, {"weakness": ["fritura", "glúten"]}, {"weakness": ["glúten"]},
-{"weakness": ["lactose"]}]
+{"weakness": ["lactose"]}];
 
 describe('typeFunctionConcat', () => {
   it('is a function', () => {
@@ -76,12 +79,6 @@ describe('typeFunctionConcat', () => {
   it('returns the sum of weakness and type filter', () => {
     expect(typeFunctionConcat(weaknessFilter, typeFilter, foodArray)).toEqual([{"type": ["fritura","massa"]}, {"type": ["massa"]}, {"weakness": ["fritura", "glúten"]}, {"weakness": ["glúten"]}]);
   })
-});
-
-describe('checkType', () => {
-  it('is a function', () => {
-    expect(typeof checkType).toBe('function');
-  });
 });
 
 describe('height', () => {
@@ -95,6 +92,6 @@ describe('concatFilters', () => {
     expect(typeof concatFilters).toBe('function');
   });
   it('returns the array filtered by two diferent filters', () => {
-    expect(concatFilters(["a","a","a"], ["b","b"], ["a","b","a","d","b","c","e","a","i"])).toEqual(["a","b","a","b","a","a"])
+    expect(concatFilters(["a","b","b","c"], ["b","c"], ["a","b","a","d","b","c","e","a","i"])).toEqual(["b","b","c"])
   })
 });

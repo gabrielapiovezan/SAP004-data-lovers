@@ -71,14 +71,14 @@ export const concatFilters = (pokemonsType, heightArray, pokemons) => {
 recebe como parâmetro entrada de checkbox  
 retorna um array com o valor dos elementos selecionados
 */
-export const checkType = (a) => {
-    const newArray = []
-    for (let i of a) {
-        if (i.checked)
-            newArray.push(i.value)
-    }
-    return newArray
-}
+// export const checkType = (a) => {
+//     const newArray = []
+//     for (let i of a) {
+//         if (i.checked)
+//             newArray.push(i.value)
+//     }
+//     return newArray
+// }
 
 /*Função que divide em intervalos as alturas dos pokemons 
 tirando os ultimos elementos que apresentavam um desvio padrão muito alto
@@ -131,6 +131,7 @@ export const typeFunctionConcat = (checkboxWeakness, checkboxType, p) => { /*Ver
 /*pesquisa uma palavra, recebe como parâmetro um array e uma string
 ele pesquisa a string no parâmetro*/
 export const searchFunc = (p, nameInput, parameter) => {
+    nameInput = nameInput.toUpperCase()
     return p.filter((p) => {
         return nameInput === p[parameter].slice(0, -(p[parameter].length - nameInput.length)).toUpperCase() || nameInput === p[parameter].toUpperCase()
     })

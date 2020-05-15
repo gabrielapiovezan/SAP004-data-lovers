@@ -1,5 +1,5 @@
 /*Bloco de configurações*/
-import { searchFunc, orderList, typeFunctionConcat, checkType, height, concatFilters, startCalculador } from './data.js';
+import { searchFunc, orderList, typeFunctionConcat, height, concatFilters, startCalculador } from './data.js';
 import data from './data/pokemon/pokemon.js';
 //import { RuleTester } from 'eslint';
 const root = document.getElementById("root") // import div
@@ -42,9 +42,6 @@ const creatCard = (pokemons, info = [], infoEx) => {
             cardInformation.innerHTML += `<h5><span class=${pokemons.type[0]}>${cp}</span>${infoEx[i]}</h5>`
         }
     }
-
-
-
 
 
     pokemons.type.forEach(a => {
@@ -137,9 +134,7 @@ const viewAllElement = () => {
 const searchName = (p) => {
     clearDisplay()
     let nameInput = document.getElementById("search").value
-    nameInput = nameInput.toUpperCase()
     const elementSearched = searchFunc(p, nameInput, "name")
-    //console.log(`SearchFunc é: ${searchFunc(p, nameInput, "name")}`)
     return elementSearched
 }
 
@@ -147,7 +142,17 @@ const searchName = (p) => {
 const filters = () => {
         const filterMenuDysplay = filtersMenu.style.display
         filtersMenu.style.display = filterMenuDysplay === "block" ? "none" : "block"
+}
+
+const checkType = (a) => {
+    const newArray = []
+    for (let i of a) {
+        if (i.checked)
+            newArray.push(i.value)
     }
+    return newArray
+}
+
     /*Funcao que verifica os tipos e fraquezas*/
 const typeFunction = (p) => {
     /*Puxa os checkboxs */
