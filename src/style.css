@@ -66,8 +66,9 @@ h5 {
     content: '';
     position: absolute;
     width: 0rem;
+    top: 27px;
     height: 0.3rem;
-    top: 100%;
+    left: 9px;
     border-radius: 30%;
     background-color: #307cbf;
 }
@@ -516,7 +517,7 @@ h2 {
         justify-content: center;
     }
     .menu-buttons::after {
-        top: 27px;
+        left: 150px;
     }
     #menu-open>img {
         position: absolute;

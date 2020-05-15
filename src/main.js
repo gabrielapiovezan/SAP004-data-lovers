@@ -249,7 +249,6 @@ const calculator = (pokemons) => {
             if (select.value === a.name)
                 return true
         })
-
         let evolutuin
         const cpResult = startCalculador(cp, pokemon[0])
         if (pokemon[0].next_evolution) {
