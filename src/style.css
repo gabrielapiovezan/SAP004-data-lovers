@@ -259,6 +259,11 @@ main {
     transform: scaleX(-1);
 }
 
+.margin-text-type {
+    margin-left: 52px;
+    margin-right: 10px;
+}
+
 .power {
     color: white;
     width: auto;
@@ -425,6 +430,7 @@ h2 {
     position: relative;
     top: 100px;
     width: 350px;
+    line-height: 30px;
     padding: 15px;
     display: flex;
     justify-content: space-between;
@@ -571,5 +577,9 @@ h2 {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+    .margin-text-type {
+        margin-right: 10px;
+        margin-left: 0px;
     }
 }

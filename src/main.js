@@ -62,7 +62,7 @@ const createModal = (pokemons) => { ////////////////////////////////////////////
     const waiting = document.getElementsByClassName("waiting")[0]
     waiting.style.display = "block"
     const info = ["height", "weight"]
-    const card = creatCard(pokemons, info)
+    const card = creatCard(pokemons, info, pokemons.weakness)
     card.innerHTML += '<span class="close">&times;</span>'
     card.classList.remove("card")
     card.classList.add("modal-class", "card-aparence")
