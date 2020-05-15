@@ -1,10 +1,16 @@
 /* Header */
-body{
+
+body {
     margin: 0rem;
     padding: 0rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: rgb(243, 245, 245);
+    background-color: rgb(250, 250, 250)
 }
+
+h5 {
+    margin: 5px;
+}
+
 .header {
     display: flex;
     flex-direction: column;
@@ -12,15 +18,18 @@ body{
 
 .header-title {
     margin: 60px;
-    font-size: 2em;
+    font-size: 34px;
     text-align: center;
+    letter-spacing: 8px;
 }
 
 .header-main {
-    padding: 0rem 5rem;
-    background-color: white;
+    padding: 1rem 5rem;
+    /* background-color: white; */
+    /* background-color: rgb(243, 245, 245); */
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .menu {
@@ -37,36 +46,56 @@ body{
 
 .logo:hover {
     color: #307cbf;
+    cursor: pointer;
 }
+
 .menu-buttons {
-    display: flex;
+    padding-inline-start: 0px;
+    list-style-type: none;
     position: relative;
-    padding: 0.2rem 1rem;
+    padding: 10px;
 }
+
 .menu-buttons:hover {
     font-weight: bold;
     color: black;
     cursor: pointer;
 }
+
 .menu-buttons::after {
     content: '';
     position: absolute;
     width: 0rem;
+    bottom: 0;
     height: 0.3rem;
-    top: 100%;
+    left: 9px;
     border-radius: 30%;
     background-color: #307cbf;
 }
-.menu-buttons:hover::after{
+
+.menu-buttons:hover::after {
     width: 1.3rem;
 }
 
-.menu-search{ /*Menu superior*/
+.menu-search {
+    /*Menu superior*/
     width: 100%;
     display: flex;
     align-items: center;
 }
-.search{        /*Barra de pesquisa*/
+
+#disappear {
+    display: inline-flex;
+}
+
+.button-filter>img {
+    width: 20px;
+    height: auto;
+}
+
+.search {
+    /*Barra de pesquisa*/
+    background-color: rgb(243, 245, 245);
     padding-left: 5px;
     margin-left: 50px;
     width: 200px;
@@ -75,24 +104,33 @@ body{
     border-radius: 30px;
     font-size: 100%;
 }
-.icon-search{
+
+.icon-search {
     z-index: 1;
     height: 18px;
     position: relative;
     left: -30px;
 }
 
-main{ 
-    margin-right: 30px;
-    margin-top: 30px;
+main {
+    margin: 10px 10%;
     display: flex;
 }
 
 .gray-box {
-    background-color: rgb(201, 201, 201);
-    padding: 0.2rem 0rem 0.2rem 0rem;
-    margin: 0rem 6rem 0rem 5rem;
-    border-radius: 0.7rem;
+    background-color: rgb(240, 238, 238);
+    /* padding: 0.2rem 0rem 0.2rem 0rem;
+    margin: 0rem 6rem 0rem 5rem;*/
+    border-radius: 20px;
+    width: 80%;
+}
+
+.filters {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: turquoise; */
 }
 
 .filters-menu {
@@ -100,65 +138,91 @@ main{
     justify-content: space-around;
     align-items: center;
 }
-.filters-class{ /* Menu de filtro avançado*/
+
+.filters-class {
+    /* Menu de filtro avançado*/
     justify-content: space-between;
     flex-direction: column;
     padding: 30px;
-    height: 600px;
-    width: 300px;
+    height: 400px;
+    width: 100%;
     font-weight: bold;
-    border-right: 0.7px solid rgb(173, 170, 170);
-    position: absolute;
+    /* border-right: 0.7px solid rgb(173, 170, 170); */
+    /* position: absolute; */
     background-color: #fff;
 }
-.checkbox-type:first-child{ /*Primeira filha da caixa de checkbox*/
+
+.checkbox-type:first-child {
+    /*Primeira filha da caixa de checkbox*/
     display: flex;
     flex-direction: column;
 }
-.line{
+
+.line {
     display: inline-flex;
 }
-.checkbox-form{ /*Config do form checkbox*/
+
+.checkbox-form {
+    /*Config do form checkbox*/
     display: inline-flex;
     font-size: 14px;
 }
-.advanced-search{ /*Botao de pesquisa avançada*/
+
+.advanced-search {
+    /*Botao de pesquisa avançada*/
     list-style-type: none;
     display: inline-flex;
     justify-content: space-around;
     width: 300px;
 }
+
+
 /*Botão de filtro*/
-.button-filter{
+
+.button-filter {
     display: flex;
     height: 30px;
     width: 100px;
+    margin: 0px 3px;
     align-items: center;
     justify-content: center;
-    background-color: rgb(201, 201, 201);
+    background-color: rgb(243, 241, 241);
+    /* background-color: rgb(201, 201, 201); */
     color: rgb(29, 29, 29);
-    border: 0.7px solid rgb(201, 201, 201);
+    border: 0.7px solid rgb(233, 233, 233);
+    ;
     border-radius: 5px;
 }
-.button-filter:first-child{
+
+.button-filter:first-child {
     justify-content: center;
 }
-.containers{
+
+.button-filter:hover {
+    color: black;
+    cursor: pointer;
+}
+
+.containers {
     display: flex;
     justify-content: center;
-    justify-content: space-around; 
+    justify-content: space-around;
 }
+
+
 /*Div Raiz*/
-.home{
+
+.home {
     flex-grow: 1;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center;
-    line-height: 0.5px;
     height: auto;
 }
-.view-all-class{ /*Botão ver mais/ ver menos*/
+
+.view-all-class {
+    /*Botão ver mais/ ver menos*/
     font-size: large;
     padding: 10px;
     border-radius: 5%;
@@ -166,49 +230,41 @@ main{
     align-items: center;
     justify-content: center;
 }
-.card{ /* classe das novas divs */
-    border: 1px solid rgb(240, 240, 240);
-    color:  rgb(83, 80, 80);
-    display: flex;
-    flex-flow: row nowrap;
-    background-color: rgb(255, 255, 255); 
-    margin: 15px;
-    padding: 10px 25px;
-    min-width: 220px;
-    max-width: 220px;
-    height: 130px;
-    border-radius: 5%;
-}
-.card:hover{
-    background-color: #307cbf44;
-    color: black;
-    cursor: pointer;
-}
-.card:only-child{
+
+.card {
+    color: rgb(83, 80, 80);
     display: flex;
     flex-direction: column;
-    /* padding: 10px; */
-    width: 55%;
-    height: 130px;
-}
-.picture{ /* imagem dos pokemons*/
-    margin: 5%;
-    margin-right: 0%;
-    padding: 5%;
-    width: 45%;
-    height: auto;
-}
-.picture:hover {
-    transform: scaleX(-1);
-  }
-  
-.button-search:hover{
-    background-color: rgb(252, 228, 11);
-    color: black;
-    cursor: pointer;  
+    justify-content: center;
+    margin: 10px;
+    padding: 20px;
+    width: 100px;
+    height: 210px;
+    border-radius: 5%;
 }
 
-.power{
+.information {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.picture {
+    /* imagem dos pokemons*/
+    margin: 0px;
+    height: auto;
+}
+
+.picture:hover {
+    transform: scaleX(-1);
+}
+
+.margin-text-type {
+    margin-left: 52px;
+    margin-right: 10px;
+}
+
+.power {
     color: white;
     width: auto;
     height: 25px;
@@ -216,92 +272,138 @@ main{
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
-}.power :first-child{
+}
+
+.power :first-child {
     padding: 2px;
     margin: 1px;
 }
-.selector{
+
+.selector {
     width: 100px;
 }
+
+
 /*Tipos de Pokemons*/
-.Flying{
+
+.Flying {
     color: teal;
 }
-.Ice{
+
+.Ice {
     color: rgb(142, 197, 233);
 }
-.Grass{
+
+.Grass {
     color: rgb(106, 230, 172);
 }
-.Fire{
+
+.Fire {
     color: orange;
 }
-.Water{
+
+.Water {
     color: rgb(29, 230, 209);
 }
-.Bug{
+
+.Bug {
     color: rgb(139, 238, 119);
 }
-.Normal{
+
+.Normal {
     color: rgb(250, 110, 100);
 }
-.Poison{
+
+.Poison {
     color: rgb(210, 163, 214);
 }
-.Electric{
+
+.Electric {
     color: rgb(241, 241, 98);
 }
-.Ground{
+
+.Ground {
     color: rgb(219, 122, 58);
 }
-.Rock{
+
+.Rock {
     color: rgb(56, 56, 56);
 }
-.Fighting{
+
+.Fighting {
     color: coral;
 }
-.Psychic{
+
+.Psychic {
     color: crimson;
 }
-.Ghost{
+
+.Ghost {
     color: darkmagenta;
 }
-.Dragon{
+
+.Dragon {
     color: rgb(226, 68, 160);
 }
-.Fairy{
+
+.Fairy {
     color: rgb(199, 126, 218);
 }
 
 .canvas {
-    width: 100vh;
-    height: auto;
+    width: 50%;
+    height: 45%;
 }
 
-.flex {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.card:hover h5 {
+    background-color: rgb(252, 228, 11);
+    color: black;
+    cursor: pointer;
+}
+
+.card:hover {
+    background-color: rgb(252, 228, 11);
+    color: black;
+    cursor: pointer;
+}
+
+.text {
+    margin: 0rem 6rem 0rem 5rem;
+    color: rgb(82, 80, 80);
+    /* display: flex;
+    flex-wrap: wrap; */
+}
+
+p {
+    line-height: 30px;
+    text-align: justify;
+}
+
+h2 {
+    line-height: 40px;
 }
 
 .home-box {
-    /* width: 100%;
-    height: 100%; */
-    margin: 3px;
-    padding: 2%;
-    width: 100vh;
-    height: auto;
-    background-color: teal;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-image: url(homepokemon.jpg);
+    filter: grayscale(50%);
 }
 
 .home-content {
     background-color: white;
-    position: absolute;
     text-align: center;
     align-self: center;
+    width: 80%;
+    height: fit-content;
+    margin: 0rem 6rem 0rem 5rem;
+    padding: 3rem 5rem;
+    border-radius: 8px;
 }
-.filter-config{  
-    margin: 5px;  
+
+.filter-config {
+    margin: 5px;
     width: 70px;
     display: inline-flex;
     align-items: center;
@@ -326,11 +428,7 @@ main{
 }
 
 .card-aparence {
-    /* classe das novas divs */
-    border: 1px solid rgb(240, 240, 240);
-    color: rgb(83, 80, 80);
-    background-color: rgb(255, 255, 255);
-    margin: 15px;
+    margin: 20px;
     padding: 5px 25px;
     border-radius: 20px;
     height: 250px;
@@ -341,11 +439,16 @@ main{
     position: relative;
     top: 100px;
     width: 350px;
-    line-height: 4px;
+    line-height: 30px;
     padding: 15px;
     display: flex;
     justify-content: space-between;
     z-index: 100;
+    background-color: white;
+}
+
+.modal-class:first-child {
+    margin: 10px;
 }
 
 .modal-class>img {
@@ -371,9 +474,126 @@ main{
     cursor: pointer;
 }
 
-@media (max-width:600px){
-    .home{
-        background-color: darkorange;
-        flex-shrink: 1;
-     }
- }
+#menu-open {
+    display: none;
+}
+
+.calculator-main {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+@media (max-width: 600px) {
+    * {
+        align-items: center;
+        margin: 0px;
+    }
+    .config-mobile {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin: 20px 0px;
+    }
+    .text {
+        margin: 0;
+    }
+    p {
+        line-height: 30px;
+        text-align: justify;
+    }
+    h2 {
+        line-height: 40px;
+    }
+    .logo {
+        padding: 15px;
+    }
+    #menu-open {
+        display: block;
+        flex-direction: row-reverse;
+        /* margin-left: 15px; */
+    }
+    .header-main {
+        /* display: block; */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        padding: 15px;
+        text-transform: uppercase;
+        background-color: transparent;
+    }
+    .menu-buttons {
+        padding: 0px;
+        padding: 10px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .menu-buttons::after {
+        left: 150px;
+    }
+    #menu-open {
+        position: absolute;
+        top: 35px;
+        right: 35px;
+    }
+    #menu-open:hover {
+        border-radius: 5px;
+        background-color: rgb(219, 217, 217);
+    }
+    .header-title {
+        margin: 20px;
+    }
+    .filters-menu {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .gray-box {
+        width: 85%;
+    }
+    .header-title {
+        font-size: 25px;
+    }
+    .screen {
+        align-items: center;
+        justify-content: center;
+    }
+    #disappear {
+        list-style: none;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        padding: 0px;
+        width: 100%;
+    }
+    .heights-menu {
+        padding: 10px;
+    }
+    .filters-class {
+        width: 80%;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    .card {
+        padding: 10px;
+    }
+    .img-calc {
+        transform: rotate(90deg);
+    }
+    .calculator-main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .margin-text-type {
+        margin-right: 10px;
+        margin-left: 0px;
+    }
+}
