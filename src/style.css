@@ -544,7 +544,7 @@ h2 {
     }
     #disappear {
         list-style: none;
-        display: block;
+        display: none;
         justify-content: center;
         align-items: center;
         padding: 0px;
