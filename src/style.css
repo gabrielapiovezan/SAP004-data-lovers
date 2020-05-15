@@ -386,7 +386,7 @@ h2 {
 .home-box {
     display: flex;
     width: 100%;
-    height: 100vh;
+    height: 90vh;
     background-image: url(homepokemon.jpg);
     filter: grayscale(50%);
 }

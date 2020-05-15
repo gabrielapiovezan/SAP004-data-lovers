@@ -1,4 +1,4 @@
-import { searchFunc, orderList, typeFunctionConcat, height, concatFilters} from '../src/data.js';
+import { searchFunc, orderList, resultPokemons, concatFilters, startCalculador, order } from '../src/data.js';
 
 const comidinhasTop = {
   "comidinhas": [
@@ -16,6 +16,12 @@ const comidinhasTop = {
     }]}
 
     const comidas = comidinhasTop.comidinhas;
+
+describe('order', () => {
+  it('is a function', () => {
+    expect(typeof order).toBe('function');
+  });
+});
 
 describe('searchFunc', () => {
   it('is a function', () => {
@@ -67,23 +73,17 @@ describe('orderList', () => {
   });
 });
 
-const typeFilter = [{"type": ["fritura","massa"]}, {"type": ["massa"]}];
-const weaknessFilter = [{"weakness": ["fritura", "glúten"]}, {"weakness": ["glúten"]}];
-const foodArray = [{"type": ["fritura","massa"]}, {"type": ["massa"]}, {"weakness": ["fritura", "glúten"]}, {"weakness": ["glúten"]},
-{"weakness": ["lactose"]}];
+// const foodArray = [{"type": ["fritura","massa"], "weakness": ["glúten"]}, {"type": ["massa"], "weakness": ["fritura", "glúten"]},
+// {"type": ["glúten"], "weakness": ["lactose"]}];
 
-describe('typeFunctionConcat', () => {
+const altura = [{"height": "1.19 m"}, {"height": "0.30 m"}, {"height": "2.02 m"}];
+
+describe('resultPokemons', () => {
   it('is a function', () => {
-    expect(typeof typeFunctionConcat).toBe('function');
+    expect(typeof resultPokemons).toBe('function');
   });
-  it('returns the sum of weakness and type filter', () => {
-    expect(typeFunctionConcat(weaknessFilter, typeFilter, foodArray)).toEqual([{"type": ["fritura","massa"]}, {"type": ["massa"]}, {"weakness": ["fritura", "glúten"]}, {"weakness": ["glúten"]}]);
-  })
-});
-
-describe('height', () => {
-  it('is a function', () => {
-    expect(typeof height).toBe('function');
+  it('returns data filtered by height', () => {
+    expect(resultPokemons(altura, 1, 0)).toEqual([{"height": "0.30 m"}]);
   });
 });
 
@@ -94,4 +94,18 @@ describe('concatFilters', () => {
   it('returns the array filtered by two diferent filters', () => {
     expect(concatFilters(["a","b","b","c"], ["b","c"], ["a","b","a","d","b","c","e","a","i"])).toEqual(["b","b","c"])
   })
+});
+
+const evolução = [{"name": "Nanosaur", "multipliers": [3]}];
+const evolução2 = [{"name": "Nanosaur", "multipliers": [3, 4]}];
+describe('startCalculator', () => {
+  it('is a function', () => {
+    expect(typeof startCalculador).toBe('function');
+  });
+  it('returns CP input * multipliers', () => {
+    expect(startCalculador(4, evolução[0])).toEqual([12]);
+  });
+  it('returns CP input * multipliers[a,b]', () => {
+    expect(startCalculador(5, evolução2[0])).toEqual([15, 20]);
+  });
 });

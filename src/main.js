@@ -1,5 +1,5 @@
 /*Bloco de configurações*/
-import { searchFunc, orderList, typeFunctionConcat, height, concatFilters, startCalculador } from './data.js';
+import { searchFunc, orderList, resultPokemons, concatFilters, startCalculador, order } from './data.js';
 import data from './data/pokemon/pokemon.js';
 //import { RuleTester } from 'eslint';
 const root = document.getElementById("root") // import div
@@ -153,6 +153,21 @@ const checkType = (a) => {
     return newArray
 }
 
+const typeFunctionConcat = (checkboxWeakness, checkboxType, p) => { /*Verifica os tipos*/
+    for (let i of checkboxType) {
+        for (let j of p.type) { 
+            if (i === j)                 
+            return true        
+        }
+    }
+    for (let i of checkboxWeakness) {
+        for (let j of p.weaknesses) {
+            if (j === i)
+                return true
+        }
+    }
+}
+
     /*Funcao que verifica os tipos e fraquezas*/
 const typeFunction = (p) => {
     /*Puxa os checkboxs */
@@ -160,6 +175,24 @@ const typeFunction = (p) => {
     const checkboxWeakness = checkType(checkbox.weakness)
     const checkboxType = checkType(checkbox.option)
     return typeFunctionConcat(checkboxWeakness, checkboxType, p)
+}
+
+const height = (heightPokemon, pokemons) => {
+    let newArray = order(pokemons, "height")
+    let average = (parseFloat(newArray[newArray.length - 4].height) - parseFloat(newArray[0].height)) / 3
+    let resultMin
+    let resultMax
+    if (heightPokemon == "l") {
+        resultMax = average
+        resultMin = 0
+    } else if (heightPokemon == "m") {
+        resultMax = 2 * average
+        resultMin = average
+    } else {
+        resultMax = Math.ceil(parseFloat(newArray[newArray.length - 1].height))
+        resultMin = 2 * average
+    }
+    return resultPokemons(pokemons, resultMax, resultMin)
 }
 
 /*Função que reseta o menu avançado*/
