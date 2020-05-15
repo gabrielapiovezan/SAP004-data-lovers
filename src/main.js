@@ -287,7 +287,6 @@ document.getElementById("input-cp").addEventListener('input', () => {
 document.getElementById("startCalculator").addEventListener('click', () => calculator(pokemons))
 document.getElementById("menu-open").addEventListener('click', () => {
     const menu = document.getElementById("disappear")
-        //if (menu.style.display === "none")
     menu.style.display === "none" ? menu.style.display = "block" : menu.style.display = "none"
     main()
 })

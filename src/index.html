@@ -14,16 +14,22 @@
         <div id="wait" class="wait-class"></div>
     </div>
     <header class="header">
-        <span class="logo-mobile"><div class="header-main">
-            <span class="logo"><img src="img/icon-pokeball.png">Poke<strong>Type</strong></span>
-        <li class="menu-buttons" id="menu-open">Menu <img src="img/icon-cardapio.png"> </li>
-        </span>
-        <ul id="disappear">
-            <li class="menu-buttons" id="home-menu">Home</li>
-            <li class="menu-buttons" id="main-menu">Pokémons</li>
-            <li class="menu-buttons" id="comparation-menu">Calculadora de evolução</li>
-            <li class="menu-buttons" id="ranking-menu">Estatísticas</li>
-        </ul>
+        <div class="header-main">
+            <div class="config-mobile">
+                <span class="logo-mobile">
+            <span class="logo"><img src="img/icon-pokeball.png">Poke<strong>Type</strong>
+            </span>
+                </span>
+                <span class="menu-buttons" id="menu-open">Menu <img src="img/icon-cardapio.png">
+            </span>
+            </div>
+
+            <ul id="disappear">
+                <li class="menu-buttons" id="home-menu">Home</li>
+                <li class="menu-buttons" id="main-menu">Pokémons</li>
+                <li class="menu-buttons" id="comparation-menu">Calculadora de evolução</li>
+                <li class="menu-buttons" id="ranking-menu">Estatísticas</li>
+            </ul>
         </div>
     </header>
     <section class="screen" id="home">
@@ -41,48 +47,47 @@
     <section class="screen" id="comparation">
         <h1 class="header-title">CALCULADORA DE EVOLUÇÃO</h1>
         <header>
-            <div class="filters filters-menu gray-box">
-                <select class="button-filter" id="select-pokemons">
+            <div class="filters">
+                <div class="filters-menu gray-box">
+                    <select class="button-filter" id="select-pokemons">
                 </select>
-                <input class="button-filter" id="input-cp" type="number" min="1" max="5000" placeholder="CP">
-                <button class="button-filter" id="startCalculator">Calcular</button>
+                    <input class="button-filter" id="input-cp" type="number" min="1" max="5000" placeholder="CP">
+                    <button class="button-filter" id="startCalculator">Calcular</button>
+                </div>
             </div>
         </header>
-        <main id="calculator-main" class="home">
+        <main class="home">
             <div class="text">
                 <p>Com a Calculadora de evolução os jogadores do Pokémon Go podem saber quandos candys precisam dar para o seu pokémon evoluir e também qual o Combat Power (CP) resultante da evolução.</p>
                 <h2>Modo de usar</h2>
                 <p>Escolha o seu pokémon e coloque o CP respectivo, click e calcular e pronto! </p>
                 <p>Vamos nessa?</p>
             </div>
+            <div id="calculator-main"></div>
         </main>
     </section>
     <section class="screen" id="main">
         <h1 class="header-title">POKÉMON</h1>
-        <div class="filters filters-menu gray-box">
-
-
-
-
-
-            <div class="filters-menu">
+        <div class="filters">
+            <div class="filters-menu gray-box">
                 <form class="button-filter menu-search">
                     <input id="search" type="text" class="search" placeholder="Nome do Pokémon">
                     <img class="icon-search" src="img/icon-search-40.png" alt="search">
                 </form>
-            </div>
-            <div class="filters-menu">
-                <div class="containers">
-                    <button class="button-filter" id="menu-filter">Filtros<img  src="img/icons8-filtro-25.png" ></button>
-                    <form>
-                        <select id="browsers" class="button-filter">     
+
+                <div class="filters-menu">
+                    <div class="containers">
+                        <button class="button-filter" id="menu-filter">Filtros<img  src="img/icons8-filtro-25.png" ></button>
+                        <form>
+                            <select id="browsers" class="button-filter">     
           <option value="">Ordenar por</option>
           <option value="0">De A a Z</option>
           <option value="1">De Z a A</option>
           <option value="2">Do menor para o maior</option>
           <option value="3">Do maior para o menor</option>
         </select>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
