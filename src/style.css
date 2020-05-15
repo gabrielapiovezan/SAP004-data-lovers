@@ -485,7 +485,7 @@ h2 {
         display: flex;
         justify-content: space-between;
         width: 100%;
-        margin-bottom: 10px;
+        margin: 20px 0px;
     }
     .text {
         margin: 0;
@@ -525,9 +525,14 @@ h2 {
     .menu-buttons::after {
         left: 150px;
     }
-    #menu-open>img {
+    #menu-open {
         position: absolute;
-        top: 7.5px;
+        top: 35px;
+        right: 35px;
+    }
+    #menu-open:hover {
+        border-radius: 5px;
+        background-color: rgb(219, 217, 217);
     }
     .header-title {
         margin: 20px;
