@@ -8,7 +8,7 @@ body {
 }
 
 h5 {
-    margin: 10px;
+    margin: 5px;
 }
 
 .header {
@@ -363,8 +363,18 @@ main {
 
 .text {
     margin: 0rem 6rem 0rem 5rem;
+    color: rgb(82, 80, 80);
     /* display: flex;
     flex-wrap: wrap; */
+}
+
+p {
+    line-height: 30px;
+    text-align: justify;
+}
+
+h2 {
+    line-height: 40px;
 }
 
 .home-img {
@@ -403,11 +413,7 @@ main {
 }
 
 .card-aparence {
-    /* classe das novas divs */
-    /* border: 1px solid rgb(240, 240, 240);
-    color: rgb(83, 80, 80);
-    background-color: rgb(255, 255, 255); */
-    margin: 40px;
+    margin: 20px;
     padding: 5px 25px;
     border-radius: 20px;
     height: 250px;
@@ -456,6 +462,13 @@ main {
     display: none;
 }
 
+.calculator-main {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
 @media (max-width: 600px) {
     * {
         align-items: center;
@@ -469,6 +482,13 @@ main {
     }
     .text {
         margin: 0;
+    }
+    p {
+        line-height: 30px;
+        text-align: justify;
+    }
+    h2 {
+        line-height: 40px;
     }
     .logo {
         padding: 15px;
@@ -541,5 +561,14 @@ main {
     }
     .card {
         padding: 10px;
+    }
+    .img-calc {
+        transform: rotate(90deg);
+    }
+    .calculator-main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 }

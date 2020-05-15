@@ -222,6 +222,7 @@ const creatCardCalculator = (pokemon, evolutuin, cp, cpResult) => {
         if (evolutuin.length) {
             evolutuin.forEach((evolutuin) => {
                 const img = document.createElement("img") //criar elemento img
+                img.classList.add("img-calc")
                 img.src = 'img/icon-seta.png'
                 calculatorMain.appendChild(img)
                 info = []
