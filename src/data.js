@@ -66,20 +66,7 @@ export const concatFilters = (pokemonsType, heightArray, pokemons) => {
         resultFilters = pokemons
     return resultFilters
 }
-
-/*Função que verifica quais checkboxs estão selecionados
-recebe como parâmetro entrada de checkbox  
-retorna um array com o valor dos elementos selecionados
-*/
-export const checkType = (a) => {
-    const newArray = []
-    for (let i of a) {
-        if (i.checked)
-            newArray.push(i.value)
-    }
-    return newArray
-}
-
+ 
 /*Função que divide em intervalos as alturas dos pokemons 
 tirando os ultimos elementos que apresentavam um desvio padrão muito alto
 recebe como parâmetro:
@@ -89,48 +76,16 @@ m - médio
 b - grande 
 o array a ser calculado
 retorna um array com os intervalos selecionados*/
-export const height = (heightPokemon, pokemons) => {
-    let newArray = order(pokemons, "height")
-    let average = (parseFloat(newArray[newArray.length - 4].height) - parseFloat(newArray[0].height)) / 3
-    let resultMin
-    let resultMax
-    if (heightPokemon == "l") {
-        resultMax = average
-        resultMin = 0
-    } else if (heightPokemon == "m") {
-        resultMax = 2 * average
-        resultMin = average
-    } else {
-        resultMax = Math.ceil(parseFloat(newArray[newArray.length - 1].height))
-        resultMin = 2 * average
-    }
-    const resultPokemons = pokemons.filter((p) => {
-        if (resultMin < parseFloat(p.height) && parseFloat(p.height) < resultMax) // array 4 pois os 5 primeiros estão muito acima da média
-            return true
-    })
-    return resultPokemons
-}
+export const resultPokemons = (pokemons, resultMax, resultMin) => pokemons.filter((p) => {
+    if (resultMin < parseFloat(p.height) && parseFloat(p.height) < resultMax) // array 4 pois os 5 primeiros estão muito acima da média
+        return true
+})
 
-/*Função que concatena os tipos e fraquizas selecionados em um unico array
-recebe como parametro um array com as fraquezas selecionadas, um array com os tipo
-e um array principal
-retorna a soma dos arrays de tipos e fraquezas selecionados*/
-export const typeFunctionConcat = (checkboxWeakness, checkboxType, p) => { /*Verifica os tipos*/
-    for (let i of checkboxType) {
-        if (p.type[0] === i || p.type[1] === i)
-            return true
-    }
-    for (let i of checkboxWeakness) {
-        for (let j of p.weaknesses) {
-            if (j === i)
-                return true
-        }
-    }
-}
 
 /*pesquisa uma palavra, recebe como parâmetro um array e uma string
 ele pesquisa a string no parâmetro*/
 export const searchFunc = (p, nameInput, parameter) => {
+    nameInput = nameInput.toUpperCase()
     return p.filter((p) => {
         return nameInput === p[parameter].slice(0, -(p[parameter].length - nameInput.length)).toUpperCase() || nameInput === p[parameter].toUpperCase()
     })
