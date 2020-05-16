@@ -8,6 +8,8 @@ export const startCalculador = (cp, pokemon) => {
         })
 
         return cpResult
+    } else {
+        throw new TypeError('Digite um número');
     }
 }
 
