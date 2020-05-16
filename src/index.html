@@ -60,7 +60,7 @@
         </header>
         <main class="home">
             <div class="text">
-                <p>Com a Calculadora de evolução os jogadores do Pokémon Go podem saber quandos candys precisam dar para o seu pokémon evoluir e também qual o Combat Power (CP) resultante da evolução.</p>
+                <p>Com a Calculadora de evolução os jogadores do Pokémon Go podem saber quantos candys precisam dar para o seu pokémon evoluir e também qual o Combat Power (CP) resultante da evolução.</p>
                 <h2>Modo de usar</h2>
                 <p>Escolha o seu pokémon e coloque o CP respectivo, click e calcular e pronto! </p>
                 <p>Vamos nessa?</p>
@@ -98,8 +98,8 @@
             <div class="filters-class">
                 <!--Caixa de descrição-->
                 <div class="line">
-                    <span class="margin-text-type"><h3>Tipo e Fraqueza</h3></span>
-                    <h6>Tipo = T Fraqueza = F</h6>
+                    <h6>Tipo = T Fraqueza = F</h6><button id="reset-search" class="button-filter button-reset">Redefinir</button>
+                    <span id="close-menu" class="close close-filters">&times;</span>
                 </div>
                 <div class="checkbox-type filters-menu">
                     <form class="checkbox-form" id="checkbox-types">
@@ -171,13 +171,13 @@
                         </div>
                     </form>
                     <form id="checkbox-height" class="heights-menu">
-                        <label>Tamanho:</label><br>
-                        <input type="checkbox" name="heights" value="l"><label>Pequeno</label>
-                        <input type="checkbox" name="heights" value="m"><label>Médio</label>
-                        <input type="checkbox" name="heights" value="b"><label>Grande</label>
+                        <label class="class-heights">Tamanho:</label><br>
+                        <input type="checkbox" name="heights" value="l"><label class="class-heights">Pequeno</label>
+                        <input type="checkbox" name="heights" value="m"><label class="class-heights">Médio</label>
+                        <input type="checkbox" name="heights" value="b"><label class="class-heights">Grande</label>
                     </form>
                     <!--Tipos e Fraquezaa-->
-                    <button id="reset-search" class="button-filter">Redefinir</button>
+
                 </div>
             </div>
         </div>
