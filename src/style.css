@@ -351,8 +351,8 @@ main {
 }
 
 .canvas {
-    width: 50%;
-    height: 45%;
+    width: 70%;
+    height: 65%;
 }
 
 .card:hover h5 {
@@ -391,8 +391,11 @@ h2 {
     filter: grayscale(50%);
 }
 
-.home-content {
+.white-background {
     background-color: white;
+}
+
+.center {
     text-align: center;
     align-self: center;
     width: 80%;
@@ -400,6 +403,10 @@ h2 {
     margin: 0rem 6rem 0rem 5rem;
     padding: 3rem 5rem;
     border-radius: 8px;
+}
+
+.padding {
+    padding: 2rem;
 }
 
 .filter-config {
@@ -595,5 +602,9 @@ h2 {
     .margin-text-type {
         margin-right: 10px;
         margin-left: 0px;
+    }
+    .charts {
+        width: 85%;
+        height: 80%;
     }
 }
