@@ -250,6 +250,12 @@ const selectPokemons = () => {
 
 //cria o card dos calculos
 const creatCardCalculator = (pokemon, evolutuin, cp, cpResult) => {
+        if (evolutuin.length > 2) {
+            const alertEevee = document.createElement("div") // cria uma nova div
+            alertEevee.classList.add("card-aparence", "alert-eevee")
+            alertEevee.innerHTML = `<p>Importante! Você pode evoluir um Eevee para Jolteon, Flareon ou Vaporeon</p>`
+            calculatorMain.appendChild(alertEevee)
+        }
         let info = []
         let infoEx = `Não possuí evolução`
         if (evolutuin.length) {
@@ -277,12 +283,6 @@ const creatCardCalculator = (pokemon, evolutuin, cp, cpResult) => {
                 })
                 calculatorMain.appendChild(card) // coloca nova div dentro da div existente
             })
-        }
-        if (evolutuin.length > 2) {
-            const alertEevee = document.createElement("div") // cria uma nova div
-            alertEevee.classList.add("card-aparence", "alert-eevee")
-            alertEevee.innerHTML = `<p>Importante! Você pode evoluir um Eevee para Jolteon, Flareon ou Vaporeon</p>`
-            calculatorMain.appendChild(alertEevee)
         }
     }
     //poxa os dados dos do calculo
