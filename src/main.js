@@ -1,5 +1,5 @@
 /*Bloco de configurações*/
-import { searchFunc, orderList, typeFunctionConcat, checkType, height, concatFilters, startCalculador } from './data.js';
+import { searchFunc, orderList, typeFunctionConcat, checkType, resultPokemons, concatFilters, startCalculador, order } from './data.js';
 import data from './data/pokemon/pokemon.js';
 //import { RuleTester } from 'eslint';
 const root = document.getElementById("root") // import div
@@ -149,11 +149,31 @@ const typeFunction = (p) => {
     /*Puxa os checkboxs */
     const checkbox = document.getElementById("checkbox-types")
     const checkboxWeakness = checkType(checkbox.weakness)
+    console.log(checkboxWeakness)
     const checkboxType = checkType(checkbox.option)
     return typeFunctionConcat(checkboxWeakness, checkboxType, p)
 }
-
-/*Função que reseta o menu avançado*/
+const height = (heightPokemon, pokemons) => {
+        let newArray = order(pokemons, "height")
+        let average = (parseFloat(newArray[newArray.length - 4].height) - parseFloat(newArray[0].height)) / 3
+        let resultMin
+        let resultMax
+        if (heightPokemon == "l") {
+            resultMax = average
+            resultMin = 0
+        } else if (heightPokemon == "m") {
+            resultMax = 2 * average
+            resultMin = average
+        } else {
+            resultMax = Math.ceil(parseFloat(newArray[newArray.length - 1].height))
+            resultMin = 2 * average
+        }
+        console.log(newArray[newArray.length - 4].height)
+        console.log(resultMin)
+        console.log(resultMax)
+        return resultPokemons(pokemons, resultMax, resultMin)
+    }
+    /*Função que reseta o menu avançado*/
 const resetSearch = () => {
     document.querySelectorAll("input[type=checkbox]").forEach(check => check.checked = false)
     advancedSearch()
@@ -251,6 +271,7 @@ const calculator = (pokemons) => {
         })
         let evolutuin
         const cpResult = startCalculador(cp, pokemon[0])
+        console.log(cpResult)
         if (pokemon[0].next_evolution) {
             if (pokemon[0].id === 133) {
                 let numEvolution = []

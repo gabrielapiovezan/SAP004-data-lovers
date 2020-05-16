@@ -2,6 +2,8 @@
  * tem como entrada o CP do pokemon anterior e o pokemon
  */
 export const startCalculador = (cp, pokemon) => {
+    console.log(cp)
+    console.log(pokemon)
     if (pokemon.multipliers) {
         const cpResult = pokemon.multipliers.map((m) => {
             return m * cp
@@ -89,36 +91,26 @@ m - médio
 b - grande 
 o array a ser calculado
 retorna um array com os intervalos selecionados*/
-export const height = (heightPokemon, pokemons) => {
-    let newArray = order(pokemons, "height")
-    let average = (parseFloat(newArray[newArray.length - 4].height) - parseFloat(newArray[0].height)) / 3
-    let resultMin
-    let resultMax
-    if (heightPokemon == "l") {
-        resultMax = average
-        resultMin = 0
-    } else if (heightPokemon == "m") {
-        resultMax = 2 * average
-        resultMin = average
-    } else {
-        resultMax = Math.ceil(parseFloat(newArray[newArray.length - 1].height))
-        resultMin = 2 * average
-    }
-    const resultPokemons = pokemons.filter((p) => {
-        if (resultMin < parseFloat(p.height) && parseFloat(p.height) < resultMax) // array 4 pois os 5 primeiros estão muito acima da média
-            return true
-    })
-    return resultPokemons
-}
+
+export const resultPokemons = (pokemons, resultMax, resultMin) => pokemons.filter((p) => {
+    if (resultMin < parseFloat(p.height) && parseFloat(p.height) < resultMax) // array 4 pois os 5 primeiros estão muito acima da média
+        return true
+})
+
 
 /*Função que concatena os tipos e fraquizas selecionados em um unico array
 recebe como parametro um array com as fraquezas selecionadas, um array com os tipo
 e um array principal
 retorna a soma dos arrays de tipos e fraquezas selecionados*/
 export const typeFunctionConcat = (checkboxWeakness, checkboxType, p) => { /*Verifica os tipos*/
+
     for (let i of checkboxType) {
-        if (p.type[0] === i || p.type[1] === i)
-            return true
+        for (let j of p.type) {
+            if (i === j)
+                return true
+        }
+        // if (p.type[0] === i || p.type[1] === i)
+        //     return true
     }
     for (let i of checkboxWeakness) {
         for (let j of p.weaknesses) {
