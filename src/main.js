@@ -114,7 +114,7 @@ const creatButtonView = () => {
 const main = () => {
     document.getElementById("main").style.display = "block"
     clearDisplay()
-    const elementMain = pokemons.filter((pokemons) => Number(pokemons.num) < 8)
+    const elementMain = pokemons.filter((pokemons) => Number(pokemons.num) < 12)
     elementMain.map(print)
     const viewAll = creatButtonView()
     viewAll.innerHTML = "<h3>Ver Tudo</h3>"
@@ -173,24 +173,26 @@ const typeFunction = (p) => {
     /*Puxa os checkboxs */
     const checkbox = document.getElementById("checkbox-types")
     const checkboxWeakness = checkType(checkbox.weakness)
-    console.log(checkboxWeakness)
     const checkboxType = checkType(checkbox.option)
     return typeFunctionConcat(checkboxWeakness, checkboxType, p)
 }
 const height = (heightPokemon, pokemons) => {
     let newArray = order(pokemons, "height")
-    let average = (parseFloat(newArray[newArray.length - 4].height) - parseFloat(newArray[0].height)) / 3
+    const interval = (newArray.length - 1) / 3 // tamanho do array
+        //median = lenght/2 = a : a+1 = b =>(value(a) + value(b))/2
+    let firstMedian = (parseFloat(newArray[interval].height) + parseFloat(newArray[interval - 1].height)) / 2
+    let secondeMedian = (parseFloat(newArray[2 * interval].height) + parseFloat(newArray[2 * interval - 1].height)) / 2
     let resultMin
     let resultMax
     if (heightPokemon == "l") {
-        resultMax = average
+        resultMax = firstMedian
         resultMin = 0
     } else if (heightPokemon == "m") {
-        resultMax = 2 * average
-        resultMin = average
+        resultMax = secondeMedian
+        resultMin = firstMedian
     } else {
-        resultMax = Math.ceil(parseFloat(newArray[newArray.length - 1].height))
-        resultMin = 2 * average
+        resultMax = parseFloat(newArray[newArray.length - 1].height)
+        resultMin = secondeMedian
     }
     return resultPokemons(pokemons, resultMax, resultMin)
 }
@@ -248,6 +250,12 @@ const selectPokemons = () => {
 
 //cria o card dos calculos
 const creatCardCalculator = (pokemon, evolutuin, cp, cpResult) => {
+        if (evolutuin.length > 2) {
+            const alertEevee = document.createElement("div") // cria uma nova div
+            alertEevee.classList.add("card-aparence", "alert-eevee")
+            alertEevee.innerHTML = `<p>Importante! Você pode evoluir um Eevee para Jolteon, Flareon ou Vaporeon</p>`
+            calculatorMain.appendChild(alertEevee)
+        }
         let info = []
         let infoEx = `Não possuí evolução`
         if (evolutuin.length) {
@@ -276,12 +284,6 @@ const creatCardCalculator = (pokemon, evolutuin, cp, cpResult) => {
                 calculatorMain.appendChild(card) // coloca nova div dentro da div existente
             })
         }
-        if (evolutuin.length > 2) {
-            const alertEevee = document.createElement("div") // cria uma nova div
-            alertEevee.classList.add("card-aparence", "alert-eevee")
-            alertEevee.innerHTML = `<p>Importante! Você pode evoluir um Eevee para Jolteon, Flareon ou Vaporeon</p>`
-            calculatorMain.appendChild(alertEevee)
-        }
     }
     //poxa os dados dos do calculo
 const calculator = (pokemons) => {
@@ -293,7 +295,6 @@ const calculator = (pokemons) => {
         })
         let evolutuin
         const cpResult = startCalculador(cp, pokemon[0])
-        console.log(cpResult)
         if (pokemon[0].next_evolution) {
             if (pokemon[0].id === 133) {
                 let numEvolution = []
@@ -323,6 +324,7 @@ document.querySelectorAll(".menu-buttons").forEach(buttons => buttons.addEventLi
 document.querySelectorAll('form').forEach(form => form.addEventListener('input', advancedSearch))
 document.getElementById("menu-filter").addEventListener('click', filters)
 document.getElementById("reset-search").addEventListener('click', resetSearch)
+document.getElementById("close-menu").addEventListener('click', filters)
 document.getElementById("input-cp").addEventListener('input', () => {
     document.getElementById("startCalculator").disabled = false
     document.getElementById("startCalculator").style.color = "black"

@@ -2,8 +2,6 @@
  * tem como entrada o CP do pokemon anterior e o pokemon
  */
 export const startCalculador = (cp, pokemon) => {
-    console.log(cp)
-    console.log(pokemon)
     if (pokemon.multipliers) {
         const cpResult = pokemon.multipliers.map((m) => {
             return m * cp
