@@ -114,7 +114,7 @@ const creatButtonView = () => {
 const main = () => {
     document.getElementById("main").style.display = "block"
     clearDisplay()
-    const elementMain = pokemons.filter((pokemons) => Number(pokemons.num) < 8)
+    const elementMain = pokemons.filter((pokemons) => Number(pokemons.num) < 12)
     elementMain.map(print)
     const viewAll = creatButtonView()
     viewAll.innerHTML = "<h3>Ver Tudo</h3>"
@@ -140,8 +140,8 @@ const searchName = (p) => {
 
 /*Função de abrir e fechar menu avançado*/
 const filters = () => {
-        const filterMenuDysplay = filtersMenu.style.display
-        filtersMenu.style.display = filterMenuDysplay === "block" ? "none" : "block"
+    const filterMenuDysplay = filtersMenu.style.display
+    filtersMenu.style.display = filterMenuDysplay === "block" ? "none" : "block"
 }
 
 const checkType = (a) => {
@@ -155,9 +155,9 @@ const checkType = (a) => {
 
 const typeFunctionConcat = (checkboxWeakness, checkboxType, p) => { /*Verifica os tipos*/
     for (let i of checkboxType) {
-        for (let j of p.type) { 
-            if (i === j)                 
-            return true        
+        for (let j of p.type) {
+            if (i === j)
+                return true
         }
     }
     for (let i of checkboxWeakness) {
@@ -168,7 +168,7 @@ const typeFunctionConcat = (checkboxWeakness, checkboxType, p) => { /*Verifica o
     }
 }
 
-    /*Funcao que verifica os tipos e fraquezas*/
+/*Funcao que verifica os tipos e fraquezas*/
 const typeFunction = (p) => {
     /*Puxa os checkboxs */
     const checkbox = document.getElementById("checkbox-types")
@@ -176,21 +176,23 @@ const typeFunction = (p) => {
     const checkboxType = checkType(checkbox.option)
     return typeFunctionConcat(checkboxWeakness, checkboxType, p)
 }
-
 const height = (heightPokemon, pokemons) => {
     let newArray = order(pokemons, "height")
-    let average = (parseFloat(newArray[newArray.length - 4].height) - parseFloat(newArray[0].height)) / 3
+    const interval = (newArray.length - 1) / 3 // tamanho do array
+        //median = lenght/2 = a : a+1 = b =>(value(a) + value(b))/2
+    let firstMedian = (parseFloat(newArray[interval].height) + parseFloat(newArray[interval - 1].height)) / 2
+    let secondeMedian = (parseFloat(newArray[2 * interval].height) + parseFloat(newArray[2 * interval - 1].height)) / 2
     let resultMin
     let resultMax
     if (heightPokemon == "l") {
-        resultMax = average
+        resultMax = firstMedian
         resultMin = 0
     } else if (heightPokemon == "m") {
-        resultMax = 2 * average
-        resultMin = average
+        resultMax = secondeMedian
+        resultMin = firstMedian
     } else {
-        resultMax = Math.ceil(parseFloat(newArray[newArray.length - 1].height))
-        resultMin = 2 * average
+        resultMax = parseFloat(newArray[newArray.length - 1].height)
+        resultMin = secondeMedian
     }
     return resultPokemons(pokemons, resultMax, resultMin)
 }
@@ -248,6 +250,12 @@ const selectPokemons = () => {
 
 //cria o card dos calculos
 const creatCardCalculator = (pokemon, evolutuin, cp, cpResult) => {
+        if (evolutuin.length > 2) {
+            const alertEevee = document.createElement("div") // cria uma nova div
+            alertEevee.classList.add("card-aparence", "alert-eevee")
+            alertEevee.innerHTML = `<p>Importante! Você pode evoluir um Eevee para Jolteon, Flareon ou Vaporeon</p>`
+            calculatorMain.appendChild(alertEevee)
+        }
         let info = []
         let infoEx = `Não possuí evolução`
         if (evolutuin.length) {
@@ -275,12 +283,6 @@ const creatCardCalculator = (pokemon, evolutuin, cp, cpResult) => {
                 })
                 calculatorMain.appendChild(card) // coloca nova div dentro da div existente
             })
-        }
-        if (evolutuin.length > 2) {
-            const alertEevee = document.createElement("div") // cria uma nova div
-            alertEevee.classList.add("card-aparence", "alert-eevee")
-            alertEevee.innerHTML = `<p>Importante! Você pode evoluir um Eevee para Jolteon, Flareon ou Vaporeon</p>`
-            calculatorMain.appendChild(alertEevee)
         }
     }
     //poxa os dados dos do calculo
@@ -322,6 +324,7 @@ document.querySelectorAll(".menu-buttons").forEach(buttons => buttons.addEventLi
 document.querySelectorAll('form').forEach(form => form.addEventListener('input', advancedSearch))
 document.getElementById("menu-filter").addEventListener('click', filters)
 document.getElementById("reset-search").addEventListener('click', resetSearch)
+document.getElementById("close-menu").addEventListener('click', filters)
 document.getElementById("input-cp").addEventListener('input', () => {
     document.getElementById("startCalculator").disabled = false
     document.getElementById("startCalculator").style.color = "black"
@@ -341,32 +344,34 @@ selectPokemons()
 
 /*Ranking*/
 //Declaração de variáveis
-const pokemonTypes = ['Flying', 'Ice', 'Grass', 'Fire', 'Water', 'Bug', 'Normal', 'Poison', 
-'Electric', 'Ground', 'Rock', 'Fighting', 'Psychic', 'Ghost', 'Dragon', 'Fairy'];
+const pokemonTypes = ['Flying', 'Ice', 'Grass', 'Fire', 'Water', 'Bug', 'Normal', 'Poison',
+    'Electric', 'Ground', 'Rock', 'Fighting', 'Psychic', 'Ghost', 'Dragon', 'Fairy'
+];
 const pokemonTypesColor = ['teal', 'rgb(142, 197, 233)', 'rgb(106, 230, 172)',
-'orange', 'rgb(29, 230, 209)', 'rgb(139, 238, 119)', 'rgb(250, 110, 100)', 'rgb(210, 163, 214)', 
-'rgb(241, 241, 98)', 'rgb(219, 122, 58)', 'rgb(56, 56, 56)', 'coral', 'crimson', 'darkmagenta', 
-'rgb(226, 68, 160)', 'rgb(199, 126, 218)']; 
+    'orange', 'rgb(29, 230, 209)', 'rgb(139, 238, 119)', 'rgb(250, 110, 100)', 'rgb(210, 163, 214)',
+    'rgb(241, 241, 98)', 'rgb(219, 122, 58)', 'rgb(56, 56, 56)', 'coral', 'crimson', 'darkmagenta',
+    'rgb(226, 68, 160)', 'rgb(199, 126, 218)'
+];
 //Lógica para o cálculo de porcentagem de cada tipo 
 let typeLength = [];
-for(let types of pokemonTypes){
-  let typesArray = [];
-  pokemons.filter(function(pokemon) {
-      if (pokemon.type.includes(types)){
-        typesArray.push(types)
-      }
-    return typesArray;
-    //typesArray = ['fire', 'fire', 'fire']
-});
-  typeLength.push(typesArray.length);
-  //typeLength = [5, 0, 0, 3, 4, ...]
+for (let types of pokemonTypes) {
+    let typesArray = [];
+    pokemons.filter(function(pokemon) {
+        if (pokemon.type.includes(types)) {
+            typesArray.push(types)
+        }
+        return typesArray;
+        //typesArray = ['fire', 'fire', 'fire']
+    });
+    typeLength.push(typesArray.length);
+    //typeLength = [5, 0, 0, 3, 4, ...]
 }
 
 let percent = [];
-const typesPercent = typeLength.map(function(lengthArray){
-  percent = ((lengthArray/pokemons.length)*100);
-  return percent;
-  //percent = [12.58, 3.33, 9.27, ...]
+const typesPercent = typeLength.map(function(lengthArray) {
+    percent = ((lengthArray / pokemons.length) * 100);
+    return percent;
+    //percent = [12.58, 3.33, 9.27, ...]
 });
 
 // Função Gráfico

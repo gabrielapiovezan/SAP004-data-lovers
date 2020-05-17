@@ -68,7 +68,7 @@ export const concatFilters = (pokemonsType, heightArray, pokemons) => {
         resultFilters = pokemons
     return resultFilters
 }
- 
+
 /*Função que divide em intervalos as alturas dos pokemons 
 tirando os ultimos elementos que apresentavam um desvio padrão muito alto
 recebe como parâmetro:
@@ -82,7 +82,6 @@ export const resultPokemons = (pokemons, resultMax, resultMin) => pokemons.filte
     if (resultMin < parseFloat(p.height) && parseFloat(p.height) < resultMax) // array 4 pois os 5 primeiros estão muito acima da média
         return true
 })
-
 
 /*pesquisa uma palavra, recebe como parâmetro um array e uma string
 ele pesquisa a string no parâmetro*/

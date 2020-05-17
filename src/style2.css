@@ -1,0 +1,10 @@
+body {
+    margin: 0rem;
+    padding: 0rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(250, 250, 250)
+}
+
+h5 {
+    margin: 5px;
+}
