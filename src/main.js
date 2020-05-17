@@ -357,23 +357,21 @@ for(let types of pokemonTypes){
       }
     return typesArray;
     //typesArray = ['fire', 'fire', 'fire']
-});
+    });
   typeLength.push(typesArray.length);
   //typeLength = [5, 0, 0, 3, 4, ...]
 }
 
 let percent = [];
 const typesPercent = typeLength.map(function(lengthArray){
-  percent = ((lengthArray/pokemons.length)*100);
+  percent = `${((lengthArray/pokemons.length)*100)}%`;
   return percent;
   //percent = [12.58, 3.33, 9.27, ...]
 });
 
 // Função Gráfico
 new Chart(document.getElementById('type-chart').getContext('2d'), {
-    //o tipo de gráfico
     type: 'bar',
-    //dados do gráfico
     data: {
         labels: pokemonTypes,
         datasets: [{
@@ -381,7 +379,6 @@ new Chart(document.getElementById('type-chart').getContext('2d'), {
             data: typesPercent
         }]
     },
-    // Configuração de título - display: true faz o título aparecer na tela
     options: {
         title: {
             text: 'Porcentagem de tipos de Pokémons',
