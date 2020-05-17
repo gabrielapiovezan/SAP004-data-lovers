@@ -95,6 +95,11 @@ Essa aba possuí dados estatísticos dos Pokémons.
 
 #### 4.4.1 Porcentagem de pokémons por tipo
 ---
+#### 4.5 Modal
+O modal é aberto clicando no Pokémon quando se deseja saber mais informações sobre ele.
+
+![Modal](src/img/Modal.png)
+
 ## 5. Ferramentas
 Para a construção da aplicação foi utilizado o software Visual Studio Code com a extenção do Node-js. A sua marcação foi feita em HTML e a sua estilização em CSS. Ela foi programada em vanilla JavaScript, contendo dois arquivos, o main.js, responsável pela interação dos elementos do DOM e o data.js responsável pelas funções de filtragem. Os dados foram exportados do arquivo de dados pokemons.js.
 
@@ -149,6 +154,6 @@ directory: 6 file: 17
 * [ ] UI: Permite filtrar dados com base em uma condição.
 * [ ] UI: É _responsivo_.
 
-## 5. Autoria
+## 6. Autoria
 
 Este projeto foi feito por Gabriela Piovezam e Thais Durynek com base no projeto da Laboratoria.
