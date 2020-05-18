@@ -490,7 +490,7 @@ h2 {
 
 .close-filters {
     position: relative;
-    right: -440px;
+    right: 10px;
 }
 
 .close:hover,
@@ -640,7 +640,8 @@ h2 {
     }
     .close-filters {
         position: relative;
-        right: -30px;
+        right: -150px;
+        top: -32px;
     }
     .line {
         margin-left: 0px;
