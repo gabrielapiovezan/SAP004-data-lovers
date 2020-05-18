@@ -1,7 +1,5 @@
-/*Bloco de configurações*/
 import { searchFunc, orderList, resultPokemons, concatFilters, startCalculador, order, percentage } from './data.js';
 import data from './data/pokemon/pokemon.js';
-//import { RuleTester } from 'eslint';
 const root = document.getElementById("root") // import div
 const pokemons = data.pokemon // pokemons = array
 const filtersMenu = document.getElementById("filters")
@@ -10,17 +8,16 @@ const calculatorMain = document.getElementById("calculator-main")
 document.getElementById("startCalculator").disabled = true
 filtersMenu.style.display = "none"
 
-/*Bloco de impressão dos pokemons*/
 
 const creatCard = (pokemons, info = [], infoEx) => {
-    const card = document.createElement("div") // cria uma nova div
-    const img = document.createElement("img") //criar elemento img
-    const cardInformation = document.createElement("div") //cria div das informações
+    const card = document.createElement("div")
+    const img = document.createElement("img")
+    const cardInformation = document.createElement("div")
     const power = document.createElement("div")
-    img.src = pokemons.img // coloca o endereço da imagem
+    img.src = pokemons.img
     cardInformation.classList.add("information")
     card.classList.add("card")
-    img.classList.add("picture") // coloca uma classe na imagem
+    img.classList.add("picture")
     let namePokemons = pokemons.name.replace("(Female)", "")
     namePokemons = namePokemons.replace("(Male)", "")
     cardInformation.innerHTML += `<h5 class=${pokemons.type[0]}>#${pokemons.num}</h5><h5>${namePokemons.toUpperCase()}</h5>` // coloca o nameInput
@@ -28,7 +25,6 @@ const creatCard = (pokemons, info = [], infoEx) => {
     info.forEach(info => {
         cardInformation.innerHTML += `<h5><span class=${pokemons.type[0]}>${info}:</span>${pokemons[info]}</h5>`
     })
-
 
     if (typeof infoEx == 'string')
         cardInformation.innerHTML += `<h5>${infoEx}</h5>`
@@ -57,12 +53,12 @@ const creatCard = (pokemons, info = [], infoEx) => {
     return card
 }
 
-const createModal = (pokemons) => { //////////////////////////////////////////////////////////////////////////////
-    const wait = document.getElementById("wait")
+
+const createModal = (pokemons) => {
     const waiting = document.getElementsByClassName("waiting")[0]
     waiting.style.display = "block"
     const info = ["height", "weight"]
-    const card = creatCard(pokemons, info, pokemons.weakness)
+    const card = creatCard(pokemons, info)
     card.innerHTML += '<span class="close">&times;</span>'
     card.classList.remove("card")
     card.classList.add("modal-class", "card-aparence")
@@ -71,7 +67,6 @@ const createModal = (pokemons) => { ////////////////////////////////////////////
         a.addEventListener('click', () => {
             card.style.display = "none"
             waiting.style.display = "none"
-                // document.getElementsByClassName("waiting")[0].style.display = "none"
         })
     })
     window.addEventListener("dblclick", (e) => {
@@ -79,7 +74,7 @@ const createModal = (pokemons) => { ////////////////////////////////////////////
         if (e.target !== card)
             card.style.display = "none"
         waiting.style.display = "none"
-            //document.getElementsByClassName("waiting")[0].style.display = "none"
+
     })
 }
 
@@ -90,27 +85,26 @@ const print = (pokemons) => {
     card.addEventListener("click", () => {
         createModal(pokemons, info)
     })
-    root.appendChild(card) // coloca nova div dentro da div existente
+    root.appendChild(card)
 }
 
-/*Limpa a raiz*/
+
 const clearDisplay = () => root.innerHTML = ""
 
-/*Cria botão para mostrar mais e mostrar menos*/
+
 const creatButtonView = () => {
-    const card = document.createElement("div") // cria uma nova div
+    const card = document.createElement("div")
     const viewAll = document.createElement("div")
 
     card.classList.add("view-all-class")
-    card.classList.add("card") // coloca uma clas na div
-
+    card.classList.add("card")
     card.appendChild(viewAll)
-    root.appendChild(card) // coloca nova div dentro da div existente
+    root.appendChild(card)
 
     return viewAll
 }
 
-/*Tela inicial*/
+
 const main = () => {
     document.getElementById("main").style.display = "block"
     clearDisplay()
@@ -121,7 +115,7 @@ const main = () => {
     viewAll.addEventListener('click', viewAllElement)
 }
 
-/*Função que mostra todos elementos */
+
 const viewAllElement = () => {
     clearDisplay()
     pokemons.map(print)
@@ -130,7 +124,7 @@ const viewAllElement = () => {
     viewAll.addEventListener('click', main)
 }
 
-/*Função que pesquisa os nomes*/
+
 const searchName = (p) => {
     clearDisplay()
     let nameInput = document.getElementById("search").value
@@ -138,7 +132,7 @@ const searchName = (p) => {
     return elementSearched
 }
 
-/*Função de abrir e fechar menu avançado*/
+
 const filters = () => {
     const filterMenuDysplay = filtersMenu.style.display
     filtersMenu.style.display = filterMenuDysplay === "block" ? "none" : "block"
@@ -153,7 +147,8 @@ const checkType = (a) => {
     return newArray
 }
 
-const typeFunctionConcat = (checkboxWeakness, checkboxType, p) => { /*Verifica os tipos*/
+
+const typeFunctionConcat = (checkboxWeakness, checkboxType, p) => {
     for (let i of checkboxType) {
         for (let j of p.type) {
             if (i === j)
@@ -168,18 +163,18 @@ const typeFunctionConcat = (checkboxWeakness, checkboxType, p) => { /*Verifica o
     }
 }
 
-/*Funcao que verifica os tipos e fraquezas*/
+
 const typeFunction = (p) => {
-    /*Puxa os checkboxs */
     const checkbox = document.getElementById("checkbox-types")
     const checkboxWeakness = checkType(checkbox.weakness)
     const checkboxType = checkType(checkbox.option)
     return typeFunctionConcat(checkboxWeakness, checkboxType, p)
 }
+
+
 const height = (heightPokemon, pokemons) => {
     let newArray = order(pokemons, "height")
-    const interval = (newArray.length - 1) / 3 // tamanho do array
-        //median = lenght/2 = a : a+1 = b =>(value(a) + value(b))/2
+    const interval = (newArray.length - 1) / 3
     let firstMedian = (parseFloat(newArray[interval].height) + parseFloat(newArray[interval - 1].height)) / 2
     let secondeMedian = (parseFloat(newArray[2 * interval].height) + parseFloat(newArray[2 * interval - 1].height)) / 2
     let resultMin
@@ -197,16 +192,16 @@ const height = (heightPokemon, pokemons) => {
     return resultPokemons(pokemons, resultMax, resultMin)
 }
 
-/*Função que reseta o menu avançado*/
+
 const resetSearch = () => {
     document.querySelectorAll("input[type=checkbox]").forEach(check => check.checked = false)
     advancedSearch()
     main()
 }
 
-//função que pega os doms
+
 const getHeight = () => {
-    const checkboxHeight = document.getElementById("checkbox-height") // checkbox de altura
+    const checkboxHeight = document.getElementById("checkbox-height")
     const heigthChecked = checkType(checkboxHeight.heights)
     let resultArrays = []
     for (let i of heigthChecked) {
@@ -215,14 +210,16 @@ const getHeight = () => {
     return resultArrays
 }
 
-/*Função que filtra os checkboxs*/
+
 const advancedSearch = () => {
     clearDisplay()
-    const pokemonsType = pokemons.filter(typeFunction) //.map(print)
-    const heightArray = getHeight() //.map(print)
+    const pokemonsType = pokemons.filter(typeFunction)
+    const heightArray = getHeight()
     const orderBy = document.getElementById("browsers").value
     orderList(orderBy, searchName(concatFilters(pokemonsType, heightArray, pokemons))).map(print)
 }
+
+
 const functionMenu = () => {
     document.querySelectorAll(".screen").forEach((screen) => screen.style.display = "none")
 
@@ -239,6 +236,8 @@ const functionMenu = () => {
         document.getElementById("main").style.display = "block"
     })
 }
+
+
 const selectPokemons = () => {
     pokemons.forEach((a) => {
         let opt = document.createElement('option')
@@ -248,77 +247,79 @@ const selectPokemons = () => {
     })
 }
 
-//cria o card dos calculos
+
 const creatCardCalculator = (pokemon, evolutuin, cp, cpResult) => {
-        if (evolutuin.length > 2) {
-            const alertEevee = document.createElement("div") // cria uma nova div
-            alertEevee.classList.add("card-aparence", "alert-eevee")
-            alertEevee.innerHTML = `<p>Importante! Você pode evoluir um Eevee para Jolteon, Flareon ou Vaporeon</p>`
-            calculatorMain.appendChild(alertEevee)
-        }
-        let info = []
-        let infoEx = `Não possuí evolução`
-        if (evolutuin.length) {
-            info = ["candy_count"]
-            infoEx = cp
-        } else
-            infoEx = `Não possuí evolução`
-        let card = creatCard(pokemon, info, infoEx)
-        card.classList.add("card-aparence")
-        card.addEventListener("click", () => {
-            createModal(pokemon)
+    if (evolutuin.length > 2) {
+        const alertEevee = document.createElement("div")
+        alertEevee.classList.add("card-aparence", "alert-eevee")
+        alertEevee.innerHTML = `<p>Importante! Você pode evoluir um Eevee para Jolteon, Flareon ou Vaporeon</p>`
+        calculatorMain.appendChild(alertEevee)
+    }
+    let info = []
+    let infoEx = `Não possuí evolução`
+    if (evolutuin.length) {
+        info = ["candy_count"]
+        infoEx = cp
+    } else
+        infoEx = `Não possuí evolução`
+    let card = creatCard(pokemon, info, infoEx)
+    card.classList.add("card-aparence")
+    card.addEventListener("click", () => {
+        createModal(pokemon)
+    })
+    calculatorMain.appendChild(card)
+    if (evolutuin.length) {
+        evolutuin.forEach((evolutuin) => {
+            const img = document.createElement("img")
+            img.classList.add("img-calc")
+            img.src = 'img/icon-seta.png'
+            calculatorMain.appendChild(img)
+            info = []
+            card = creatCard(evolutuin, info, cpResult)
+            card.classList.add("card-aparence")
+            card.addEventListener("click", () => {
+                createModal(evolutuin)
+            })
+            calculatorMain.appendChild(card)
         })
-        calculatorMain.appendChild(card) // coloca nova div dentro da div existente
-        if (evolutuin.length) {
-            evolutuin.forEach((evolutuin) => {
-                const img = document.createElement("img") //criar elemento img
-                img.classList.add("img-calc")
-                img.src = 'img/icon-seta.png'
-                calculatorMain.appendChild(img)
-                info = []
-                card = creatCard(evolutuin, info, cpResult)
-                card.classList.add("card-aparence")
-                card.addEventListener("click", () => {
-                    createModal(evolutuin)
-                })
-                calculatorMain.appendChild(card) // coloca nova div dentro da div existente
+    }
+}
+
+
+
+const calculator = (pokemons) => {
+    calculatorMain.innerHTML = ""
+    const cp = parseInt(document.getElementById("input-cp").value)
+    const pokemon = pokemons.filter((a) => {
+        if (select.value === a.name)
+            return true
+    })
+    let evolutuin
+    const cpResult = startCalculador(cp, pokemon[0])
+    if (pokemon[0].next_evolution) {
+        if (pokemon[0].id === 133) {
+            let numEvolution = []
+            pokemon[0].next_evolution.forEach((p) => {
+                numEvolution.push(p.num)
+            })
+            evolutuin = pokemons.filter((a) => {
+                for (let i of numEvolution) {
+                    if (a.num === i)
+                        return true
+                }
+            })
+        } else {
+            const numEvolution = pokemon[0].next_evolution[0].num
+            evolutuin = pokemons.filter((a) => {
+                if (a.num === numEvolution)
+                    return true
             })
         }
-    }
-    //poxa os dados dos do calculo
-const calculator = (pokemons) => {
-        calculatorMain.innerHTML = ""
-        const cp = parseInt(document.getElementById("input-cp").value)
-        const pokemon = pokemons.filter((a) => {
-            if (select.value === a.name)
-                return true
-        })
-        let evolutuin
-        const cpResult = startCalculador(cp, pokemon[0])
-        if (pokemon[0].next_evolution) {
-            if (pokemon[0].id === 133) {
-                let numEvolution = []
-                pokemon[0].next_evolution.forEach((p) => {
-                    numEvolution.push(p.num)
-                })
-                evolutuin = pokemons.filter((a) => {
-                    for (let i of numEvolution) {
-                        if (a.num === i)
-                            return true
-                    }
-                })
-            } else {
-                const numEvolution = pokemon[0].next_evolution[0].num
-                evolutuin = pokemons.filter((a) => {
-                    if (a.num === numEvolution)
-                        return true
-                })
-            }
-        } else
-            evolutuin = 0
-        creatCardCalculator(pokemon[0], evolutuin, cp, cpResult)
-    }
-    //faz o calculo
+    } else
+        evolutuin = 0
+    creatCardCalculator(pokemon[0], evolutuin, cp, cpResult)
+}
+
 
 document.querySelectorAll(".menu-buttons").forEach(buttons => buttons.addEventListener("click", functionMenu))
 document.querySelectorAll('form').forEach(form => form.addEventListener('input', advancedSearch))
@@ -339,7 +340,6 @@ document.getElementById("menu-open").addEventListener('click', () => {
 functionMenu()
 main()
 selectPokemons()
-
 
 
 /*Ranking*/
