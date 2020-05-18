@@ -8,3 +8,9 @@ body {
 h5 {
     margin: 5px;
 }
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+

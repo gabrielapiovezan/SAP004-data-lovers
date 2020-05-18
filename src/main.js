@@ -1,5 +1,5 @@
 /*Bloco de configurações*/
-import { searchFunc, orderList, resultPokemons, concatFilters, startCalculador, order } from './data.js';
+import { searchFunc, orderList, resultPokemons, concatFilters, startCalculador, order, percentage } from './data.js';
 import data from './data/pokemon/pokemon.js';
 //import { RuleTester } from 'eslint';
 const root = document.getElementById("root") // import div
@@ -353,26 +353,22 @@ const pokemonTypesColor = ['teal', 'rgb(142, 197, 233)', 'rgb(106, 230, 172)',
     'rgb(226, 68, 160)', 'rgb(199, 126, 218)'
 ];
 //Lógica para o cálculo de porcentagem de cada tipo 
-let typeLength = [];
-for (let types of pokemonTypes) {
-    let typesArray = [];
-    pokemons.filter(function(pokemon) {
-        if (pokemon.type.includes(types)) {
-            typesArray.push(types)
-        }
-        return typesArray;
-        //typesArray = ['fire', 'fire', 'fire']
-    });
-    typeLength.push(typesArray.length);
-    //typeLength = [5, 0, 0, 3, 4, ...]
-}
+// const percentage = function(pokemonKeysArray, key, pokemonArray){
+//     let percentageArray = [];
+//     for(let item of pokemonKeysArray){
+//       let includesArray = [];
+//       pokemonArray.filter(function(pokemon){
+//         if(pokemon[key].includes(item)){
+//           return includesArray.push(item);
+//         };
+//       });
+//       percentageArray.push((includesArray.length / pokemons.length)*100); 
+//     } 
+//     return percentageArray;
+//   };
 
-let percent = [];
-const typesPercent = typeLength.map(function(lengthArray) {
-    percent = ((lengthArray / pokemons.length) * 100);
-    return percent;
-    //percent = [12.58, 3.33, 9.27, ...]
-});
+const typePercentage = percentage(pokemonTypes, "type", pokemons);
+//const weaknessPercentage = percentage(pokemonTypes, "weaknesses", pokemons);
 
 // Função Gráfico
 new Chart(document.getElementById('type-chart').getContext('2d'), {
@@ -383,7 +379,7 @@ new Chart(document.getElementById('type-chart').getContext('2d'), {
         labels: pokemonTypes,
         datasets: [{
             backgroundColor: pokemonTypesColor,
-            data: typesPercent
+            data: typePercentage
         }]
     },
     // Configuração de título - display: true faz o título aparecer na tela

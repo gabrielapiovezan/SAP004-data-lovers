@@ -1,4 +1,4 @@
-import { searchFunc, orderList, resultPokemons, concatFilters, startCalculador, order } from '../src/data.js';
+import { searchFunc, orderList, resultPokemons, concatFilters, startCalculador, order, percentage } from '../src/data.js';
 
 const comidinhasTop = {
   "comidinhas": [{"id": 1, "name": "Batata frita"}, {"id": 2,"name": "Tapioca"}, {"id": 3,"name": "Pizza"}]};
@@ -96,5 +96,14 @@ describe('startCalculator', () => {
   it('should throw TypeError when invoked with wrong argument types', () => {
     expect(() => startCalculador()).toThrow(TypeError);
     expect(() => startCalculador(null, [])).toThrow(TypeError);
+  });
+});
+
+describe('percentage', () => {
+  it('is a function', () => {
+    expect(typeof percentage).toBe('function');
+  });
+  it('returns percentage', () => {
+    expect(percentage(["a","b","c"], "h", [{"h":"a", "d":"c"},{"h":["a","b"]},{"h":"s"},{"h":"a"}])).toEqual([75, 25, 0]);
   });
 });

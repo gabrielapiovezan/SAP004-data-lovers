@@ -92,3 +92,17 @@ export const searchFunc = (p, nameInput, parameter) => {
     })
 
 }
+
+export const percentage = (pokemonKeysArray, key, pokemonArray) => {
+    let percentageArray = [];
+    for(let item of pokemonKeysArray){
+      let includesArray = [];
+      pokemonArray.filter(function(pokemon){
+        if(pokemon[key].includes(item)){
+          return includesArray.push(item);
+        }
+      });
+      percentageArray.push((includesArray.length / pokemonArray.length)*100); 
+    } 
+    return percentageArray;
+  };
