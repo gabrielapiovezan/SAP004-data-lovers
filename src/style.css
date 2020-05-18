@@ -4,6 +4,7 @@ body {
     margin: 0rem;
     padding: 0rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
     background-color: rgb(250, 250, 250)
 }
 
@@ -32,11 +33,11 @@ h5 {
     justify-content: space-between;
 }
 
-.menu {
+/* .menu {
     color: rgb(71, 71, 71);
     display: flex;
     list-style-type: none;
-}
+} */
 
 .logo {
     margin-right: auto;
@@ -82,6 +83,7 @@ h5 {
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 #disappear {
@@ -118,13 +120,13 @@ main {
 }
 
 .gray-box {
-    background-color: rgb(240, 238, 238);
+    background-color: rgb(235, 231, 231);
     padding: 10px;
     border-radius: 20px;
     width: 80%;
 }
 
-.filters {
+.filters { /*trocar por width-100 flex center*/
     width: 100%;
     display: flex;
     align-items: center;
@@ -132,13 +134,13 @@ main {
     /* background-color: turquoise; */
 }
 
-.filters-menu {
+.filters-menu { /*trocar por flex-space-around*/
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.filters-class {
+.filters-class { /*trocar por filters-class flex space-between flex-column*/
     /* Menu de filtro avançado*/
     margin-top: 20px;
     justify-content: space-between;
@@ -194,7 +196,7 @@ main {
     margin: 0px 3px;
     align-items: center;
     justify-content: center;
-    background-color: rgb(243, 241, 241);
+    background-color: rgb(238, 236, 236);
     /* background-color: rgb(201, 201, 201); */
     color: rgb(29, 29, 29);
     border: 0.7px solid rgb(233, 233, 233);
@@ -211,20 +213,19 @@ main {
     cursor: pointer;
 }
 
-.containers {
+.containers { /*trocar por flex-space-around*/
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     justify-content: space-around;
 }
 
 
 /*Div Raiz*/
 
-.home {
-    flex-grow: 1;
+.home { /*trocar por flex, center, flex-wrap; */
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     height: auto;
 }
@@ -327,7 +328,7 @@ main {
 }
 
 .Electric {
-    color: rgb(241, 241, 98);
+    color: rgb(206, 203, 10);
 }
 
 .Ground {
@@ -361,6 +362,10 @@ main {
 .canvas {
     width: 70%;
     height: 65%;
+    margin: 3rem 5rem 3rem 10rem;
+}
+.canvas-align{
+    justify-content: center;
 }
 
 .card:hover h5 {
@@ -378,6 +383,7 @@ main {
 .text {
     margin: 0rem 6rem 0rem 5rem;
     color: rgb(82, 80, 80);
+    text-align: center;
     /* display: flex;
     flex-wrap: wrap; */
 }
@@ -409,7 +415,7 @@ h2 {
     width: 80%;
     height: fit-content;
     margin: 0rem 6rem 0rem 5rem;
-    padding: 3rem 5rem;
+    padding: 2rem 3rem;
     border-radius: 8px;
 }
 
@@ -498,10 +504,10 @@ h2 {
     display: none;
 }
 
-.calculator-main {
+.calculator-main { /*trocar por flex center flex-wrap e width-100*/
     width: 100%;
     display: flex;
-    align-items: flex-start;
+    /* align-items: flex-start; */
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -628,8 +634,9 @@ h2 {
         margin-left: 0px;
     }
     .charts {
-        width: 85%;
-        height: 80%;
+        width: 90%;
+        height: 90%;
+        margin: 1rem;
     }
     .close-filters {
         position: relative;

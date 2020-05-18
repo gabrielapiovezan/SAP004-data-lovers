@@ -352,20 +352,6 @@ const pokemonTypesColor = ['teal', 'rgb(142, 197, 233)', 'rgb(106, 230, 172)',
     'rgb(241, 241, 98)', 'rgb(219, 122, 58)', 'rgb(56, 56, 56)', 'coral', 'crimson', 'darkmagenta',
     'rgb(226, 68, 160)', 'rgb(199, 126, 218)'
 ];
-//Lógica para o cálculo de porcentagem de cada tipo 
-// const percentage = function(pokemonKeysArray, key, pokemonArray){
-//     let percentageArray = [];
-//     for(let item of pokemonKeysArray){
-//       let includesArray = [];
-//       pokemonArray.filter(function(pokemon){
-//         if(pokemon[key].includes(item)){
-//           return includesArray.push(item);
-//         };
-//       });
-//       percentageArray.push((includesArray.length / pokemons.length)*100); 
-//     } 
-//     return percentageArray;
-//   };
 
 const typePercentage = percentage(pokemonTypes, "type", pokemons);
 //const weaknessPercentage = percentage(pokemonTypes, "weaknesses", pokemons);
