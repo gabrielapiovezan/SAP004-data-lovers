@@ -221,6 +221,35 @@ main {
 
 
 /*Div Raiz*/
+.time-pokemons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+}
+
+.footer{
+    display: flex;
+    justify-content: space-around;
+    background-color: #06243f;
+    color: white;
+    font-weight: bold;
+    height: 100px;   
+}
+.footer>div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.footer>div>p{
+    margin: none;
+}
+.text-decoration{
+    /* text-decoration: none; */
+    color: white;
+}
 
 .home { /*trocar por flex, center, flex-wrap; */
     display: flex;
@@ -228,6 +257,11 @@ main {
     align-items: center;
     justify-content: center;
     height: auto;
+}
+
+.flex-column{
+    display: flex;
+    flex-direction: column;
 }
 
 .view-all-class {
@@ -362,7 +396,6 @@ main {
 .canvas {
     width: 70%;
     height: 65%;
-    margin: 3rem 5rem 3rem 10rem;
 }
 .canvas-align{
     justify-content: center;
@@ -634,9 +667,11 @@ h2 {
         margin-left: 0px;
     }
     .charts {
-        width: 90%;
-        height: 90%;
-        margin: 1rem;
+        width: 100%;
+        height: 100%;
+    }
+    .chart>canvas{
+        margin: 0px;
     }
     .close-filters {
         position: relative;
@@ -645,5 +680,13 @@ h2 {
     }
     .line {
         margin-left: 0px;
+    }
+    .footer{
+        flex-direction: column;
+        height: 150px;
+        padding: 10px;
+    }
+    .footer>div{
+        justify-content: space-between;
     }
 }
