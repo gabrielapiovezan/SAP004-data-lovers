@@ -4,6 +4,7 @@ body {
     margin: 0rem;
     padding: 0rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
     background-color: rgb(250, 250, 250)
 }
 
@@ -32,11 +33,11 @@ h5 {
     justify-content: space-between;
 }
 
-.menu {
+/* .menu {
     color: rgb(71, 71, 71);
     display: flex;
     list-style-type: none;
-}
+} */
 
 .logo {
     margin-right: auto;
@@ -82,6 +83,7 @@ h5 {
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 #disappear {
@@ -118,13 +120,13 @@ main {
 }
 
 .gray-box {
-    background-color: rgb(240, 238, 238);
+    background-color: rgb(235, 231, 231);
     padding: 10px;
     border-radius: 20px;
     width: 80%;
 }
 
-.filters {
+.filters { /*trocar por width-100 flex center*/
     width: 100%;
     display: flex;
     align-items: center;
@@ -132,13 +134,13 @@ main {
     /* background-color: turquoise; */
 }
 
-.filters-menu {
+.filters-menu { /*trocar por flex-space-around*/
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.filters-class {
+.filters-class { /*trocar por filters-class flex space-between flex-column*/
     /* Menu de filtro avançado*/
     margin-top: 20px;
     justify-content: space-between;
@@ -194,7 +196,7 @@ main {
     margin: 0px 3px;
     align-items: center;
     justify-content: center;
-    background-color: rgb(243, 241, 241);
+    background-color: rgb(238, 236, 236);
     /* background-color: rgb(201, 201, 201); */
     color: rgb(29, 29, 29);
     border: 0.7px solid rgb(233, 233, 233);
@@ -211,22 +213,55 @@ main {
     cursor: pointer;
 }
 
-.containers {
+.containers { /*trocar por flex-space-around*/
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     justify-content: space-around;
 }
 
 
 /*Div Raiz*/
-
-.home {
-    flex-grow: 1;
+.time-pokemons {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     height: auto;
+}
+
+.footer{
+    display: flex;
+    justify-content: space-around;
+    background-color: #06243f;
+    color: white;
+    font-weight: bold;
+    height: 100px;   
+}
+.footer>div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.footer>div>p{
+    margin: none;
+}
+.text-decoration{
+    /* text-decoration: none; */
+    color: white;
+}
+
+.home { /*trocar por flex, center, flex-wrap; */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+}
+
+.flex-column{
+    display: flex;
+    flex-direction: column;
 }
 
 .view-all-class {
@@ -327,7 +362,7 @@ main {
 }
 
 .Electric {
-    color: rgb(241, 241, 98);
+    color: rgb(206, 203, 10);
 }
 
 .Ground {
@@ -359,8 +394,11 @@ main {
 }
 
 .canvas {
-    width: 50%;
-    height: 45%;
+    width: 70%;
+    height: 65%;
+}
+.canvas-align{
+    justify-content: center;
 }
 
 .card:hover h5 {
@@ -378,6 +416,7 @@ main {
 .text {
     margin: 0rem 6rem 0rem 5rem;
     color: rgb(82, 80, 80);
+    text-align: center;
     /* display: flex;
     flex-wrap: wrap; */
 }
@@ -399,15 +438,22 @@ h2 {
     filter: grayscale(50%);
 }
 
-.home-content {
+.white-background {
     background-color: white;
+}
+
+.center {
     text-align: center;
     align-self: center;
     width: 80%;
     height: fit-content;
     margin: 0rem 6rem 0rem 5rem;
-    padding: 3rem 5rem;
+    padding: 2rem 3rem;
     border-radius: 8px;
+}
+
+.padding {
+    padding: 2rem;
 }
 
 .filter-config {
@@ -491,7 +537,7 @@ h2 {
     display: none;
 }
 
-.calculator-main {
+.calculator-main { 
     width: 100%;
     display: flex;
     align-items: flex-start;
@@ -620,6 +666,13 @@ h2 {
         margin-right: 10px;
         margin-left: 0px;
     }
+    .charts {
+        width: 100%;
+        height: 100%;
+    }
+    .chart>canvas{
+        margin: 0px;
+    }
     .close-filters {
         position: relative;
         right: -150px;
@@ -627,5 +680,13 @@ h2 {
     }
     .line {
         margin-left: 0px;
+    }
+    .footer{
+        flex-direction: column;
+        height: 150px;
+        padding: 10px;
+    }
+    .footer>div{
+        justify-content: space-between;
     }
 }

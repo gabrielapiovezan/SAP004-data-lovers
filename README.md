@@ -8,7 +8,9 @@
 * [3. Protótipo e histórias de usuários](#3-Protótipo-e-histórias-de-usuários)
 * [4. Estrutura e funcionalidade](#4-Estrutura-e-funcionalidade)
 * [5. Ferramentas](#5-Ferramentas)
-* [6. Autoria](#5-autoria)
+* [6. Considerações técnicas](#6-Considerações-técnicas)
+* [7. Checklist](#7-Checklist)
+* [8. Autoria](#5-autoria)
 
 ***
 
@@ -54,6 +56,19 @@ O protótipo de baixa fidelidade foi construído para testar a disposição dos 
 
 ![Protótipo de baixa fidelidade](/protótipopokemon.jpg)
 
+### 3.3. Layout
+O layout final teve como inspiração o design do Theodorus Dani no projeto Pokédex web page.
+
+### 3.4. Validação do produto
+A validação da aplicação foi feita com um formulário na etapa de protótipo e, posteriormente, com o produto pronto. No primeiro momento, os feedbacks auxiliaram a definir melhor as funcionalidades e layout. Já as respostas do último formulário auxiliaram a verificar com o usuário a usabilidade, a responsividade e os pontos de satisfação e melhoria. 
+Segundo as respostas fornecidas por 14 pessoas:
+- 85,7% acha que a responsividade está funcionando corretamente.
+- 100% conseguiu pesquisar Pokémons por nome e ordenar corretamente.
+- 85.7% conseguiu utilizar os filtros com facilidade.
+- 100% conseguiu utilizar com facilidade a calculadora de evolução.
+- 92.9% conseguiram visualizar bem o gráfico de porcentagem por tipo.
+Algumas sugestões de melhoria também foram implementadas, como a mudança de cor de algumas fontes por não estar fácil de enxergar, aumento de contraste da barra de filtro, aumento do tamanho da fonte e centralização de alguns elementos.
+
 ## 4. Estrutura e funcionalidade
 A aplicação tem uma estrutura clara, objetiva e funciona de maneira responsiva, possuí um menu com quatro opções das quais pode-se navegar pelas funcionalidades oferecidas, que fica visível ou não de acordo com o objetivo do qual ela é acessada.
 
@@ -87,14 +102,18 @@ A calculadora de evolução tem como estrutura um *select* onde o usuário digit
 Como resultado do cálculo a aplicação apresenta pokémon escolhido com os cands necessário para a evolução e o pokémon evoluído com o valor de CP que a evolução renderá.
 
 #### 4.3.1 Exceções
-- Quando o pokémon selecionado não possuí evolução a aplicação retorna o pokémom selecionado contendo essa informação.
+- Quando o pokémon selecionado não possui evolução a aplicação retorna o pokémom selecionado contendo essa informação.
 - O Pokémon Eevee pode evoluir para mais de um Pokémon, a aplicação apresenta essa informação e retorna todas as suas evoluções possíveis.
 
-### 4.4 Estatísticas
-Essa aba possuí dados estatísticos dos Pokémons.
+### 4.4 Informações Adicionais
+Essa aba possui uma funcionalidade de mostrar os Pokémons disponíveis no Pokémon Go por horário e um gráfico de porcentagem de cada tipo de Pokémon.
 
 #### 4.4.1 Porcentagem de pokémons por tipo
----
+- O cálculo de porcentagem de pokémons por tipo é realizado utilizando os dados do arquivo pokemon.js e apresentado em um gráfico feito com a biblioteca Chartsjs.
+
+#### 4.4.2 Pokémons por horário
+- A funcionalidade Pokémons por horário foi feita utilizando os dados de horário local e comparando com o spawn_time, disponível no banco de dados pokemon.js.
+
 #### 4.5 Modal
 O modal é aberto clicando no Pokémon quando se deseja saber mais informações sobre ele.
 
@@ -103,7 +122,7 @@ O modal é aberto clicando no Pokémon quando se deseja saber mais informações
 ## 5. Ferramentas
 Para a construção da aplicação foi utilizado o software Visual Studio Code com a extenção do Node-js. A sua marcação foi feita em HTML e a sua estilização em CSS. Ela foi programada em vanilla JavaScript, contendo dois arquivos, o main.js, responsável pela interação dos elementos do DOM e o data.js responsável pelas funções de filtragem. Os dados foram exportados do arquivo de dados pokemons.js.
 
-## 3. Considerações técnicas
+## 6. Considerações técnicas
 
 O arquivo está estruturado da seguinte forma:
 
@@ -136,24 +155,24 @@ O arquivo está estruturado da seguinte forma:
 directory: 6 file: 17
 ```
 
-## 4. Checklist
+## 7. Checklist
 
-* [ ] Usar VanillaJS.
-* [ ] Não utilizar `this`.
-* [ ] Passa pelo linter (`npm run pretest`)
-* [ ] Passa pelos testes (`npm test`)
-* [ ] Testes unitários cobrem um mínimo de 70% de statements, functions,
+* [✓] Usar VanillaJS.
+* [✓] Não utilizar `this`.
+* [✓] Passa pelo linter (`npm run pretest`)
+* [✓] Passa pelos testes (`npm test`)
+* [✓] Testes unitários cobrem um mínimo de 70% de statements, functions,
   lines e branches.
-* [ ] Inclui uma _definição de produto_ clara e informativa no `README.md`.
-* [ ] Inclui histórias de usuário no `README.md`.
-* [ ] Inclui rascunho da solução (protótipo de baixa fidelidade) no
+* [✓] Inclui uma _definição de produto_ clara e informativa no `README.md`.
+* [✓] Inclui histórias de usuário no `README.md`.
+* [✓] Inclui rascunho da solução (protótipo de baixa fidelidade) no
   `README.md`.
-* [ ] Inclui uma lista de problemas detectados nos testes de usabilidade no `README.md`.
-* [ ] UI: Mostra lista/tabela/etc com dados e/ou indicadores.
-* [ ] UI: Permite ordenar dados por um ou mais campos (asc e desc).
-* [ ] UI: Permite filtrar dados com base em uma condição.
-* [ ] UI: É _responsivo_.
+* [✓] Inclui uma lista de problemas detectados nos testes de usabilidade no `README.md`.
+* [✓] UI: Mostra lista/tabela/etc com dados e/ou indicadores.
+* [✓] UI: Permite ordenar dados por um ou mais campos (asc e desc).
+* [✓] UI: Permite filtrar dados com base em uma condição.
+* [✓] UI: É _responsivo_.
 
-## 6. Autoria
+## 8. Autoria
 
 Este projeto foi feito por Gabriela Piovezam e Thais Durynek com base no projeto da Laboratoria.
