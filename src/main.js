@@ -1,7 +1,7 @@
-import { searchFunc, orderList, resultPokemons, concatFilters, startCalculador, order } from './data.js';
+import { searchFunc, orderList, resultPokemons, concatFilters, startCalculador, order, percentage } from './data.js';
 import data from './data/pokemon/pokemon.js';
-const root = document.getElementById("root") // import div
-const pokemons = data.pokemon // pokemons = array
+const root = document.getElementById("root") 
+const pokemons = data.pokemon 
 const filtersMenu = document.getElementById("filters")
 const select = document.getElementById("select-pokemons")
 const calculatorMain = document.getElementById("calculator-main")
@@ -44,12 +44,12 @@ const creatCard = (pokemons, info = [], infoEx) => {
         const powerType = document.createElement("div")
         powerType.classList = (a)
         powerType.classList.add("power")
-        powerType.innerHTML += `<h5>${a}</h5>` //${pokemons.type[1] = pokemons.type[1] || ""}</h5>` // coloca o tipo
+        powerType.innerHTML += `<h5>${a}</h5>`
         power.appendChild(powerType)
     });
-    card.appendChild(img) //coloca a imagem na nova div
+    card.appendChild(img) 
     cardInformation.appendChild(power)
-    card.appendChild(cardInformation) // coloca informações no card
+    card.appendChild(cardInformation)
     return card
 }
 
@@ -57,6 +57,7 @@ const creatCard = (pokemons, info = [], infoEx) => {
 const createModal = (pokemons) => {
     const waiting = document.getElementsByClassName("waiting")[0]
     waiting.style.display = "block"
+    const wait = document.getElementById('wait')
     const info = ["height", "weight"]
     const card = creatCard(pokemons, info)
     card.innerHTML += '<span class="close">&times;</span>'
@@ -320,6 +321,22 @@ const calculator = (pokemons) => {
     creatCardCalculator(pokemon[0], evolutuin, cp, cpResult)
 }
 
+const hourFunction = () => {
+    let time = new Date().getHours();
+    const filterSpawnTime = pokemons.filter(pokemon => {
+        if(time === Number(pokemon.spawn_time.slice(0,-3))){
+            return true;
+        }
+    });
+    filterSpawnTime.forEach(pokemon => {
+        const card = creatCard(pokemon);
+        card.addEventListener("click", () => {
+            createModal(pokemon)
+        });
+        document.getElementById('hour').appendChild(card);
+    })
+}
+
 
 document.querySelectorAll(".menu-buttons").forEach(buttons => buttons.addEventListener("click", functionMenu))
 document.querySelectorAll('form').forEach(form => form.addEventListener('input', advancedSearch))
@@ -336,6 +353,7 @@ document.getElementById("menu-open").addEventListener('click', () => {
     menu.style.display === "none" ? menu.style.display = "block" : menu.style.display = "none"
     main()
 })
+hourFunction();
 
 functionMenu()
 main()
@@ -343,7 +361,7 @@ selectPokemons()
 
 
 /*Ranking*/
-//Declaração de variáveis
+
 const pokemonTypes = ['Flying', 'Ice', 'Grass', 'Fire', 'Water', 'Bug', 'Normal', 'Poison',
     'Electric', 'Ground', 'Rock', 'Fighting', 'Psychic', 'Ghost', 'Dragon', 'Fairy'
 ];
@@ -352,41 +370,18 @@ const pokemonTypesColor = ['teal', 'rgb(142, 197, 233)', 'rgb(106, 230, 172)',
     'rgb(241, 241, 98)', 'rgb(219, 122, 58)', 'rgb(56, 56, 56)', 'coral', 'crimson', 'darkmagenta',
     'rgb(226, 68, 160)', 'rgb(199, 126, 218)'
 ];
-//Lógica para o cálculo de porcentagem de cada tipo 
-let typeLength = [];
-for (let types of pokemonTypes) {
-    let typesArray = [];
-    pokemons.filter(function(pokemon) {
-        if (pokemon.type.includes(types)) {
-            typesArray.push(types)
-        }
-        return typesArray;
-        //typesArray = ['fire', 'fire', 'fire']
-    });
-    typeLength.push(typesArray.length);
-    //typeLength = [5, 0, 0, 3, 4, ...]
-}
 
-let percent = [];
-const typesPercent = typeLength.map(function(lengthArray) {
-    percent = ((lengthArray / pokemons.length) * 100);
-    return percent;
-    //percent = [12.58, 3.33, 9.27, ...]
-});
+const typePercentage = percentage(pokemonTypes, "type", pokemons);
 
-// Função Gráfico
 new Chart(document.getElementById('type-chart').getContext('2d'), {
-    //o tipo de gráfico
     type: 'bar',
-    //dados do gráfico
     data: {
         labels: pokemonTypes,
         datasets: [{
             backgroundColor: pokemonTypesColor,
-            data: typesPercent
+            data: typePercentage
         }]
     },
-    // Configuração de título - display: true faz o título aparecer na tela
     options: {
         title: {
             text: 'Porcentagem de tipos de Pokémons',

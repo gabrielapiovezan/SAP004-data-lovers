@@ -1,189 +1,184 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
-</head>
-
-<body>
+  </head>
+  <body>
     <div class="waiting">
-        <div id="wait" class="wait-class"></div>
+      <div id="wait" class="wait-class"></div>
     </div>
     <header class="header">
-        <div class="header-main">
-            <div class="config-mobile">
-                <span class="logo-mobile">
-            <span class="logo"><img src="img/icon-pokeball.png">Poke<strong>Type</strong>
-            </span>
-                </span>
-                <img id="menu-open" src="img/icons8-cardápio-30.png">
-            </div>
-
-            <ul id="disappear">
-                <li class="menu-buttons" id="home-menu">Home</li>
-                <li class="menu-buttons" id="main-menu">Pokémons</li>
-                <li class="menu-buttons" id="comparation-menu">Calculadora de evolução</li>
-                <li class="menu-buttons" id="ranking-menu">Estatísticas</li>
-            </ul>
+      <div class="header-main">
+        <div class="config-mobile">
+          <span class="logo-mobile">
+            <span class="logo"><img src="img/icon-pokeball.png">Poke<strong>Type</strong></span>
+          </span>
+          <img id="menu-open" src="img/icons8-cardápio-30.png">
         </div>
+        <ul id="disappear">
+          <li class="menu-buttons" id="home-menu">Home</li>
+          <li class="menu-buttons" id="main-menu">Pokémons</li>
+          <li class="menu-buttons" id="comparation-menu">Calculadora de evolução</li>
+          <li class="menu-buttons" id="ranking-menu">Informações adicionais</li>
+        </ul>
+      </div>
     </header>
     <section class="screen" id="home">
-        <div class="home-box">
-            <div class="home-content text">
-                <h2>SOBRE</h2>
-                <p>Olá, treinador pokémon! Você quer filtrar seus pokémons por tipos, fraquezas e altura? Quer calcular quantos candys o seu pokémon precisa para evoluir e qual é o CP resultante da evolução? Quer visualizar porcentagens de pokémons por tipo?
-                    Então esta aplicação é ideal para você!
-                </p>
-            </div>
+      <div class="home-box">
+        <div class="white-background center text">
+          <h2>SOBRE</h2>
+          <p>Olá, treinador pokémon! Você quer filtrar seus pokémons por tipos, fraquezas e altura? 
+            Quer calcular quantos candys o seu pokémon precisa para evoluir e qual é o CP resultante da evolução?
+            Quer visualizar porcentagens de pokémons por tipo? Então esta aplicação é ideal para você!
+          </p>
         </div>
+      </div>    
     </section>
     <section class="screen" id="ranking">
-        <h1 class="header-title">ESTATÍSTICAS</h1>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores tempora libero repellat, aperiam optio ab ea esse, accusantium veniam officiis ipsum. Consequatur similique nam nostrum obcaecati non quia dolore ab.</p>
-        <div class="canvas"><canvas id="type-chart"></canvas></div>
+      <h1 class="header-title">INFORMAÇÕES ADICIONAIS</h1>
+      <main class="home flex-column">
+        <h3 class="text">Saiba quais pokémons você pode capturar agora!</h3>
+        <div id="hour" class="time-pokemons"></div>
+        <h3>Visualize as porcentagens de cada tipo de Pokémon!</h3>
+        <div class="canvas charts"><canvas class="canvas-align" id="type-chart"></canvas></div>
+      </main>
     </section>
     <section class="screen" id="comparation">
-        <h1 class="header-title">CALCULADORA DE EVOLUÇÃO</h1>
-        <header>
-            <div class="filters">
-                <div class="filters-menu gray-box">
-                    <select class="button-filter" id="select-pokemons">
-                </select>
-                    <input class="button-filter" id="input-cp" type="number" min="1" max="5000" placeholder="CP">
-                    <button class="button-filter" id="startCalculator">Calcular</button>
-                </div>
-            </div>
-        </header>
-        <main class="home">
-            <div class="text">
-                <p>Com a Calculadora de evolução os jogadores do Pokémon Go podem saber quantos candys precisam dar para o seu pokémon evoluir e também qual o Combat Power (CP) resultante da evolução.</p>
-                <h2>Modo de usar</h2>
-                <p>Escolha o seu pokémon e coloque o CP respectivo, click e calcular e pronto! </p>
-                <p>Vamos nessa?</p>
-            </div>
-            <div id="calculator-main" class="calculator-main"></div>
-        </main>
+      <h1 class="header-title">CALCULADORA DE EVOLUÇÃO</h1>
+      <header>
+        <div class="filters">
+          <div class="filters-menu gray-box">
+            <select class="button-filter" id="select-pokemons">
+            </select>
+            <input class="button-filter" id="input-cp" type="number" min="1" max="5000" placeholder="CP">
+            <button class="button-filter" id="startCalculator">Calcular</button>
+          </div>
+        </div>
+      </header>
+      <main class="home">
+        <div class="text">
+          <p>Com a Calculadora de evolução os jogadores do Pokémon Go podem saber quantos candys precisam dar para o seu pokémon evoluir e também qual o Combat Power (CP) resultante da evolução.</p>
+          <h2>Modo de usar</h2>
+          <p>Escolha o seu pokémon e coloque o CP respectivo, click e calcular e pronto! </p>
+          <p>Vamos nessa?</p>
+        </div>
+        <div id="calculator-main" class="calculator-main"></div>
+      </main>
     </section>
     <section class="screen" id="main">
-        <h1 class="header-title">POKÉMON</h1>
-        <div class="filters">
-            <div class="filters-menu gray-box">
-                <form class="button-filter menu-search">
-                    <input id="search" type="text" class="search" placeholder="Nome do Pokémon">
-                    <img class="icon-search" src="img/icon-search-40.png" alt="search">
-                </form>
-
-                <div class="filters-menu">
-                    <div class="containers">
-                        <button class="button-filter" id="menu-filter">Filtros<img  src="img/icons8-filtro-25.png" ></button>
-                        <form>
-                            <select id="browsers" class="button-filter">     
-          <option value="">Ordenar por</option>
-          <option value="0">De A a Z</option>
-          <option value="1">De Z a A</option>
-          <option value="2">Do menor para o maior</option>
-          <option value="3">Do maior para o menor</option>
-        </select>
-                        </form>
-                    </div>
-                </div>
+      <h1 class="header-title">POKÉMON</h1>
+      <div class="filters">
+        <div class="filters-menu gray-box">
+          <form class="button-filter menu-search">
+            <input id="search" type="text" class="search" placeholder="Nome do Pokémon">
+            <img class="icon-search" src="img/icon-search-40.png" alt="search">
+          </form>
+          <div class="filters-menu">
+            <div class="containers">
+              <button class="button-filter" id="menu-filter">Filtros<img  src="img/icons8-filtro-25.png" ></button>
+              <form>
+                <select id="browsers" class="button-filter">     
+                  <option value="">Ordenar por</option>
+                  <option value="0">De A a Z</option>
+                  <option value="1">De Z a A</option>
+                  <option value="2">Do menor para o maior</option>
+                  <option value="3">Do maior para o menor</option>
+                </select>
+              </form>
             </div>
+          </div>
         </div>
-        <div id="filters">
-            <!--Caixa de filtros-->
-            <div class="filters-class">
-                <!--Caixa de descrição-->
-                <div class="line">
-                    <h6>Tipo = T Fraqueza = F</h6><button id="reset-search" class="button-filter button-reset">Redefinir</button>
-                </div>
-                <span id="close-menu" class="close close-filters">&times;</span>
-                <div class="checkbox-type filters-menu">
-                    <form class="checkbox-form" id="checkbox-types">
-                        <div>
-                            <input type="checkbox" name="option" value="Flying"><label>T</label>
-                            <input type="checkbox" name="weakness" value="Flying"><label>F<span
-              class="Flying power filter-config">Flying</span></label><br>
-
-                            <input type="checkbox" name="option" value="Ice"><label>T</label>
-                            <input type="checkbox" name="weakness" value="Ice"><label>F<span
-              class="Ice power filter-config">Ice</span></label><br>
-
-                            <input type="checkbox" name="option" value="Grass"><label>T</label>
-                            <input type="checkbox" name="weakness" value="Grass"><label>F<span
-              class="Grass power filter-config">Grass</span></label><br>
-
-                            <input type="checkbox" name="option" value="Fire"><label>T</label>
-                            <input type="checkbox" name="weakness" value="Fire"><label>F<span
-              class="Fire power filter-config">Fire</span></label><br>
-
-                            <input type="checkbox" name="option" value="Water"><label>T</label>
-                            <input type="checkbox" name="weakness" value="Water"><label>F<span
-              class="Water power filter-config">Water</span></label><br>
-
-                            <input type="checkbox" name="option" value="Bug"><label>T</label>
-                            <input type="checkbox" name="weakness" value="Bug"><label>F<span
-              class="Bug power filter-config">Bug</span></label><br>
-
-                            <input type="checkbox" name="option" value="Normal"><label>T</label>
-                            <input type="checkbox" name="weakness" value="Normal"><label>F<span
-              class="Normal power filter-config">Normal</span></label><br>
-
-                            <input type="checkbox" name="option" value="Poison"><label>T</label>
-                            <input type="checkbox" name="weakness" value="Poison"><label>F<span
-              class="Poison power filter-config">Poison</span></label><br>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="option" value="Electric"><label>T</label>
-                            <input type="checkbox" name="weakness" value="Electric"><label>F<span
-              class="Electric power filter-config">Electric</span></label><br>
-
-                            <input type="checkbox" name="option" value="Ground"><label>T</label>
-                            <input type="checkbox" name="weakness" value="Ground"><label>F<span
-              class="Ground power filter-config">Ground</span></label><br>
-
-                            <input type="checkbox" name="option" value="Rock"><label>T</label>
-                            <input type="checkbox" name="weakness" value="Rock"><label>F<span
-              class="Rock power filter-config">Rock</span></label><br>
-
-                            <input type="checkbox" name="option" value="Fighting"><label>T</label>
-                            <input type="checkbox" name="weakness" value="Fighting"><label>F<span
-              class="Fighting power filter-config">Fighting</span></label><br>
-
-                            <input type="checkbox" name="option" value="Psychic"><label>T</label>
-                            <input type="checkbox" name="weakness" value="Psychic"><label>F<span
-              class="Psychic power filter-config">Psychic</span></label><br>
-
-                            <input type="checkbox" name="option" value="Ghost"><label>T</label>
-                            <input type="checkbox" name="weakness" value="Ghost"><label>F<span
-              class="Ghost power filter-config">Ghost</span></label><br>
-
-                            <input type="checkbox" name="option" value="Dragon"><label>T</label>
-                            <input type="checkbox" name="weakness" value="Dragon"><label>F<span
-              class="Dragon power filter-config">Dragon</span></label><br>
-
-                            <input type="checkbox" name="option" value="Fairy"><label>T</label>
-                            <input type="checkbox" name="weakness" value="Fairy"><label>F<span
-              class="Fairy power filter-config">Fairy</span></label><br>
-                        </div>
-                    </form>
-                    <form id="checkbox-height" class="heights-menu">
-                        <label class="class-heights">Tamanho:</label><br>
-                        <input type="checkbox" name="heights" value="l"><label class="class-heights">Pequeno</label>
-                        <input type="checkbox" name="heights" value="m"><label class="class-heights">Médio</label>
-                        <input type="checkbox" name="heights" value="b"><label class="class-heights">Grande</label>
-                    </form>
-                    <!--Tipos e Fraquezaa-->
-
-                </div>
-            </div>
+      </div>
+      <div id="filters">
+        <!--Caixa de filtros-->
+        <div class="filters-class">
+        <!--Caixa de descrição-->
+          <div class="line">
+            <h6>Tipo = T Fraqueza = F</h6><button id="reset-search" class="button-filter button-reset">Redefinir</button>
+          </div>
+          <span id="close-menu" class="close close-filters">&times;</span>
+          <div class="checkbox-type filters-menu">
+            <form class="checkbox-form" id="checkbox-types">
+              <div>
+                <input type="checkbox" name="option" value="Flying"><label>T</label>
+                <input type="checkbox" name="weakness" value="Flying"><label>F
+                  <span class="Flying power filter-config">Flying</span></label><br>
+                <input type="checkbox" name="option" value="Ice"><label>T</label>
+                <input type="checkbox" name="weakness" value="Ice"><label>F
+                  <span class="Ice power filter-config">Ice</span></label><br>
+                <input type="checkbox" name="option" value="Grass"><label>T</label>
+                <input type="checkbox" name="weakness" value="Grass"><label>F
+                  <span class="Grass power filter-config">Grass</span></label><br>
+                <input type="checkbox" name="option" value="Fire"><label>T</label>
+                <input type="checkbox" name="weakness" value="Fire"><label>F
+                  <span class="Fire power filter-config">Fire</span></label><br>
+                <input type="checkbox" name="option" value="Water"><label>T</label>
+                <input type="checkbox" name="weakness" value="Water"><label>F
+                  <span class="Water power filter-config">Water</span></label><br>
+                <input type="checkbox" name="option" value="Bug"><label>T</label>
+                <input type="checkbox" name="weakness" value="Bug"><label>F
+                  <span class="Bug power filter-config">Bug</span></label><br>
+                <input type="checkbox" name="option" value="Normal"><label>T</label>
+                <input type="checkbox" name="weakness" value="Normal"><label>F
+                  <span class="Normal power filter-config">Normal</span></label><br>
+                <input type="checkbox" name="option" value="Poison"><label>T</label>
+                <input type="checkbox" name="weakness" value="Poison"><label>F
+                  <span class="Poison power filter-config">Poison</span></label><br>
+              </div>
+              <div>
+                <input type="checkbox" name="option" value="Electric"><label>T</label>
+                <input type="checkbox" name="weakness" value="Electric"><label>F
+                  <span class="Electric power filter-config">Electric</span></label><br>
+                <input type="checkbox" name="option" value="Ground"><label>T</label>
+                <input type="checkbox" name="weakness" value="Ground"><label>F
+                  <span class="Ground power filter-config">Ground</span></label><br>
+                <input type="checkbox" name="option" value="Rock"><label>T</label>
+                <input type="checkbox" name="weakness" value="Rock"><label>F
+                  <span class="Rock power filter-config">Rock</span></label><br>
+                <input type="checkbox" name="option" value="Fighting"><label>T</label>
+                <input type="checkbox" name="weakness" value="Fighting"><label>F
+                  <span class="Fighting power filter-config">Fighting</span></label><br>
+                <input type="checkbox" name="option" value="Psychic"><label>T</label>
+                <input type="checkbox" name="weakness" value="Psychic"><label>F
+                  <span class="Psychic power filter-config">Psychic</span></label><br>
+                <input type="checkbox" name="option" value="Ghost"><label>T</label>
+                <input type="checkbox" name="weakness" value="Ghost"><label>F
+                  <span class="Ghost power filter-config">Ghost</span></label><br>
+                <input type="checkbox" name="option" value="Dragon"><label>T</label>
+                <input type="checkbox" name="weakness" value="Dragon"><label>F
+                  <span class="Dragon power filter-config">Dragon</span></label><br>
+                <input type="checkbox" name="option" value="Fairy"><label>T</label>
+                <input type="checkbox" name="weakness" value="Fairy"><label>F
+                  <span class="Fairy power filter-config">Fairy</span></label><br>
+              </div>
+            </form>
+            <form id="checkbox-height" class="heights-menu">
+              <label class="class-heights">Altura:</label><br>
+              <input type="checkbox" name="heights" value="l"><label class="class-heights">Pequeno</label>
+              <input type="checkbox" name="heights" value="m"><label class="class-heights">Médio</label>
+              <input type="checkbox" name="heights" value="b"><label class="class-heights">Grande</label>
+            </form>
+            <!--Tipos e Fraquezaa-->
+          </div>
         </div>
-        <main id="root" class="home"></main>
+      </div>
+      <main id="root" class="home"></main>
     </section>
+    <footer class="footer">
+      <p>Desenvolvido por:</p>
+      <div>
+        <span>GABRIELA PIOVEZAN</span>
+        <span><a href="gabrielapiovezan@live.com" class="text-decoration">gabrielapiovezan@live.com</a></span>
+      </div>
+      <div>
+        <span>THAIS DURYNEK</span>
+          <span><a href="thais.durynek@gmail.com" class="text-decoration">thais.durynek@gmail.com</a></span>
+      </div>
+    </footer>
     <script src="main.js" type="module"></script>
-</body>
-
+  </body>
 </html>
