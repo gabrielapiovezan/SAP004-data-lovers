@@ -57,6 +57,7 @@ const creatCard = (pokemons, info = [], infoEx) => {
 const createModal = (pokemons) => {
     const waiting = document.getElementsByClassName("waiting")[0]
     waiting.style.display = "block"
+    const wait = document.getElementById('wait')
     const info = ["height", "weight"]
     const card = creatCard(pokemons, info)
     card.innerHTML += '<span class="close">&times;</span>'
