@@ -58,8 +58,6 @@ export const resultPokemons = (pokemons, resultMax, resultMin) => pokemons.filte
 export const searchFunc = (p, nameInput, parameter) => {
         nameInput = nameInput.toUpperCase()
         return p.filter((p) => {
-        console.log(p.parameter)
-        console.log(nameInput)
         return p[parameter].toUpperCase().includes(nameInput)
         })
     }
