@@ -56,7 +56,10 @@ O protótipo de baixa fidelidade foi construído para testar a disposição dos 
 
 ![Protótipo de baixa fidelidade](/protótipopokemon.jpg)
 
-### 3.3. Validação do produto
+### 3.3. Layout
+O layout final teve como inspiração o design do Theodorus Dani no projeto Pokédex web page.
+
+### 3.4. Validação do produto
 A validação da aplicação foi feita com um formulário na etapa de protótipo e, posteriormente, com o produto pronto. No primeiro momento, os feedbacks auxiliaram a definir melhor as funcionalidades e layout. Já as respostas do último formulário auxiliaram a verificar com o usuário a usabilidade, a responsividade e os pontos de satisfação e melhoria. 
 Segundo as respostas fornecidas por 14 pessoas:
 - 85,7% acha que a responsividade está funcionando corretamente.
