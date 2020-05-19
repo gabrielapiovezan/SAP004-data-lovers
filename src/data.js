@@ -12,20 +12,20 @@ export const startCalculador = (cp, pokemon) => {
 
 
 export const orderList = (orderBy, nameArray) => {
-        let newArray = [];
-        let objectParemeter
-        if (orderBy < 0)
-            return orderBy
-        else {
-            orderBy < 2 ? objectParemeter = "name" : objectParemeter = "id"
-            newArray = order(nameArray, objectParemeter)
-            if (orderBy % 2 != 0)
-                newArray.reverse()
-            return newArray
-        }
+    let newArray = [];
+    let objectParemeter
+    if (orderBy < 0)
+        return orderBy
+    else {
+        orderBy < 2 ? objectParemeter = "name" : objectParemeter = "id"
+        newArray = order(nameArray, objectParemeter)
+        if (orderBy % 2 != 0)
+            newArray.reverse()
+        return newArray
     }
+}
 
-    
+
 export const order = (nameArray, objectParemeter) => {
         return nameArray.sort(function(a, b) {
             return ((a[objectParemeter] > b[objectParemeter]) ? 1 : ((b[objectParemeter] > a[objectParemeter]) ? -1 : 0))
@@ -55,11 +55,12 @@ export const resultPokemons = (pokemons, resultMax, resultMin) => pokemons.filte
             return true
         })
 
-
 export const searchFunc = (p, nameInput, parameter) => {
         nameInput = nameInput.toUpperCase()
         return p.filter((p) => {
-            return nameInput === p[parameter].slice(0, -(p[parameter].length - nameInput.length)).toUpperCase() || nameInput === p[parameter].toUpperCase()
+        console.log(p.parameter)
+        console.log(nameInput)
+        return p[parameter].toUpperCase().includes(nameInput)
         })
     }
 
@@ -76,3 +77,4 @@ export const percentage = (pokemonKeysArray, key, pokemonArray) => {
         } 
         return percentageArray
     }
+
