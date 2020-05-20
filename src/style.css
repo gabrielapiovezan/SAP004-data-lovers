@@ -115,20 +115,21 @@ main {
     width: 80%;
 }
 
-.filters { 
+.filters {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.filters-menu { 
+
+.filters-menu {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.filters-class { 
+.filters-class {
     margin-top: 20px;
     justify-content: space-between;
     flex-direction: column;
@@ -141,7 +142,7 @@ main {
     background-color: #fff;
 }
 
-.checkbox-type {
+foo .checkbox-type {
     padding-top: 15px;
 }
 
@@ -191,7 +192,7 @@ main {
     cursor: pointer;
 }
 
-.containers { 
+.containers {
     display: flex;
     justify-content: space-around;
 }
@@ -204,28 +205,32 @@ main {
     height: auto;
 }
 
-.footer{
+.footer {
+    font-size: 13px;
     display: flex;
     justify-content: space-around;
     background-color: #06243f;
     color: white;
     font-weight: bold;
-    height: 100px;   
+    height: 100px;
 }
-.footer>div{
+
+.footer>div {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.footer>div>p{
+
+.footer>div>p {
     margin: none;
 }
+
 .text-decoration{
     color: white;
 }
 
-.home { 
+.home {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -233,7 +238,7 @@ main {
     height: auto;
 }
 
-.flex-column{
+.flex-column {
     display: flex;
     flex-direction: column;
 }
@@ -366,7 +371,8 @@ main {
     width: 70%;
     height: 65%;
 }
-.canvas-align{
+
+.canvas-align {
     justify-content: center;
 }
 
@@ -504,7 +510,7 @@ h2 {
     display: none;
 }
 
-.calculator-main { 
+.calculator-main {
     width: 100%;
     display: flex;
     align-items: flex-start;
@@ -635,7 +641,7 @@ h2 {
         width: 100%;
         height: 100%;
     }
-    .chart>canvas{
+    .chart>canvas {
         margin: 0px;
     }
     .close-filters {
@@ -646,12 +652,12 @@ h2 {
     .line {
         margin-left: 0px;
     }
-    .footer{
+    .footer {
         flex-direction: column;
         height: 150px;
         padding: 10px;
     }
-    .footer>div{
+    .footer>div {
         justify-content: space-between;
     }
 }

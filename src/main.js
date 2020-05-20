@@ -1,7 +1,7 @@
 import { searchFunc, orderList, resultPokemons, concatFilters, startCalculador, order, percentage } from './data.js';
 import data from './data/pokemon/pokemon.js';
-const root = document.getElementById("root") 
-const pokemons = data.pokemon 
+const root = document.getElementById("root")
+const pokemons = data.pokemon
 const filtersMenu = document.getElementById("filters")
 const select = document.getElementById("select-pokemons")
 const calculatorMain = document.getElementById("calculator-main")
@@ -47,7 +47,7 @@ const creatCard = (pokemons, info = [], infoEx) => {
         powerType.innerHTML += `<h5>${a}</h5>`
         power.appendChild(powerType)
     });
-    card.appendChild(img) 
+    card.appendChild(img)
     cardInformation.appendChild(power)
     card.appendChild(cardInformation)
     return card
@@ -324,7 +324,7 @@ const calculator = (pokemons) => {
 const hourFunction = () => {
     let time = new Date().getHours();
     const filterSpawnTime = pokemons.filter(pokemon => {
-        if(time === Number(pokemon.spawn_time.slice(0,-3))){
+        if (time === Number(pokemon.spawn_time.slice(0, -3))) {
             return true;
         }
     });
