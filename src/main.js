@@ -217,7 +217,7 @@ const advancedSearch = () => {
     const pokemonsType = pokemons.filter(typeFunction)
     const heightArray = getHeight()
     const orderBy = document.getElementById("browsers").value
-    orderList(orderBy, searchName(concatFilters(pokemonsType, heightArray, pokemons))).map(print)
+    orderList(orderBy, searchName(concatFilters(pokemonsType, heightArray, pokemons))).forEach(print)
 }
 
 
@@ -296,7 +296,10 @@ const calculator = (pokemons) => {
             return true
     })
     let evolutuin
-    const cpResult = startCalculador(cp, pokemon[0])
+    let cpResult = undefined
+    if (cp && pokemon[0])
+        if (pokemon[0].multipliers)
+            cpResult = startCalculador(cp, pokemon[0])
     if (pokemon[0].next_evolution) {
         if (pokemon[0].id === 133) {
             let numEvolution = []
@@ -354,7 +357,6 @@ document.getElementById("menu-open").addEventListener('click', () => {
     main()
 })
 hourFunction();
-
 functionMenu()
 main()
 selectPokemons()
