@@ -1,4 +1,3 @@
-/* Header */
 
 body {
     margin: 0rem;
@@ -26,19 +25,10 @@ h5 {
 
 .header-main {
     padding: 1rem 5rem;
-    /* background-color: white; */
-    /* background-color: rgb(243, 245, 245); */
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-
-
-/* .menu {
-    color: rgb(71, 71, 71);
-    display: flex;
-    list-style-type: none;
-} */
 
 .logo {
     margin-right: auto;
@@ -80,7 +70,6 @@ h5 {
 }
 
 .menu-search {
-    /*Menu superior*/
     width: 100%;
     display: flex;
     align-items: center;
@@ -97,7 +86,6 @@ h5 {
 }
 
 .search {
-    /*Barra de pesquisa*/
     background-color: rgb(243, 245, 245);
     padding-left: 5px;
     margin-left: 50px;
@@ -128,24 +116,20 @@ main {
 }
 
 .filters {
-    /*trocar por width-100 flex center*/
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background-color: turquoise; */
 }
 
+
 .filters-menu {
-    /*trocar por flex-space-around*/
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
 .filters-class {
-    /*trocar por filters-class flex space-between flex-column*/
-    /* Menu de filtro avançado*/
     margin-top: 20px;
     justify-content: space-between;
     flex-direction: column;
@@ -155,8 +139,6 @@ main {
     position: relative;
     left: 7.5%;
     font-weight: bold;
-    /* border-right: 0.7px solid rgb(173, 170, 170); */
-    /* position: absolute; */
     background-color: #fff;
 }
 
@@ -165,7 +147,6 @@ foo .checkbox-type {
 }
 
 .checkbox-type:first-child {
-    /*Primeira filha da caixa de checkbox*/
     display: flex;
     flex-direction: column;
 }
@@ -177,21 +158,16 @@ foo .checkbox-type {
 }
 
 .checkbox-form {
-    /*Config do form checkbox*/
     display: inline-flex;
     font-size: 14px;
 }
 
 .advanced-search {
-    /*Botao de pesquisa avançada*/
     list-style-type: none;
     display: inline-flex;
     justify-content: space-around;
     width: 300px;
 }
-
-
-/*Botão de filtro*/
 
 .button-filter {
     display: flex;
@@ -201,7 +177,6 @@ foo .checkbox-type {
     align-items: center;
     justify-content: center;
     background-color: rgb(238, 236, 236);
-    /* background-color: rgb(201, 201, 201); */
     color: rgb(29, 29, 29);
     border: 0.7px solid rgb(233, 233, 233);
     ;
@@ -218,14 +193,9 @@ foo .checkbox-type {
 }
 
 .containers {
-    /*trocar por flex-space-around*/
     display: flex;
-    /* justify-content: center; */
     justify-content: space-around;
 }
-
-
-/*Div Raiz*/
 
 .time-pokemons {
     display: flex;
@@ -256,13 +226,11 @@ foo .checkbox-type {
     margin: none;
 }
 
-.text-decoration {
-    /* text-decoration: none; */
+.text-decoration{
     color: white;
 }
 
 .home {
-    /*trocar por flex, center, flex-wrap; */
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -276,7 +244,6 @@ foo .checkbox-type {
 }
 
 .view-all-class {
-    /*Botão ver mais/ ver menos*/
     font-size: large;
     padding: 10px;
     border-radius: 5%;
@@ -304,7 +271,6 @@ foo .checkbox-type {
 }
 
 .picture {
-    /* imagem dos pokemons*/
     margin: 0px;
     height: auto;
 }
@@ -336,9 +302,6 @@ foo .checkbox-type {
 .selector {
     width: 100px;
 }
-
-
-/*Tipos de Pokemons*/
 
 .Flying {
     color: teal;
@@ -429,8 +392,6 @@ foo .checkbox-type {
     margin: 0rem 6rem 0rem 5rem;
     color: rgb(82, 80, 80);
     text-align: center;
-    /* display: flex;
-    flex-wrap: wrap; */
 }
 
 p {
@@ -593,10 +554,8 @@ h2 {
     #menu-open {
         display: block;
         flex-direction: row-reverse;
-        /* margin-left: 15px; */
     }
     .header-main {
-        /* display: block; */
         flex-direction: column;
         justify-content: center;
         align-items: center;
